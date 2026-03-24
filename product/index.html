@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StockUp — View Product</title>
+  <meta name="description" content="Compare Coles and Woolworths prices for this product on StockUp.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="StockUp — Compare Grocery Prices">
+  <meta property="og:description" content="Compare Coles and Woolworths prices side-by-side. Tap to view this product in StockUp.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/assets/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1B3A5C;
+      --muted: #64748B;
+      --white: #FFFFFF;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--primary);
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+      text-decoration: none;
+      color: var(--primary);
+    }
+
+    .logo img {
+      border-radius: 10px;
+    }
+
+    .logo span {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .status {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      letter-spacing: -0.01em;
+    }
+
+    .spinner {
+      width: 32px;
+      height: 32px;
+      border: 3px solid #E2E8F0;
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin-bottom: 32px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .store-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .store-buttons a img {
+      height: 48px;
+    }
+
+    .fallback-text {
+      margin-top: 24px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .fallback-text a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="/" class="logo">
+    <img src="/assets/logo.png" alt="StockUp" width="48" height="48">
+    <span>StockUp</span>
+  </a>
+
+  <div class="spinner"></div>
+
+  <p class="status">Opening StockUp...</p>
+  <p class="subtitle">If the app doesn't open, download it below.</p>
+
+  <div class="store-buttons">
+    <a id="app-store" href="#" aria-label="Download on the App Store">
+      <img src="/assets/app-store-badge.png" alt="Download on the App Store">
+    </a>
+    <a id="play-store" href="#" aria-label="Get it on Google Play">
+      <img src="/assets/google-play-badge.png" alt="Get it on Google Play">
+    </a>
+  </div>
+
+  <p class="fallback-text">
+    Or visit <a href="/">stockupapp.com.au</a> to learn more.
+  </p>
+
+  <script>
+    (function () {
+      var ua = navigator.userAgent || '';
+      var isIOS = /iPhone|iPad|iPod/i.test(ua);
+      var isAndroid = /Android/i.test(ua);
+
+      // Extract product ID from path: /product/{id} or /product/{id}/
+      var match = window.location.pathname.match(/\/product\/([^/?#]+)/);
+      var productId = match ? match[1] : null;
+      var deepLink = productId ? 'stockup://product/' + productId : null;
+
+      // Try to open the app via deep link
+      if (deepLink && (isIOS || isAndroid)) {
+        window.location.href = deepLink;
+      }
+
+      // After a delay, redirect to the appropriate store
+      setTimeout(function () {
+        if (isIOS) {
+          // Replace with actual App Store URL when available
+          // window.location.href = 'https://apps.apple.com/app/stockup/idXXXXXXXXXX';
+        } else if (isAndroid) {
+          // Replace with actual Play Store URL when available
+          // window.location.href = 'https://play.google.com/store/apps/details?id=com.myxcha.StockUp';
+        }
+      }, 2500);
+    })();
+  </script>
+
+</body>
+</html>
