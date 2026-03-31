@@ -542,6 +542,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .footer-brand {
@@ -563,10 +564,6 @@ a {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-}
-
-.footer-inner {
-  position: relative;
 }
 
 .footer-links a {
@@ -627,18 +624,18 @@ a {
 
   .phone {
     width: 240px;
-    border-radius: 40px;
-    padding: 10px;
+    border-radius: 36px;
+    padding: 5px;
   }
 
   .phone::before {
-    width: 80px;
-    height: 24px;
-    top: 14px;
+    width: 76px;
+    height: 20px;
+    top: 10px;
   }
 
   .phone img {
-    border-radius: 30px;
+    border-radius: 31px;
   }
 
   /* Stack feature sections */
@@ -691,6 +688,13 @@ a {
     flex-direction: column;
     text-align: center;
     gap: 16px;
+  }
+
+  .footer-links {
+    position: static !important;
+    transform: none !important;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
