@@ -18,7 +18,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
@@ -26,154 +26,155 @@
   <!-- Header -->
   <header class="header">
     <div class="container header-inner">
-      <a href="/" class="logo">
-        <img src="/assets/logo.png" alt="StockUp" width="48" height="48">
+      <a href="/" class="logo" aria-label="StockUp home">
+        <img src="/assets/logo.png" alt="StockUp" width="40" height="40">
         <span>StockUp</span>
       </a>
-      <nav class="nav">
-        <a href="#features">Features</a>
-        <a href="#how-it-works">How It Works</a>
-        <a href="#download" class="btn btn-sm">Get the App</a>
-      </nav>
+      <a href="#download" class="btn-header">Get the App</a>
     </div>
   </header>
 
   <!-- Hero -->
   <section class="hero">
     <div class="container hero-inner">
-      <div class="hero-text">
-        <h1>Stop overpaying for groceries</h1>
-        <p class="hero-subtitle">
+      <div class="hero-content">
+        <h1 class="animate-slide-up">Stop Overpaying<br>for Groceries</h1>
+        <p class="hero-subtitle animate-slide-up delay-1">
           Compare prices across <span class="coles">Coles</span> and
           <span class="woolworths">Woolworths</span> in one tap.
           Track deals, build your watchlist, and save on every shop.
         </p>
-        <div class="hero-cta">
-          <a href="#download" class="btn btn-primary">Download Free</a>
-          <a href="#features" class="btn btn-secondary">Learn More</a>
+        <div class="store-badges animate-slide-up delay-2">
+          <a href="https://apps.apple.com/au/app/stockup-grocery-prices/id6760887575" class="store-badge" aria-label="Download on the App Store">
+            <img src="/assets/app-store-badge.png" alt="Download on the App Store" height="56">
+          </a>
+          <div class="store-badge-wrapper">
+            <a href="#" class="store-badge store-badge-soon" aria-label="Google Play — Coming Soon">
+              <img src="/assets/google-play-badge.png" alt="Get it on Google Play" height="56">
+            </a>
+            <span class="coming-soon-label">Coming Soon</span>
+          </div>
         </div>
       </div>
-      <div class="hero-image">
-        <div class="phone-frame">
-          <img src="/assets/screenshot.png" alt="StockUp app shopping list showing price comparison and savings">
+      <div class="hero-phone-wrapper animate-slide-up delay-2">
+        <div class="phone">
+          <img src="/assets/Home%20Screen.png" alt="StockUp home screen showing specials and deals" loading="eager">
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section id="features" class="features">
-    <div class="container">
-      <h2 class="section-title">Everything you need to shop smarter</h2>
-      <p class="section-subtitle">One app, two stores, the best price every time.</p>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="18" y1="20" x2="18" y2="10"></line>
-              <line x1="12" y1="20" x2="12" y2="4"></line>
-              <line x1="6" y1="20" x2="6" y2="14"></line>
-            </svg>
-          </div>
-          <h3>Side-by-Side Prices</h3>
-          <p>Compare Coles and Woolworths prices instantly, including per-unit pricing for true value comparison.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-            </svg>
-          </div>
-          <h3>Watchlist</h3>
-          <p>Track your favourite products and get notified the moment they go on special.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"></path>
-              <line x1="7" y1="7" x2="7.01" y2="7"></line>
-            </svg>
-          </div>
-          <h3>Half-Price Deals</h3>
-          <p>All current half-price specials in one place. Never miss a deal.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-          </div>
-          <h3>Smart Search</h3>
-          <p>Search thousands of products across both stores in seconds.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-              <path d="M13.73 21a2 2 0 01-3.46 0"></path>
-            </svg>
-          </div>
-          <h3>Price Alerts</h3>
-          <p>Push notifications when your watchlisted items drop in price.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <path d="M16 10a4 4 0 01-8 0"></path>
-            </svg>
-          </div>
-          <h3>Smart Shopping List</h3>
-          <p>Build your list and we'll split it by store so you buy each item where it's cheapest.</p>
-        </div>
+        <div class="floating-el float-1" aria-hidden="true">🏷️ ½ Price</div>
+        <div class="floating-el float-2" aria-hidden="true">📊 Compare</div>
+        <div class="floating-el float-3" aria-hidden="true">💰 Save</div>
+        <div class="floating-el float-4" aria-hidden="true">🔍 Search</div>
+        <div class="floating-el float-5" aria-hidden="true">⭐ Watchlist</div>
       </div>
     </div>
   </section>
 
-  <!-- How It Works -->
-  <section id="how-it-works" class="how-it-works">
-    <div class="container">
-      <h2 class="section-title">How it works</h2>
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <h3>Find your products</h3>
-          <p>Search by name or browse categories to find what you need.</p>
+  <!-- Feature: Compare Prices -->
+  <section class="feature-section" id="features">
+    <div class="container feature-inner">
+      <div class="feature-text">
+        <h2 class="animate-slide-left">Compare Every Price</h2>
+        <p class="animate-slide-left delay-1">See Coles and Woolworths prices side by side. Per-unit pricing, current specials, and savings - all at a glance.</p>
+      </div>
+      <div class="feature-phone-wrapper animate-slide-right">
+        <div class="phone">
+          <img src="/assets/Price%20Comparison.png" alt="Price comparison view showing Coles vs Woolworths prices" loading="lazy">
         </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <h3>Compare &amp; add to list</h3>
-          <p>See which store is cheaper, then add items to your shopping list.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <h3>Shop smarter</h3>
-          <p>Your list is split by store so you buy each item where it costs less.</p>
-        </div>
-        <div class="step">
-          <div class="step-number">4</div>
-          <h3>Never miss a deal</h3>
-          <p>Save items to your watchlist and get notified when they go on sale.</p>
-        </div>
+        <div class="floating-el bubble-red" style="top:10%" aria-hidden="true">Coles</div>
+        <div class="floating-el bubble-yellow" aria-hidden="true">Save $2.75</div>
+        <div class="floating-el bubble-green" aria-hidden="true">Woolies</div>
       </div>
     </div>
   </section>
 
-  <!-- Download CTA -->
-  <section id="download" class="download">
-    <div class="container download-inner">
-      <h2>Ready to start saving?</h2>
-      <p>StockUp is free to download. Start shopping smarter today.</p>
-      <div class="store-badges">
+  <!-- Feature: Shopping List -->
+  <section class="feature-section reverse">
+    <div class="container feature-inner">
+      <div class="feature-text">
+        <h2 class="animate-slide-right">Shop Smarter</h2>
+        <p class="animate-slide-right delay-1">Build your shopping list and we'll split it by store. Buy each item where it's cheapest and save on every shop.</p>
+      </div>
+      <div class="feature-phone-wrapper animate-slide-left">
+        <div class="phone">
+          <img src="/assets/Shopping%20List.png" alt="Smart shopping list with price comparison and store split" loading="lazy">
+        </div>
+        <div class="floating-el" style="top:10%;left:-10px;right:auto" aria-hidden="true">🧠 Smart Lists</div>
+        <div class="floating-el bubble-green" style="bottom:28%" aria-hidden="true">✅ Check off as you shop</div>
+        <div class="floating-el bubble-yellow" style="top:auto;bottom:10%" aria-hidden="true">💰 Total Saved: $8.10</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature: Watchlist -->
+  <section class="feature-section">
+    <div class="container feature-inner">
+      <div class="feature-text">
+        <h2 class="animate-slide-left">Never Miss a Deal</h2>
+        <p class="animate-slide-left delay-1">Add products to your watchlist and we'll let you know the moment they go on special. Track prices, catch every sale.</p>
+      </div>
+      <div class="feature-phone-wrapper animate-slide-right">
+        <div class="phone">
+          <img src="/assets/Watchlist.png" alt="Watchlist view showing tracked products and specials" loading="lazy">
+        </div>
+        <div class="floating-el bubble-yellow" style="top:25%" aria-hidden="true">📉 Price Drops</div>
+        <div class="floating-el bubble-red" aria-hidden="true">🔔 Notifications</div>
+        <div class="floating-el" style="top:40%" aria-hidden="true">⭐ Watching</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature: Product Details -->
+  <section class="feature-section reverse">
+    <div class="container feature-inner">
+      <div class="feature-text">
+        <h2 class="animate-slide-right">Find the Best Deal</h2>
+        <p class="animate-slide-right delay-1">Tap any product to see the full price breakdown. We highlight the best price so you always know where to buy.</p>
+      </div>
+      <div class="feature-phone-wrapper animate-slide-left">
+        <div class="phone">
+          <img src="/assets/Product%20Details.png" alt="Product detail view showing best price comparison" loading="lazy">
+        </div>
+        <div class="floating-el bubble-orange" style="top:7%" aria-hidden="true">🔗 Share</div>
+        <div class="floating-el" aria-hidden="true">📊 Full Breakdown</div>
+        <div class="floating-el bubble-green" style="top:50%" aria-hidden="true">🏆 Best Price</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature: Browse -->
+  <section class="feature-section centered">
+    <div class="container feature-inner-centered">
+      <h2 class="animate-slide-up">Browse Everything</h2>
+      <p class="feature-subtitle animate-slide-up delay-1">Search thousands of products or browse by category.<br>From pantry staples to half-price specials.</p>
+      <div class="browse-phone-wrapper animate-slide-up delay-2">
+        <div class="phone">
+          <img src="/assets/Search.png" alt="Product search and category browser" loading="lazy">
+        </div>
+        <div class="floating-el cat-bubble cat-1" aria-hidden="true">🏷️ ½ Price Specials</div>
+        <div class="floating-el cat-bubble cat-2" aria-hidden="true">🥩 Meat</div>
+        <div class="floating-el cat-bubble cat-3" aria-hidden="true">🍞 Bakery</div>
+        <div class="floating-el cat-bubble cat-4" aria-hidden="true">🍇 Fruit & Veg</div>
+        <div class="floating-el cat-bubble cat-5" aria-hidden="true">☕ Drinks</div>
+        <div class="floating-el cat-bubble cat-6" aria-hidden="true">🍫 Snacks</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="download">
+    <div class="container cta-inner">
+      <h2 class="animate-slide-up">Ready to Start Saving?</h2>
+      <p class="animate-slide-up delay-1">StockUp is free to download. Start shopping smarter today.</p>
+      <div class="store-badges animate-slide-up delay-2">
         <a href="https://apps.apple.com/au/app/stockup-grocery-prices/id6760887575" class="store-badge" aria-label="Download on the App Store">
           <img src="/assets/app-store-badge.png" alt="Download on the App Store" height="56">
         </a>
-        <a href="#" class="store-badge store-badge-soon" aria-label="Google Play — Coming Soon">
-          <img src="/assets/google-play-badge.png" alt="Get it on Google Play" height="56">
-          <span class="coming-soon">Coming Soon</span>
-        </a>
+        <div class="store-badge-wrapper">
+          <a href="#" class="store-badge store-badge-soon" aria-label="Google Play — Coming Soon">
+            <img src="/assets/google-play-badge.png" alt="Get it on Google Play" height="56">
+          </a>
+          <span class="coming-soon-label">Coming Soon</span>
+        </div>
       </div>
     </div>
   </section>
@@ -193,6 +194,35 @@
       <p class="footer-copy">&copy; 2026 SpendWise Apps. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    // Scroll-triggered animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -60px 0px'
+    });
+
+    document.querySelectorAll('.feature-section, .hero, .cta-section').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Make hero visible immediately on load
+    window.addEventListener('load', () => {
+      document.querySelector('.hero').classList.add('visible');
+    });
+
+    // Header border on scroll
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    });
+  </script>
 
 </body>
 </html>
