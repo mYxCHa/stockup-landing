@@ -203,7 +203,7 @@
       floats.sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top);
       const durations = [4, 3.5, 4.2, 3.8, 3.3, 4.0];
       floats.forEach((el, i) => {
-        const delay = 1 + i * 0.25;
+        const delay = 0.85 + i * 0.25;
         el.style.transitionDelay = delay + 's';
         el.style.animation = `float ${durations[i % durations.length]}s ease-in-out ${delay}s infinite`;
       });

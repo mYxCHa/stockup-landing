@@ -649,8 +649,8 @@ body.legal-page .header {
     padding: 7px 14px;
   }
 
-  /* Hero floats — edge to edge */
-  .hero-phone-wrapper { width: 100%; }
+  /* Hero floats — edge to edge, phone centered */
+  .hero-phone-wrapper { width: 100%; display: flex; justify-content: center; }
   .hero-phone-wrapper .float-1 { left: 0; top: 5%; }
   .hero-phone-wrapper .float-2 { left: -10px; }
   .hero-phone-wrapper .float-3 { left: 0; }
@@ -665,8 +665,8 @@ body.legal-page .header {
   .feature-section.reverse .feature-phone-wrapper .floating-el:nth-child(3) { right: -10px; }
   .feature-section.reverse .feature-phone-wrapper .floating-el:nth-child(4) { left: -10px; }
 
-  /* Browse category floats — edge to edge */
-  .browse-phone-wrapper { width: 100%; }
+  /* Browse category floats — edge to edge, phone centered */
+  .browse-phone-wrapper { width: 100%; display: flex; justify-content: center; }
   .cat-1 { left: 0; }
   .cat-2 { left: -10px; }
   .cat-3 { left: 0; }
