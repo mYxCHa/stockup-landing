@@ -196,10 +196,24 @@
   </footer>
 
   <script>
+    // Sort floating elements top-to-bottom and assign stagger delays
+    function applyFloatDelays(section) {
+      const floats = [...section.querySelectorAll('.floating-el')];
+      if (!floats.length) return;
+      floats.sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top);
+      const durations = [4, 3.5, 4.2, 3.8, 3.3, 4.0];
+      floats.forEach((el, i) => {
+        const delay = 1 + i * 0.25;
+        el.style.transitionDelay = delay + 's';
+        el.style.animation = `float ${durations[i % durations.length]}s ease-in-out ${delay}s infinite`;
+      });
+    }
+
     // Scroll-triggered animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
+          applyFloatDelays(entry.target);
           entry.target.classList.add('visible');
         }
       });
@@ -214,7 +228,9 @@
 
     // Make hero visible immediately on load
     window.addEventListener('load', () => {
-      document.querySelector('.hero').classList.add('visible');
+      const hero = document.querySelector('.hero');
+      applyFloatDelays(hero);
+      hero.classList.add('visible');
     });
 
     // Header border on scroll
