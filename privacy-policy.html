@@ -11,6 +11,7 @@
     .legal h1 { font-size: 36px; font-weight: 800; color: var(--white); margin-bottom: 8px; }
     .legal .updated { font-size: 14px; color: var(--text-muted); margin-bottom: 40px; }
     .legal h2 { font-size: 22px; font-weight: 700; color: var(--white); margin-top: 36px; margin-bottom: 12px; }
+    .legal h3 { font-size: 17px; font-weight: 600; color: var(--white); margin-top: 24px; margin-bottom: 10px; }
     .legal p, .legal li { font-size: 16px; color: var(--text-muted); line-height: 1.8; margin-bottom: 12px; }
     .legal ul { padding-left: 24px; margin-bottom: 12px; }
     .legal a { color: var(--white); text-decoration: underline; }
@@ -30,27 +31,41 @@
   <section class="legal">
     <div class="container" style="max-width: 720px;">
       <h1>Privacy Policy</h1>
-      <p class="updated">Last updated: 19 March 2026</p>
+      <p class="updated">Last updated: 26 April 2026</p>
 
       <p>StockUp is operated by SpendWise Apps ("we", "us", "our"). This policy explains what information we collect when you use the StockUp app ("the App") and how we use it.</p>
 
       <h2>Information We Collect</h2>
-      <p>StockUp does not require you to sign up with an email, name, or any personal information. We collect the following:</p>
+      <p>StockUp can be used either anonymously (the default) or with an optional account. The information we collect depends on how you choose to use the App.</p>
+
+      <h3>Always Collected</h3>
       <ul>
-        <li><strong>Anonymous identifier</strong> — a randomly generated ID created on your device, used to sync your data across sessions. It is not linked to your identity.</li>
+        <li><strong>Anonymous identifier</strong> — a randomly generated ID created on your device, used to sync your data across sessions. It is not linked to your identity unless you choose to sign in.</li>
         <li><strong>Watchlist and shopping list</strong> — the products you choose to save, synced to our servers so they persist across sessions.</li>
+        <li><strong>Preferences</strong> — your preferred retailer (Coles or Woolworths) and preferred store, if you choose to set them.</li>
         <li><strong>Push notification token</strong> — if you opt in to price alerts, we store a device token to deliver notifications.</li>
         <li><strong>Feedback and product reports</strong> — if you choose to submit feedback or report incorrect data, we store your message along with basic device information (device model, OS version, app version) to help us investigate issues.</li>
         <li><strong>Crash and error data</strong> — if the App crashes, diagnostic information is sent to our error monitoring service to help us fix bugs.</li>
         <li><strong>Technical data</strong> — when the App communicates with our servers, your IP address and standard request headers may be automatically logged by our infrastructure providers as part of normal server operations.</li>
       </ul>
 
+      <h3>If You Sign In</h3>
+      <p>StockUp offers optional sign-in using your email address, Apple ID, or Google account. Signing in lets you access your watchlist, shopping list, and preferences from any device. If you sign in, we additionally collect:</p>
+      <ul>
+        <li><strong>Email address</strong> — used to identify your account and (for email sign-in) deliver one-time sign-in links.</li>
+        <li><strong>Display name</strong> — provided automatically by Apple or Google during sign-in, or optionally entered yourself for email sign-in.</li>
+        <li><strong>Sign-in provider identifier</strong> — a unique identifier from Apple or Google so we can recognise you on future sign-ins. Your account password (if you have one with Apple or Google) is never sent to us.</li>
+      </ul>
+
+      <p>Anonymous use remains the default — you can use the App without signing in, and you can sign in or delete your account at any time from the Profile tab.</p>
+
       <h2>Information We Do Not Collect</h2>
-      <p>We do not collect your name, email address, phone number, location, contacts, photos, or payment information.</p>
+      <p>We do not collect your phone number, precise location, contacts, photos, or payment information. If you subscribe to a paid feature in a future release, payment is processed by Apple or Google and we never see your card or payment details.</p>
 
       <h2>How We Use Your Information</h2>
       <ul>
-        <li>Sync your watchlist and shopping list</li>
+        <li>Sync your watchlist, shopping list, and preferences across sessions and devices</li>
+        <li>Authenticate signed-in users via email, Apple, or Google sign-in</li>
         <li>Send price drop notifications for watchlisted products (opt-in only)</li>
         <li>Respond to feedback and fix reported product data issues</li>
         <li>Diagnose and fix crashes and bugs</li>
@@ -60,6 +75,8 @@
       <p>We use the following third-party services to operate the App:</p>
       <ul>
         <li><strong>Supabase</strong> — database and authentication</li>
+        <li><strong>Google Sign-In</strong> — used only if you choose to sign in with your Google account</li>
+        <li><strong>RevenueCat</strong> — subscription management infrastructure, integrated for future paid features. The current version of the App does not offer any paid features, but the SDK is present and shares a non-identifying customer ID and basic device information with RevenueCat for service initialisation.</li>
         <li><strong>Sentry</strong> — crash and error monitoring</li>
         <li><strong>Expo</strong> — push notification delivery</li>
         <li><strong>Apple Push Notification Service / Firebase Cloud Messaging</strong> — push notification delivery on iOS and Android respectively</li>
@@ -70,8 +87,10 @@
       <p>The App may display advertisements from third-party ad networks. These providers may independently collect device advertising identifiers and interaction data through their own SDKs, in accordance with their own privacy policies. We may use anonymised, aggregated usage data (such as product category interests) to help serve more relevant advertisements, but we will never share information that can identify you personally. You can limit ad tracking through your device's privacy settings.</p>
 
       <h2>Data Retention and Deletion</h2>
-      <p>Your data is retained for as long as you use the App. You can delete individual items from your watchlist and shopping list at any time. To request deletion of all data associated with your account, contact us at <a href="mailto:spendwiseapps@gmail.com" style="color: var(--accent);">spendwiseapps@gmail.com</a> and we will process your request within 30 days.</p>
-      <p>Please note that because accounts are anonymous, uninstalling the App or clearing its data will permanently disconnect you from your existing data, and we will have no way to link it back to you.</p>
+      <p>Your data is retained for as long as you use the App. You can delete individual items from your watchlist and shopping list at any time.</p>
+      <p><strong>If you are signed in:</strong> you can permanently delete your account and all associated data (watchlist, shopping list, preferences, push tokens, feedback, product reports, and any subscription record) at any time from the Profile tab. Deletion is immediate and irreversible.</p>
+      <p><strong>If you are using anonymously:</strong> uninstalling the App or clearing its data will permanently disconnect you from your data on our servers, and we will have no way to link it back to you. Anonymous accounts that have not been used for 90 days are automatically deleted from our servers, including all associated data.</p>
+      <p>You can also email us at <a href="mailto:spendwiseapps@gmail.com" style="color: var(--accent);">spendwiseapps@gmail.com</a> to request deletion, and we will process your request within 30 days.</p>
 
       <h2>Children's Privacy</h2>
       <p>The App does not knowingly collect personal information from children. No identifying information is required to use the App.</p>
