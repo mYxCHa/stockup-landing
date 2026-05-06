@@ -31,7 +31,7 @@
   <section class="legal">
     <div class="container" style="max-width: 720px;">
       <h1>Privacy Policy</h1>
-      <p class="updated">Last updated: 26 April 2026</p>
+      <p class="updated">Last updated: 6 May 2026</p>
 
       <p>StockUp is operated by SpendWise Apps ("we", "us", "our"). This policy explains what information we collect when you use the StockUp app ("the App") and how we use it.</p>
 
@@ -43,7 +43,7 @@
         <li><strong>Anonymous identifier</strong> — a randomly generated ID created on your device, used to sync your data across sessions. It is not linked to your identity unless you choose to sign in.</li>
         <li><strong>Watchlist and shopping list</strong> — the products you choose to save, synced to our servers so they persist across sessions.</li>
         <li><strong>Preferences</strong> — your preferred retailer (Coles or Woolworths) and preferred store, if you choose to set them.</li>
-        <li><strong>Push notification token</strong> — if you opt in to price alerts, we store a device token to deliver notifications.</li>
+        <li><strong>Push notification token and preferences</strong> — if you opt in to push notifications, we store a device token to deliver them, along with per-type preference flags (watchlist drop alerts, catalogue announcements, last-day reminders, and weekly specials) so you can choose which types of notifications you receive.</li>
         <li><strong>Feedback and product reports</strong> — if you choose to submit feedback or report incorrect data, we store your message along with basic device information (device model, OS version, app version) to help us investigate issues.</li>
         <li><strong>Crash and error data</strong> — if the App crashes, diagnostic information is sent to our error monitoring service to help us fix bugs.</li>
         <li><strong>Technical data</strong> — when the App communicates with our servers, your IP address and standard request headers may be automatically logged by our infrastructure providers as part of normal server operations.</li>
@@ -59,14 +59,22 @@
 
       <p>Anonymous use remains the default — you can use the App without signing in, and you can sign in or delete your account at any time from the Profile tab.</p>
 
+      <h3>If You Subscribe to StockUp Premium</h3>
+      <p>If you purchase a StockUp Premium subscription, we additionally collect:</p>
+      <ul>
+        <li><strong>Subscription state</strong> — your subscription status (active / lapsed / cancelled), plan tier (monthly or yearly), and the current period's renewal or expiry date, so we can unlock premium features in the App.</li>
+        <li><strong>RevenueCat customer identifier</strong> — a non-identifying ID that links your purchase to your StockUp account. Apple and Google process the actual payment; we never receive or store your payment card or billing details.</li>
+      </ul>
+
       <h2>Information We Do Not Collect</h2>
-      <p>We do not collect your phone number, precise location, contacts, photos, or payment information. If you subscribe to a paid feature in a future release, payment is processed by Apple or Google and we never see your card or payment details.</p>
+      <p>We do not collect your phone number, precise location, contacts, photos, or payment information. When you purchase a StockUp Premium subscription, payment is processed by Apple or Google and we never see your card or payment details.</p>
 
       <h2>How We Use Your Information</h2>
       <ul>
         <li>Sync your watchlist, shopping list, and preferences across sessions and devices</li>
         <li>Authenticate signed-in users via email, Apple, or Google sign-in</li>
-        <li>Send price drop notifications for watchlisted products (opt-in only)</li>
+        <li>Send the push notification types you've opted into (watchlist drop alerts, catalogue announcements, last-day reminders, weekly specials)</li>
+        <li>Manage your StockUp Premium subscription state and unlock premium features in the App</li>
         <li>Respond to feedback and fix reported product data issues</li>
         <li>Diagnose and fix crashes and bugs</li>
       </ul>
@@ -76,7 +84,7 @@
       <ul>
         <li><strong>Supabase</strong> — database and authentication</li>
         <li><strong>Google Sign-In</strong> — used only if you choose to sign in with your Google account</li>
-        <li><strong>RevenueCat</strong> — subscription management infrastructure, integrated for future paid features. The current version of the App does not offer any paid features, but the SDK is present and shares a non-identifying customer ID and basic device information with RevenueCat for service initialisation.</li>
+        <li><strong>RevenueCat</strong> — subscription management infrastructure. When you purchase, restore, or hold an active StockUp Premium subscription, we share a non-identifying customer ID, your subscription state (status, plan, renewal date), and basic device information with RevenueCat to verify your purchase and unlock premium features in the App.</li>
         <li><strong>Sentry</strong> — crash and error monitoring</li>
         <li><strong>Expo</strong> — push notification delivery</li>
         <li><strong>Apple Push Notification Service / Firebase Cloud Messaging</strong> — push notification delivery on iOS and Android respectively</li>
