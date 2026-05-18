@@ -31,7 +31,7 @@
   <section class="legal">
     <div class="container" style="max-width: 720px;">
       <h1>Privacy Policy</h1>
-      <p class="updated">Last updated: 17 May 2026</p>
+      <p class="updated">Last updated: 18 May 2026</p>
 
       <p>StockUp is operated by SpendWise Apps ("we", "us", "our"). This policy explains what information we collect when you use the StockUp app ("the App") and how we use it.</p>
 
@@ -54,7 +54,7 @@
       <ul>
         <li><strong>Email address</strong> — used to identify your account and (for email sign-in) deliver one-time sign-in links.</li>
         <li><strong>Display name</strong> — provided automatically by Apple or Google during sign-in, or optionally entered yourself for email sign-in.</li>
-        <li><strong>Sign-in provider identifier</strong> — a unique identifier from Apple or Google so we can recognise you on future sign-ins. Your account password (if you have one with Apple or Google) is never sent to us.</li>
+        <li><strong>Sign-in provider identifier</strong> — a unique identifier from Apple or Google so we can recognise you on future sign-ins.</li>
       </ul>
 
       <h3>If You Subscribe to StockUp Premium</h3>
@@ -65,8 +65,8 @@
       </ul>
 
       <h3>If You Use Quick Cart</h3>
-      <p>Quick Cart is a StockUp Premium feature that sends your shopping list to your Coles or Woolworths trolley. When you use Quick Cart, items are sent directly from your device to your Coles or Woolworths account inside an in-app browser. You sign in to the retailer using your own credentials inside that browser — <strong>we never see, collect, or store your retailer username, password, or session tokens</strong>. Quick Cart uses each retailer's own internal trolley API to add items, the same way the retailer's own website does.</p>
-      <p>For each Quick Cart send we record a summary on our servers: which retailer, the items sent, the snapshot prices at the time of sending, the store-corrected prices the retailer applied to your trolley, and the date and time of the send. We use this to power your purchase history and savings tracking in the App.</p>
+      <p>Quick Cart is a StockUp Premium feature that sends your shopping list to your Coles or Woolworths trolley. When you use Quick Cart, items are sent directly from your device to your Coles or Woolworths account inside an in-app browser. You sign in to the retailer using your own credentials inside that browser — <strong>we never see, collect, or store your retailer username, password, or session tokens</strong>. Quick Cart uses each retailer's own internal trolley and order APIs to add items and to read back the line items of orders you complete, the same APIs the retailer's own website uses.</p>
+      <p>For each Quick Cart send we record a summary on our servers: which retailer, the items sent, the snapshot prices at the time of sending, the store-corrected prices the retailer applied to your trolley, and the date and time of the send. If you complete checkout inside the in-app browser, we also retrieve the final line items of that order from the retailer (including any substitutions the retailer made and any changes you made to the trolley between sending and checkout) so your purchase history reflects what you actually paid. We use this data to power your purchase history and savings tracking in the App.</p>
 
       <h2>Information We Do Not Collect</h2>
       <p>We do not collect your phone number, precise location, contacts, photos, or payment information. We do not collect or store your Coles or Woolworths account credentials, session cookies, or any other authentication data for those retailers.</p>
@@ -86,12 +86,12 @@
       <ul>
         <li><strong>Supabase</strong> — database and authentication</li>
         <li><strong>Google Sign-In</strong> — used only if you choose to sign in with your Google account</li>
-        <li><strong>RevenueCat</strong> — subscription management infrastructure. When you purchase, restore, or hold an active StockUp Premium subscription, we share a non-identifying customer ID, your subscription state (status, plan, renewal date), and basic device information with RevenueCat to verify your purchase and unlock premium features in the App.</li>
+        <li><strong>RevenueCat</strong> — subscription management infrastructure</li>
         <li><strong>Sentry</strong> — crash and error monitoring</li>
         <li><strong>Expo</strong> — push notification delivery</li>
         <li><strong>Apple Push Notification Service / Firebase Cloud Messaging</strong> — push notification delivery on iOS and Android respectively</li>
       </ul>
-      <p>We do not sell or rent your personal information. We may share anonymised, aggregated data (such as overall product popularity trends) with third parties, but this data cannot be used to identify individual users.</p>
+      <p>We do not sell or rent your personal information.</p>
 
       <h2>Data Retention and Deletion</h2>
       <p>Your data is retained for as long as you use the App. You can delete individual items from your watchlist and shopping list at any time.</p>
