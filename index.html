@@ -64,7 +64,7 @@
         "name": "Is StockUp free?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Comparing prices, browsing half-price specials, price-drop alerts, smart lists, and barcode scanning are all free. Premium adds price history, Our Read, Quick Cart, and the savings ledger for $4.99/month or $39/year."
+          "text": "Yes. Comparing prices, browsing half-price specials, price-drop alerts, smart lists, and barcode scanning are all free. Premium adds full Price History, Price Intelligence, Quick Cart, and Past Purchases for $4.99/month or $39/year."
         }
       },
       {
@@ -96,7 +96,7 @@
         "name": "What's in StockUp Premium?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Full price history with sale patterns and Our Read (buy now or wait), one-tap Quick Cart trolley fill, and your Past Purchases savings ledger. $4.99/month or $39/year."
+          "text": "Full Price History, Price Intelligence (our buy-now-or-wait read on every product's sale pattern), one-tap Quick Cart trolley fill, and Past Purchases — your savings ledger. $4.99/month or $39/year."
         }
       },
       {
@@ -222,17 +222,64 @@
     </div>
   </section>
 
-  <!-- Differentiator: Price alerts -->
+  <!-- The flow: compare → time it → watch → list → send → save -->
+  <section class="flow-intro">
+    <div class="container">
+      <h2 class="animate-slide-up">How StockUp works</h2>
+      <p class="feature-subtitle animate-slide-up delay-1">One flow, from first compare to money back in your pocket. Everything up to your trolley is free — Premium closes the loop.</p>
+    </div>
+  </section>
+
+  <!-- Step 1: Compare -->
   <section class="feature-section">
     <div class="container feature-inner">
       <div class="feature-text">
-        <h2 class="animate-slide-left">Free price-drop alerts</h2>
+        <p class="step-eyebrow">Step 1 <span class="tier-pill free">Free</span></p>
+        <h2 class="animate-slide-left">Compare Coles &amp; Woolworths prices side-by-side</h2>
+        <p class="animate-slide-left delay-1">Search any product — or scan its barcode in the aisle — and see both prices with the per-unit maths done for you. No sign-up, no fuss.</p>
+      </div>
+      <div class="feature-phone-wrapper animate-slide-right">
+        <div class="phone">
+          <!-- OWNER SCREEN: search/compare view, current v2.3 UI -->
+          <img src="/assets/Price%20Comparison.png" alt="Side-by-side Coles and Woolworths price comparison" loading="lazy">
+        </div>
+        <div class="floating-el bubble-yellow" aria-hidden="true">💰 Save $3.00</div>
+        <div class="floating-el" aria-hidden="true">🔍 Scan any barcode</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 2: Know when to buy -->
+  <section class="feature-section reverse">
+    <div class="container feature-inner">
+      <div class="feature-text">
+        <p class="step-eyebrow">Step 2 <span class="tier-pill free">Free</span> <span class="tier-pill premium">Full depth with Premium</span></p>
+        <h2 class="animate-slide-right">Know when to buy</h2>
+        <p class="animate-slide-right delay-1"><strong>Price History</strong> shows what a product usually costs — a month free, the full record with Premium. <strong>Price Intelligence</strong> reads the sale patterns and calls it: buy now, or wait. And <strong>Sneak Peek</strong> shows next catalogue's price before it lands.</p>
+      </div>
+      <div class="feature-phone-wrapper animate-slide-left">
+        <div class="phone">
+          <!-- OWNER SCREEN: product page with price-history chart + Price Intelligence cards visible -->
+          <img src="/assets/Product%20Details.png" alt="Price History chart with Price Intelligence buy-or-wait read" loading="lazy">
+        </div>
+        <div class="floating-el bubble-accent" aria-hidden="true">📊 Usually $8.50</div>
+        <div class="floating-el" aria-hidden="true">🧠 Wait — drops soon</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Step 3: Watchlist + alerts -->
+  <section class="feature-section">
+    <div class="container feature-inner">
+      <div class="feature-text">
+        <p class="step-eyebrow">Step 3 <span class="tier-pill free">Free</span></p>
+        <h2 class="animate-slide-left">Free price-drop alerts on your watchlist</h2>
         <p class="animate-slide-left delay-1">Star what you buy and set an alert. We'll ping you the moment it hits your price — any special, a target price, or a genuinely good deal. No more checking two apps in the dairy aisle.</p>
       </div>
       <div class="feature-phone-wrapper animate-slide-right">
         <div class="phone">
-          <!-- WAVE 2 (R25/R29): replace with price-alerts sheet / bell screenshot -->
-          <img src="/assets/Watchlist.png" alt="Price-drop alerts on your watchlist" loading="lazy">
+          <!-- OWNER SCREEN: price-alert sheet / watchlist with alert bells, v2.3 UI -->
+          <img src="/assets/Watchlist.png" alt="Watchlist with free price-drop alerts" loading="lazy">
         </div>
         <div class="floating-el bubble-yellow" aria-hidden="true">📉 Dropped to $5.00</div>
         <div class="floating-el" aria-hidden="true">🔔 Alert me at $6</div>
@@ -240,62 +287,58 @@
     </div>
   </section>
 
-  <!-- Differentiator: Price history -->
+  <!-- Step 4: Smart list -->
   <section class="feature-section reverse">
     <div class="container feature-inner">
       <div class="feature-text">
-        <h2 class="animate-slide-right">Grocery price history &amp; sale patterns</h2>
-        <p class="animate-slide-right delay-1">See what a product usually costs, how often it goes on sale, and how deep the discounts run. <strong>Our Read</strong> turns it into one line: buy now, or wait. <span class="premium-pill">Premium</span></p>
+        <p class="step-eyebrow">Step 4 <span class="tier-pill free">Free</span></p>
+        <h2 class="animate-slide-right">One list, split by cheapest store</h2>
+        <p class="animate-slide-right delay-1">Build one shopping list — we split it between Coles and Woolies so every item is bought where it's cheapest, and show exactly what the split saves you.</p>
       </div>
       <div class="feature-phone-wrapper animate-slide-left">
         <div class="phone">
-          <!-- WAVE 2 (R25/R29): replace with price-history chart screenshot -->
-          <img src="/assets/Product%20Details.png" alt="Price history chart with sale patterns" loading="lazy">
+          <!-- OWNER SCREEN: smart list with store split + savings total -->
+          <img src="/assets/Shopping%20List.png" alt="Smart shopping list split by cheapest store" loading="lazy">
         </div>
-        <div class="floating-el bubble-accent" aria-hidden="true">📊 Usually $8.50</div>
-        <div class="floating-el" aria-hidden="true">🧠 Wait — drops ~6 weekly</div>
+        <div class="floating-el bubble-yellow" aria-hidden="true">💰 Saving $16.05</div>
+        <div class="floating-el bubble-green" aria-hidden="true">✅ Check off as you shop</div>
       </div>
     </div>
   </section>
 
-  <!-- Differentiator: Quick Cart -->
+  <!-- Step 5: Quick Cart -->
   <section class="feature-section">
     <div class="container feature-inner">
       <div class="feature-text">
-        <h2 class="animate-slide-left">One tap fills your trolley</h2>
-        <p class="animate-slide-left delay-1">Build one list — we split it by store so every item is bought where it's cheapest, and show exactly what you save. Then Quick Cart sends it straight into your real Coles or Woolies trolley. Review and check out as normal. <span class="premium-pill">Premium</span></p>
+        <p class="step-eyebrow">Step 5 <span class="tier-pill premium">Premium</span></p>
+        <h2 class="animate-slide-left">Quick Cart: one tap fills your trolley</h2>
+        <p class="animate-slide-left delay-1">Send your list straight into your real Coles or Woolies trolley — every item at the store where it's cheaper. You review and check out as normal, in your own account.</p>
       </div>
       <div class="feature-phone-wrapper animate-slide-right">
         <div class="phone">
-          <!-- WAVE 2 (R25/R29): replace with Quick Cart send screenshot -->
-          <img src="/assets/Shopping%20List.png" alt="Smart shopping list split by cheapest store with Quick Cart send" loading="lazy">
+          <!-- OWNER SCREEN NEEDED: Quick Cart send / confirmation sheet -->
+          <div class="shot-placeholder" role="img" aria-label="Screenshot placeholder: Quick Cart send">Screenshot coming<br><span>Quick Cart send</span></div>
         </div>
-        <div class="floating-el bubble-yellow" aria-hidden="true">💰 Saving $16.05</div>
         <div class="floating-el bubble-accent" aria-hidden="true">🛒 Sent to trolley</div>
+        <div class="floating-el" aria-hidden="true">🧾 Review &amp; check out</div>
       </div>
     </div>
   </section>
 
-  <!-- How it works -->
-  <section class="steps-section">
-    <div class="container">
-      <h2 class="animate-slide-up">How StockUp works</h2>
-      <div class="steps-grid">
-        <div class="step animate-slide-up delay-1">
-          <div class="step-num" aria-hidden="true">1</div>
-          <h3>Search or scan</h3>
-          <p>Look up any product — or scan its barcode in the aisle — and see both prices with the per-unit maths done for you.</p>
+  <!-- Step 6: Past Purchases -->
+  <section class="feature-section reverse">
+    <div class="container feature-inner">
+      <div class="feature-text">
+        <p class="step-eyebrow">Step 6 <span class="tier-pill premium">Premium</span></p>
+        <h2 class="animate-slide-right">Past Purchases: proof you're saving</h2>
+        <p class="animate-slide-right delay-1">Every Quick Cart shop is saved with its receipt and what you saved. Watch the total stack up, shop after shop.</p>
+      </div>
+      <div class="feature-phone-wrapper animate-slide-left">
+        <div class="phone">
+          <!-- OWNER SCREEN NEEDED: Past Purchases savings hero + receipts list -->
+          <div class="shot-placeholder" role="img" aria-label="Screenshot placeholder: Past Purchases savings ledger">Screenshot coming<br><span>Past Purchases ledger</span></div>
         </div>
-        <div class="step animate-slide-up delay-2">
-          <div class="step-num" aria-hidden="true">2</div>
-          <h3>Star what you buy</h3>
-          <p>Your watchlist tracks the products you actually buy. We'll alert you the moment one drops.</p>
-        </div>
-        <div class="step animate-slide-up delay-3">
-          <div class="step-num" aria-hidden="true">3</div>
-          <h3>Shop the cheaper store</h3>
-          <p>Your list splits by cheapest store automatically — and Premium sends it straight into your trolley.</p>
-        </div>
+        <div class="floating-el bubble-yellow" aria-hidden="true">💰 $214 saved so far</div>
       </div>
     </div>
   </section>
@@ -320,10 +363,11 @@
             <tr><th scope="row">Watchlist + free price-drop alerts</th><td>✓</td><td>✓</td></tr>
             <tr><th scope="row">Smart list split by cheapest store</th><td>✓</td><td>✓</td></tr>
             <tr><th scope="row">Barcode scanner</th><td>✓</td><td>✓</td></tr>
-            <tr><th scope="row">Full price history &amp; sale patterns</th><td>7-day preview</td><td>✓</td></tr>
-            <tr><th scope="row">"Our Read" — buy now or wait</th><td>—</td><td>✓</td></tr>
-            <tr><th scope="row">Quick Cart: one-tap trolley fill</th><td>—</td><td>✓</td></tr>
-            <tr><th scope="row">Past Purchases savings ledger</th><td>—</td><td>✓</td></tr>
+            <tr><th scope="row">Sneak Peek — next catalogue's prices</th><td>✓</td><td>✓</td></tr>
+            <tr><th scope="row">Price History</th><td>1 month</td><td>Full history</td></tr>
+            <tr><th scope="row">Price Intelligence — buy now or wait</th><td>—</td><td>✓</td></tr>
+            <tr><th scope="row">Quick Cart — one-tap trolley fill</th><td>—</td><td>✓</td></tr>
+            <tr><th scope="row">Past Purchases — savings ledger</th><td>—</td><td>✓</td></tr>
           </tbody>
           <tfoot>
             <tr>
@@ -367,7 +411,7 @@
       </details>
       <details class="faq-item">
         <summary>What's in StockUp Premium?</summary>
-        <p>Full price history with sale patterns and "Our Read" (buy now or wait), one-tap Quick Cart trolley fill, and your Past Purchases savings ledger. $4.99/month or $39/year.</p>
+        <p>Full Price History, Price Intelligence (our buy-now-or-wait read on every product's sale pattern), one-tap Quick Cart trolley fill, and Past Purchases — your savings ledger. $4.99/month or $39/year.</p>
       </details>
       <details class="faq-item">
         <summary>How does Quick Cart work?</summary>
@@ -405,7 +449,7 @@
         <!-- WAVE 2 (R45): swap to support@stockup.au once Cloudflare Email Routing is live -->
         <a href="mailto:spendwiseapps@gmail.com">Contact</a>
       </div>
-      <p class="footer-copy">Made in Australia by SpendWise Apps &middot; &copy; 2026 SpendWise Apps. All rights reserved.</p>
+      <p class="footer-copy">&copy; 2026 SpendWise Apps. All rights reserved.</p>
     </div>
   </footer>
 
@@ -436,7 +480,7 @@
       rootMargin: '0px 0px -60px 0px'
     });
 
-    document.querySelectorAll('.feature-section, .hero, .cta-section, .compare-section, .steps-section, .pricing-section, .faq-section').forEach(el => {
+    document.querySelectorAll('.feature-section, .hero, .cta-section, .compare-section, .flow-intro, .pricing-section, .faq-section').forEach(el => {
       observer.observe(el);
     });
 

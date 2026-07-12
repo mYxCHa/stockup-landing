@@ -602,63 +602,83 @@ body.legal-page .header {
 }
 
 /* ============================================
-   Steps ("How StockUp works")
+   Flow ("How StockUp works" journey)
    ============================================ */
-.steps-section {
+.flow-intro {
   background: var(--navy-deep);
-  padding: 120px 0;
+  padding: 90px 0 70px;
   text-align: center;
 }
 
-.steps-section h2 {
+.flow-intro h2 {
   font-size: 48px;
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.04em;
-  margin-bottom: 64px;
+  margin-bottom: 16px;
 }
 
-.steps-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  max-width: 1000px;
+.flow-intro .feature-subtitle {
   margin: 0 auto;
 }
 
-.step {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 36px 28px;
-  text-align: left;
-}
-
-.step-num {
-  width: 40px;
-  height: 40px;
-  border-radius: 100px;
-  background: var(--blue);
-  color: var(--white);
-  font-size: 18px;
-  font-weight: 800;
+.step-eyebrow {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.step h3 {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 10px;
-}
-
-.step p {
-  font-size: 15px;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--text-muted);
-  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.tier-pill {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+.tier-pill.free {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--white);
+}
+
+.tier-pill.premium {
+  background: var(--blue);
+  color: var(--white);
+}
+
+/* Placeholder frame inside .phone while a real screenshot is pending */
+.shot-placeholder {
+  width: 290px;
+  max-width: 100%;
+  aspect-ratio: 290 / 610;
+  border-radius: 35px;
+  background: #0F2038;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 20px;
+}
+
+.shot-placeholder span {
+  margin-top: 6px;
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* ============================================
@@ -930,7 +950,7 @@ body.legal-page .header {
 
   .feature-text h2,
   .compare-section h2,
-  .steps-section h2,
+  .flow-intro h2,
   .pricing-section h2,
   .faq-section h2,
   .cta-inner h2 {
@@ -1027,7 +1047,7 @@ body.legal-page .header {
 
   .feature-text h2,
   .compare-section h2,
-  .steps-section h2,
+  .flow-intro h2,
   .pricing-section h2,
   .faq-section h2,
   .cta-inner h2 {
@@ -1059,20 +1079,15 @@ body.legal-page .header {
   .feature-section.reverse .feature-phone-wrapper .floating-el:nth-child(2) { right: -10px; left: auto; }
   .feature-section.reverse .feature-phone-wrapper .floating-el:nth-child(3) { left: -10px; right: auto; }
 
-  /* Steps + pricing + FAQ */
-  .steps-section,
+  /* Flow intro + pricing + FAQ */
+  .flow-intro,
   .pricing-section,
   .faq-section {
-    padding: 72px 0;
+    padding: 64px 0;
   }
 
-  .steps-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .steps-section h2 {
-    margin-bottom: 40px;
+  .step-eyebrow {
+    justify-content: center;
   }
 
   .pricing-table th,
@@ -1126,7 +1141,7 @@ body.legal-page .header {
 
   .feature-text h2,
   .compare-section h2,
-  .steps-section h2,
+  .flow-intro h2,
   .pricing-section h2,
   .faq-section h2 {
     font-size: 29px;
