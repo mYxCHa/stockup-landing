@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StockUp: Compare Grocery Prices Across Coles &amp; Woolworths</title>
-  <meta name="description" content="StockUp helps you find the best grocery prices by comparing Coles and Woolworths side-by-side. Track prices, build your watchlist, and never overpay again.">
+  <title>StockUp: Coles &amp; Woolworths Price Comparison, History &amp; Alerts</title>
+  <meta name="description" content="StockUp watches every Coles and Woolworths price. See both prices side-by-side, get free price-drop alerts, and send your list to the cheaper trolley. Free on iPhone and Android.">
   <meta name="application-name" content="StockUp">
   <link rel="canonical" href="https://stockup.au/">
 
-  <!-- Structured data for site name -->
+  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -17,10 +17,103 @@
     "url": "https://stockup.au"
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "StockUp",
+    "url": "https://stockup.au",
+    "operatingSystem": "iOS, Android",
+    "applicationCategory": "ShoppingApplication",
+    "description": "StockUp tracks every Coles and Woolworths price. See both prices side-by-side, get alerted when your groceries drop, and send your list straight into the cheaper trolley.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "AUD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "ratingCount": "19"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Where do StockUp's prices come from?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "From publicly available Coles and Woolworths data, collected independently every week. StockUp isn't affiliated with, endorsed by, or sponsored by either supermarket."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How often are prices updated?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Weekly, in step with the supermarkets' Wednesday catalogue cycle. That's when specials change — and when StockUp refreshes every price and sends your alerts."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is StockUp free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Comparing prices, browsing half-price specials, price-drop alerts, smart lists, and barcode scanning are all free. Premium adds price history, Our Read, Quick Cart, and the savings ledger for $4.99/month or $39/year."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you sell my data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. There are no ad trackers in the app, we don't sell or share your data, and you can delete your account and everything with it in the app at any time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What about ALDI or IGA?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ALDI doesn't publish its prices online, and IGA pricing varies store to store — so no app can compare them accurately. We'd rather cover Coles and Woolworths deeply than five chains shallowly."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need an account?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No sign-up needed — open the app and start comparing. An account is optional, for syncing across devices or subscribing to Premium."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's in StockUp Premium?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Full price history with sale patterns and Our Read (buy now or wait), one-tap Quick Cart trolley fill, and your Past Purchases savings ledger. $4.99/month or $39/year."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does Quick Cart work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You sign in to Coles or Woolworths inside the app — on your device, on their website — and StockUp adds your list's items to your real trolley at whichever store is cheaper. You review and check out as normal. StockUp never sees your password and never places orders."
+        }
+      }
+    ]
+  }
+  </script>
 
   <!-- Open Graph -->
-  <meta property="og:title" content="StockUp: Compare Grocery Prices">
-  <meta property="og:description" content="Compare Coles and Woolworths prices side-by-side. Track deals and save on your weekly shop.">
+  <meta property="og:title" content="StockUp: Never overpay at Coles or Woolies again">
+  <meta property="og:description" content="See both prices side-by-side, get free price-drop alerts, and shop whichever store is cheaper. Free on iPhone and Android.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://stockup.au/assets/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -46,6 +139,11 @@
         <img src="/assets/logo.png" alt="StockUp" width="40" height="40">
         <span>StockUp</span>
       </a>
+      <nav class="header-nav" aria-label="Main">
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
       <a href="#download" class="btn-header">Get the App</a>
     </div>
   </header>
@@ -54,11 +152,11 @@
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-content">
-        <h1 class="animate-slide-up">Stop Overpaying<br>for Groceries</h1>
+        <h1 class="animate-slide-up">Never overpay at<br>Coles or Woolies again</h1>
         <p class="hero-subtitle animate-slide-up delay-1">
-          Compare prices across <span class="coles">Coles</span> and
-          <span class="woolworths">Woolworths</span> in one tap.
-          Track deals, build your watchlist, and save on every shop.
+          StockUp watches every price at both supermarkets — so you see the gap,
+          catch the special, and shop whichever is cheaper.
+          Free on iPhone and Android.
         </p>
         <div class="store-badges animate-slide-up delay-2">
           <a href="https://apps.apple.com/au/app/stockup-grocery-prices/id6760887575" class="store-badge" aria-label="Download on the App Store">
@@ -68,116 +166,221 @@
             <img src="/assets/google-play-badge.png" alt="Get it on Google Play" height="56">
           </a>
         </div>
+        <p class="micro-trust animate-slide-up delay-3">Free &middot; No sign-up &middot; 5.0&#9733; rated</p>
       </div>
       <div class="hero-phone-wrapper animate-slide-up delay-2">
         <div class="phone">
+          <!-- WAVE 2 (R25): replace with current v2.3 home screen capture -->
           <img src="/assets/Home%20Screen.png" alt="StockUp home screen showing specials and deals" loading="eager">
         </div>
-        <div class="floating-el float-1" aria-hidden="true">🏷️ ½ Price</div>
-        <div class="floating-el float-2" aria-hidden="true">📊 Compare</div>
-        <div class="floating-el float-3" aria-hidden="true">💰 Save</div>
-        <div class="floating-el float-4" aria-hidden="true">🔍 Search</div>
+        <div class="floating-el float-1" aria-hidden="true">🔔 Price alerts</div>
+        <div class="floating-el float-2" aria-hidden="true">🏷️ ½ Price</div>
+        <div class="floating-el float-3" aria-hidden="true">📉 Price history</div>
+        <div class="floating-el float-4" aria-hidden="true">🛒 Fill my trolley</div>
         <div class="floating-el float-5" aria-hidden="true">⭐ Watchlist</div>
       </div>
     </div>
   </section>
 
-  <!-- Feature: Compare Prices -->
-  <section class="feature-section" id="features">
-    <div class="container feature-inner">
-      <div class="feature-text">
-        <h2 class="animate-slide-left">Compare Every Price</h2>
-        <p class="animate-slide-left delay-1">See Coles and Woolworths prices side by side. Per-unit pricing, current specials, and savings - all at a glance.</p>
-      </div>
-      <div class="feature-phone-wrapper animate-slide-right">
-        <div class="phone">
-          <img src="/assets/Price%20Comparison.png" alt="Price comparison view showing Coles vs Woolworths prices" loading="lazy">
+  <!-- Proof bar -->
+  <section class="proof-bar" aria-label="Why shoppers trust StockUp">
+    <div class="container proof-inner">
+      <div class="proof-item"><span class="proof-stars" aria-hidden="true">&#9733;</span> 5.0 on the App Store</div>
+      <div class="proof-item"><span class="proof-stars" aria-hidden="true">&#9733;</span> 5.0 on Google Play</div>
+      <div class="proof-item">Prices updated every week</div>
+      <div class="proof-item">Made in Australia</div>
+    </div>
+  </section>
+
+  <!-- Same product, two prices -->
+  <section class="compare-section" id="features">
+    <div class="container compare-inner">
+      <h2 class="animate-slide-up">Same product. Two prices.</h2>
+      <p class="feature-subtitle animate-slide-up delay-1">
+        StockUp compares Coles &amp; Woolworths prices side-by-side for thousands
+        of groceries — so you always know where it's cheaper this week.
+      </p>
+      <div class="compare-card animate-slide-up delay-2" role="img" aria-label="Example price comparison: Golden Gaytime 4 pack costs $10.00 at Coles and $5.00 at Woolworths, a saving of $5.00">
+        <div class="compare-product">
+          <span class="compare-emoji" aria-hidden="true">🍦</span>
+          <span class="compare-name">Golden Gaytime 4 Pack</span>
         </div>
-        <div class="floating-el bubble-red" style="top:10%" aria-hidden="true">Coles</div>
-        <div class="floating-el bubble-yellow" aria-hidden="true">Save $3.00</div>
-        <div class="floating-el bubble-green" aria-hidden="true">Woolies</div>
+        <div class="compare-prices">
+          <div class="compare-tag compare-coles">
+            <span class="compare-retailer">Coles</span>
+            <span class="compare-price">$10.00</span>
+          </div>
+          <div class="compare-vs" aria-hidden="true">vs</div>
+          <div class="compare-tag compare-woolies">
+            <span class="compare-retailer">Woolworths</span>
+            <span class="compare-price">$5.00</span>
+            <span class="compare-special">½ price</span>
+          </div>
+        </div>
+        <div class="compare-save">You save $5.00</div>
       </div>
     </div>
   </section>
 
-  <!-- Feature: Shopping List -->
-  <section class="feature-section reverse">
-    <div class="container feature-inner">
-      <div class="feature-text">
-        <h2 class="animate-slide-right">Shop Smarter</h2>
-        <p class="animate-slide-right delay-1">Build your shopping list and we'll split it by store. Buy each item where it's cheapest and save on every shop.</p>
-      </div>
-      <div class="feature-phone-wrapper animate-slide-left">
-        <div class="phone">
-          <img src="/assets/Shopping%20List.png" alt="Smart shopping list with price comparison and store split" loading="lazy">
-        </div>
-        <div class="floating-el" style="top:10%;left:-10px;right:auto" aria-hidden="true">🧠 Smart Lists</div>
-        <div class="floating-el bubble-green" style="bottom:35%" aria-hidden="true">✅ Check off as you shop</div>
-        <div class="floating-el bubble-yellow" style="top:auto;bottom:18%" aria-hidden="true">💰 Total Saved: $16.05</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Feature: Watchlist -->
+  <!-- Differentiator: Price alerts -->
   <section class="feature-section">
     <div class="container feature-inner">
       <div class="feature-text">
-        <h2 class="animate-slide-left">Never Miss a Deal</h2>
-        <p class="animate-slide-left delay-1">Add products to your watchlist and we'll let you know the moment they go on special. Track prices, catch every sale.</p>
+        <h2 class="animate-slide-left">Free price-drop alerts</h2>
+        <p class="animate-slide-left delay-1">Star what you buy and set an alert. We'll ping you the moment it hits your price — any special, a target price, or a genuinely good deal. No more checking two apps in the dairy aisle.</p>
       </div>
       <div class="feature-phone-wrapper animate-slide-right">
         <div class="phone">
-          <img src="/assets/Watchlist.png" alt="Watchlist view showing tracked products and specials" loading="lazy">
+          <!-- WAVE 2 (R25/R29): replace with price-alerts sheet / bell screenshot -->
+          <img src="/assets/Watchlist.png" alt="Price-drop alerts on your watchlist" loading="lazy">
         </div>
-        <div class="floating-el bubble-yellow" style="top:18%" aria-hidden="true">📉 Price Drops</div>
-        <div class="floating-el bubble-red" aria-hidden="true">🔔 Notifications</div>
-        <div class="floating-el" style="top:40%" aria-hidden="true">⭐ Watching</div>
+        <div class="floating-el bubble-yellow" aria-hidden="true">📉 Dropped to $5.00</div>
+        <div class="floating-el" aria-hidden="true">🔔 Alert me at $6</div>
       </div>
     </div>
   </section>
 
-  <!-- Feature: Product Details -->
+  <!-- Differentiator: Price history -->
   <section class="feature-section reverse">
     <div class="container feature-inner">
       <div class="feature-text">
-        <h2 class="animate-slide-right">Find the Best Deal</h2>
-        <p class="animate-slide-right delay-1">Tap any product to see the full price breakdown. We highlight the best price so you always know where to buy.</p>
+        <h2 class="animate-slide-right">Grocery price history &amp; sale patterns</h2>
+        <p class="animate-slide-right delay-1">See what a product usually costs, how often it goes on sale, and how deep the discounts run. <strong>Our Read</strong> turns it into one line: buy now, or wait. <span class="premium-pill">Premium</span></p>
       </div>
       <div class="feature-phone-wrapper animate-slide-left">
         <div class="phone">
-          <img src="/assets/Product%20Details.png" alt="Product detail view showing best price comparison" loading="lazy">
+          <!-- WAVE 2 (R25/R29): replace with price-history chart screenshot -->
+          <img src="/assets/Product%20Details.png" alt="Price history chart with sale patterns" loading="lazy">
         </div>
-        <div class="floating-el bubble-orange" style="top:7%" aria-hidden="true">🔗 Share</div>
-        <div class="floating-el" aria-hidden="true">📊 Full Breakdown</div>
-        <div class="floating-el bubble-green" style="top:50%" aria-hidden="true">🏆 Best Price</div>
+        <div class="floating-el bubble-accent" aria-hidden="true">📊 Usually $8.50</div>
+        <div class="floating-el" aria-hidden="true">🧠 Wait — drops ~6 weekly</div>
       </div>
     </div>
   </section>
 
-  <!-- Feature: Browse -->
-  <section class="feature-section centered">
-    <div class="container feature-inner-centered">
-      <h2 class="animate-slide-up">Browse Everything</h2>
-      <p class="feature-subtitle animate-slide-up delay-1">Search thousands of products or browse by category.<br>From pantry staples to half-price specials.</p>
-      <div class="browse-phone-wrapper animate-slide-up delay-2">
-        <div class="phone">
-          <img src="/assets/Search.png" alt="Product search and category browser" loading="lazy">
-        </div>
-        <div class="floating-el cat-bubble cat-1" aria-hidden="true">🏷️ ½ Price Specials</div>
-        <div class="floating-el cat-bubble cat-2" aria-hidden="true">🥩 Meat</div>
-        <div class="floating-el cat-bubble cat-3" aria-hidden="true">🍞 Bakery</div>
-        <div class="floating-el cat-bubble cat-4" aria-hidden="true">🍇 Fruit & Veg</div>
-        <div class="floating-el cat-bubble cat-5" aria-hidden="true">☕ Drinks</div>
-        <div class="floating-el cat-bubble cat-6" aria-hidden="true">🍫 Snacks</div>
+  <!-- Differentiator: Quick Cart -->
+  <section class="feature-section">
+    <div class="container feature-inner">
+      <div class="feature-text">
+        <h2 class="animate-slide-left">One tap fills your trolley</h2>
+        <p class="animate-slide-left delay-1">Build one list — we split it by store so every item is bought where it's cheapest, and show exactly what you save. Then Quick Cart sends it straight into your real Coles or Woolies trolley. Review and check out as normal. <span class="premium-pill">Premium</span></p>
       </div>
+      <div class="feature-phone-wrapper animate-slide-right">
+        <div class="phone">
+          <!-- WAVE 2 (R25/R29): replace with Quick Cart send screenshot -->
+          <img src="/assets/Shopping%20List.png" alt="Smart shopping list split by cheapest store with Quick Cart send" loading="lazy">
+        </div>
+        <div class="floating-el bubble-yellow" aria-hidden="true">💰 Saving $16.05</div>
+        <div class="floating-el bubble-accent" aria-hidden="true">🛒 Sent to trolley</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="steps-section">
+    <div class="container">
+      <h2 class="animate-slide-up">How StockUp works</h2>
+      <div class="steps-grid">
+        <div class="step animate-slide-up delay-1">
+          <div class="step-num" aria-hidden="true">1</div>
+          <h3>Search or scan</h3>
+          <p>Look up any product — or scan its barcode in the aisle — and see both prices with the per-unit maths done for you.</p>
+        </div>
+        <div class="step animate-slide-up delay-2">
+          <div class="step-num" aria-hidden="true">2</div>
+          <h3>Star what you buy</h3>
+          <p>Your watchlist tracks the products you actually buy. We'll alert you the moment one drops.</p>
+        </div>
+        <div class="step animate-slide-up delay-3">
+          <div class="step-num" aria-hidden="true">3</div>
+          <h3>Shop the cheaper store</h3>
+          <p>Your list splits by cheapest store automatically — and Premium sends it straight into your trolley.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Free vs Premium -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <h2 class="animate-slide-up">Free vs Premium</h2>
+      <p class="feature-subtitle animate-slide-up delay-1">Everything you need to stop overpaying is free. Premium is for shoppers who want the full intelligence.</p>
+      <div class="table-wrapper animate-slide-up delay-2">
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th scope="col">Feature</th>
+              <th scope="col">Free</th>
+              <th scope="col">Premium</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Side-by-side Coles &amp; Woolies prices</th><td>✓</td><td>✓</td></tr>
+            <tr><th scope="row">Half-price specials every Wednesday</th><td>✓</td><td>✓</td></tr>
+            <tr><th scope="row">Watchlist + free price-drop alerts</th><td>✓</td><td>✓</td></tr>
+            <tr><th scope="row">Smart list split by cheapest store</th><td>✓</td><td>✓</td></tr>
+            <tr><th scope="row">Barcode scanner</th><td>✓</td><td>✓</td></tr>
+            <tr><th scope="row">Full price history &amp; sale patterns</th><td>7-day preview</td><td>✓</td></tr>
+            <tr><th scope="row">"Our Read" — buy now or wait</th><td>—</td><td>✓</td></tr>
+            <tr><th scope="row">Quick Cart: one-tap trolley fill</th><td>—</td><td>✓</td></tr>
+            <tr><th scope="row">Past Purchases savings ledger</th><td>—</td><td>✓</td></tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">Price</th>
+              <td>$0</td>
+              <td>$4.99/mo or $39/yr</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="faq">
+    <div class="container faq-inner">
+      <h2 class="animate-slide-up">Frequently asked questions</h2>
+      <details class="faq-item">
+        <summary>Where do StockUp's prices come from?</summary>
+        <p>From publicly available Coles and Woolworths data, collected independently every week. StockUp isn't affiliated with, endorsed by, or sponsored by either supermarket — we're the independent referee.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How often are prices updated?</summary>
+        <p>Weekly, in step with the supermarkets' Wednesday catalogue cycle. That's when specials change — and when StockUp refreshes every price and sends your alerts.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Is StockUp free?</summary>
+        <p>Yes. Comparing prices, browsing half-price specials, price-drop alerts, smart lists, and barcode scanning are all free. Premium adds the power features in the table above.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do you sell my data?</summary>
+        <p>No. There are no ad trackers in the app, we don't sell or share your data, and you can delete your account (and everything with it) in the app at any time. The details are in our <a href="/privacy-policy">privacy policy</a>.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What about ALDI or IGA?</summary>
+        <p>ALDI doesn't publish its prices online, and IGA pricing varies store to store — so no app can compare them accurately. We'd rather cover Coles and Woolworths deeply — history, alerts, trolley fill — than five chains shallowly.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Do I need an account?</summary>
+        <p>No sign-up needed — open the app and start comparing straight away. An account is optional, for syncing across devices or subscribing to Premium.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What's in StockUp Premium?</summary>
+        <p>Full price history with sale patterns and "Our Read" (buy now or wait), one-tap Quick Cart trolley fill, and your Past Purchases savings ledger. $4.99/month or $39/year.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How does Quick Cart work?</summary>
+        <p>You sign in to Coles or Woolworths inside the app — on your device, on their website — and StockUp adds your list's items to your real trolley at whichever store is cheaper. You review and check out as normal. StockUp never sees your password and never places orders.</p>
+      </details>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="cta-section" id="download">
     <div class="container cta-inner">
-      <h2 class="animate-slide-up">Ready to Start Saving?</h2>
-      <p class="animate-slide-up delay-1">StockUp is free to download. Start shopping smarter today.</p>
+      <h2 class="animate-slide-up">Ready to stop overpaying?</h2>
+      <p class="animate-slide-up delay-1">Free to download. No sign-up. Your first price gap is 30 seconds away.</p>
       <div class="store-badges animate-slide-up delay-2">
         <a href="https://apps.apple.com/au/app/stockup-grocery-prices/id6760887575" class="store-badge" aria-label="Download on the App Store">
           <img src="/assets/app-store-badge.png" alt="Download on the App Store" height="56">
@@ -199,9 +402,10 @@
       <div class="footer-links">
         <a href="/privacy-policy">Privacy Policy</a>
         <a href="/terms-of-service">Terms of Service</a>
+        <!-- WAVE 2 (R45): swap to support@stockup.au once Cloudflare Email Routing is live -->
         <a href="mailto:spendwiseapps@gmail.com">Contact</a>
       </div>
-      <p class="footer-copy">&copy; 2026 SpendWise Apps. All rights reserved.</p>
+      <p class="footer-copy">Made in Australia by SpendWise Apps &middot; &copy; 2026 SpendWise Apps. All rights reserved.</p>
     </div>
   </footer>
 
@@ -232,7 +436,7 @@
       rootMargin: '0px 0px -60px 0px'
     });
 
-    document.querySelectorAll('.feature-section, .hero, .cta-section').forEach(el => {
+    document.querySelectorAll('.feature-section, .hero, .cta-section, .compare-section, .steps-section, .pricing-section, .faq-section').forEach(el => {
       observer.observe(el);
     });
 
