@@ -1,1 +1,3 @@
-/product/:id /product-fallback 200
+# /product/:id is served by functions/product/[id].ts (per-product OG tags).
+# A _redirects rewrite would shadow the Function (redirects run first) — keep
+# this file for future plain redirects only. NEVER add rules for .well-known/.
