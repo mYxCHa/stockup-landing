@@ -3,13 +3,16 @@
 > A free Australian mobile app that compares grocery prices across Coles and
 > Woolworths. StockUp tracks 30,000+ products at both supermarkets and refreshes
 > every price weekly, so shoppers can see the gap between the two chains, catch
-> specials, and shop wherever their list is cheaper.
+> specials, shop the aisle with live store prices, and send their list to
+> whichever trolley is cheaper.
 
 StockUp is published by SpendWise Apps and is available on iOS and Android. It
 is an independent product and is **not affiliated with, endorsed by, or
 sponsored by Coles or Woolworths**.
 
-## What it does
+## Free features
+
+No sign-up is required — the app opens straight into price comparison.
 
 - **Side-by-side price comparison** — every tracked product shows the Coles
   price and the Woolworths price together, with per-unit pricing so different
@@ -21,22 +24,37 @@ sponsored by Coles or Woolworths**.
   cheaper overall.
 - **Watchlist and price-drop alerts** — follow products and get notified when
   they go on special.
-- **Quick Cart** — signs in to Coles or Woolworths on the user's own device and
-  fills their real trolley from their StockUp list. StockUp never sees the
-  password and never places orders.
+- **Barcode scanning** — scan a product in store to pull up both prices.
+- **Recent price history** — the last 30 days on any product.
+
+## StockUp Premium
+
+- **Smart Shop** — for shopping in person. Pick the retailer and the specific
+  store you are standing in, and StockUp pulls that store's live prices and
+  stock availability, then turns your list into a checklist you tick off as you
+  go. Finishing a shop saves it to Past Purchases. Live prices and stock are
+  indicative and come from the retailer's own systems, not the physical shelf.
+- **Quick Cart** — sends your list to your real Coles or Woolworths trolley.
+  You sign in to the retailer on your own device, inside an in-app browser;
+  StockUp never sees your password and never places the order. You review and
+  check out yourself.
+- **Price Intelligence** — how often a product goes on sale and the typical
+  discount, plus a buy-now-or-wait read on whether to purchase today.
+- **Full price history** — the complete series, not just the last 30 days.
+- **Past Purchases** — a ledger of completed shops and what they saved.
+- **Ad-free** — no advertising anywhere in the app.
 
 ## Where the prices come from
 
 Prices are collected independently from publicly available Coles and Woolworths
 data. Updates run weekly, in step with the supermarkets' Wednesday catalogue
 cycle — which is when specials change. Prices are indicative and can vary by
-store and by state; the retailer's own price at checkout is authoritative.
+store and by state; the retailer's own price at the register is authoritative.
 
 ## Pricing
 
-Free to download and use, with no sign-up required — comparing prices, browsing
-specials, price-drop alerts, shopping lists and the watchlist are all free.
-StockUp Premium is AUD $4.99 per month or AUD $39 per year.
+Free to download and use. StockUp Premium is AUD $4.99 per month or AUD $39.99
+per year. The free version is supported by advertising, which Premium removes.
 
 ## Coverage
 
