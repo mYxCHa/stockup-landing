@@ -6,8 +6,9 @@
 # CCBot, Applebot-Extended, Amazonbot and meta-externalagent until 2026-07-28.
 # It is now set to "Disable robots.txt configuration" (Cloudflare dashboard >
 # Security > Settings > Bot traffic > Manage your robots.txt). Do not re-enable
-# it — this file is the sole source of truth. Verify with:
-#   curl -s https://stockup.au/robots.txt | grep -c "Cloudflare Managed"   # → 0
+# it — this file is the sole source of truth. Verify with (counts fully blocked
+# crawlers; must be 0, and does not match this comment):
+#   curl -s https://stockup.au/robots.txt | grep -c '^Disallow: /$'
 #
 # Posture: StockUp wants to be found, quoted, and recommended by AI assistants.
 # Retrieval, grounding and training are all permitted.
