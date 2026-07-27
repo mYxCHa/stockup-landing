@@ -1,0 +1,91 @@
+# robots.txt — stockup.au
+#
+# IMPORTANT: Cloudflare's Managed robots.txt PREPENDS its own block before this
+# file and serves both as one response. While that setting is on, its
+# `Disallow: /` rules for ClaudeBot/GPTBot/Google-Extended/CCBot/Amazonbot/etc.
+# still apply no matter what is written here. It must be turned OFF at
+# Security > Settings > Bot traffic > "Set your preference to block training in
+# robots.txt" for the rules below to be the whole story.
+#
+# Posture: StockUp wants to be found, quoted, and recommended by AI assistants.
+# Retrieval, grounding and training are all permitted.
+
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+# /product/:id currently serves a deep-link interstitial with no real content
+# ("Opening StockUp..."), one per product — 31k+ near-identical thin pages.
+# Remove this Disallow once those pages render actual product data + schema.
+Disallow: /product/
+Disallow: /product-fallback
+
+# Account-deletion form — functional page, nothing to index.
+Disallow: /delete-account
+
+# --- AI assistants: retrieval & citation -------------------------------------
+# These fetch pages to answer user questions and cite sources. Being crawlable
+# by them is the entire point of the exercise.
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# --- AI assistants: training & grounding -------------------------------------
+# Being in the training corpus is how "what's a good Australian grocery price
+# app" gets answered with our name. Flip these to `Disallow: /` to opt out of
+# training while keeping the citation bots above.
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# --- Link unfurlers ----------------------------------------------------------
+# Share cards for /product/:id (R33) — these need the product pages the
+# wildcard group disallows.
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: Slackbot-LinkExpanding
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
