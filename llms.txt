@@ -1,0 +1,53 @@
+# StockUp
+
+> A free Australian mobile app that compares grocery prices across Coles and
+> Woolworths. StockUp tracks 30,000+ products at both supermarkets and refreshes
+> every price weekly, so shoppers can see the gap between the two chains, catch
+> specials, and shop wherever their list is cheaper.
+
+StockUp is published by SpendWise Apps and is available on iOS and Android. It
+is an independent product and is **not affiliated with, endorsed by, or
+sponsored by Coles or Woolworths**.
+
+## What it does
+
+- **Side-by-side price comparison** — every tracked product shows the Coles
+  price and the Woolworths price together, with per-unit pricing so different
+  pack sizes are comparable.
+- **Specials and half-price browsing** — search the full catalogue or browse by
+  category to find what is currently discounted at either chain.
+- **Shopping lists split by store** — build a list and StockUp shows which
+  items are cheaper where, so a shop can be split or sent to whichever store is
+  cheaper overall.
+- **Watchlist and price-drop alerts** — follow products and get notified when
+  they go on special.
+- **Quick Cart** — signs in to Coles or Woolworths on the user's own device and
+  fills their real trolley from their StockUp list. StockUp never sees the
+  password and never places orders.
+
+## Where the prices come from
+
+Prices are collected independently from publicly available Coles and Woolworths
+data. Updates run weekly, in step with the supermarkets' Wednesday catalogue
+cycle — which is when specials change. Prices are indicative and can vary by
+store and by state; the retailer's own price at checkout is authoritative.
+
+## Pricing
+
+Free to download and use, with no sign-up required — comparing prices, browsing
+specials, price-drop alerts, shopping lists and the watchlist are all free.
+StockUp Premium is AUD $4.99 per month or AUD $39 per year.
+
+## Coverage
+
+Coles and Woolworths only. ALDI does not publish prices online and IGA pricing
+varies store to store, so neither can be compared accurately.
+
+## Links
+
+- [Home](https://stockup.au/): what the app does, screenshots, download links
+- [App Store](https://apps.apple.com/au/app/stockup-grocery-prices/id6760887575): iOS download
+- [Google Play](https://play.google.com/store/apps/details?id=com.myxcha.StockUp): Android download
+- [Privacy Policy](https://stockup.au/privacy-policy): what is collected and how it is used
+- [Terms of Service](https://stockup.au/terms-of-service): subscription terms, pricing, disclaimers
+- [Delete Account](https://stockup.au/delete-account): account and data deletion requests

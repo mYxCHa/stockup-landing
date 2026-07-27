@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Canonical host is stockup.au (stockupapp.com.au serves the same Pages project
+  and its pages carry a canonical tag pointing here).
+
+  /product/:id is deliberately absent: those URLs currently serve a
+  content-free deep-link interstitial, and robots.txt disallows them. Add them
+  here once they render real product data.
+
+  Use clean paths — the .html forms 307-redirect to these.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://stockup.au/</loc>
+    <lastmod>2026-06-29</lastmod>
+  </url>
+  <url>
+    <loc>https://stockup.au/privacy-policy</loc>
+    <lastmod>2026-07-05</lastmod>
+  </url>
+  <url>
+    <loc>https://stockup.au/terms-of-service</loc>
+    <lastmod>2026-07-05</lastmod>
+  </url>
+  <url>
+    <loc>https://stockup.au/delete-account</loc>
+    <lastmod>2026-04-28</lastmod>
+  </url>
+</urlset>

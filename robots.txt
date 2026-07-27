@@ -1,14 +1,18 @@
 # robots.txt — stockup.au
 #
 # IMPORTANT: Cloudflare's Managed robots.txt PREPENDS its own block before this
-# file and serves both as one response. While that setting is on, its
-# `Disallow: /` rules for ClaudeBot/GPTBot/Google-Extended/CCBot/Amazonbot/etc.
-# still apply no matter what is written here. It must be turned OFF at
-# Security > Settings > Bot traffic > "Set your preference to block training in
-# robots.txt" for the rules below to be the whole story.
+# file and serves both as one response — it does NOT respect what is written
+# here. It was serving `Disallow: /` for ClaudeBot, GPTBot, Google-Extended,
+# CCBot, Applebot-Extended, Amazonbot and meta-externalagent until 2026-07-28.
+# It is now set to "Disable robots.txt configuration" (Cloudflare dashboard >
+# Security > Settings > Bot traffic > Manage your robots.txt). Do not re-enable
+# it — this file is the sole source of truth. Verify with:
+#   curl -s https://stockup.au/robots.txt | grep -c "Cloudflare Managed"   # → 0
 #
 # Posture: StockUp wants to be found, quoted, and recommended by AI assistants.
 # Retrieval, grounding and training are all permitted.
+
+Sitemap: https://stockup.au/sitemap.xml
 
 User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
