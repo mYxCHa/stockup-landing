@@ -28,6 +28,10 @@ Disallow: /product-fallback
 # Account-deletion form - functional page, nothing to index.
 Disallow: /delete-account
 
+# /get is a User-Agent-routed redirect to the app stores, not a page. It also
+# sends X-Robots-Tag: noindex and is absent from the sitemap.
+Disallow: /get
+
 # --- AI assistants: retrieval & citation -------------------------------------
 # These fetch pages to answer user questions and cite sources. Being crawlable
 # by them is the entire point of the exercise.

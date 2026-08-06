@@ -7,23 +7,38 @@
   content-free deep-link interstitial, and robots.txt disallows them. Add them
   here once they render real product data.
 
+  /get is deliberately absent too: it is a UA-routed redirect, not a page. It
+  is noindex and disallowed in robots.txt.
+
   Use clean paths - the .html forms 307-redirect to these.
+
+  OWNER: every page below materially changed in the v3.1.0 build, so all six
+  lastmod dates are the build date. Set them to the actual launch date before
+  pushing if the deploy slips past it.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://stockup.au/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-08-07</lastmod>
+  </url>
+  <url>
+    <loc>https://stockup.au/how-stockup-gets-its-prices</loc>
+    <lastmod>2026-08-07</lastmod>
+  </url>
+  <url>
+    <loc>https://stockup.au/grocery-price-comparison-australia</loc>
+    <lastmod>2026-08-07</lastmod>
   </url>
   <url>
     <loc>https://stockup.au/privacy-policy</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-08-07</lastmod>
   </url>
   <url>
     <loc>https://stockup.au/terms-of-service</loc>
-    <lastmod>2026-07-05</lastmod>
+    <lastmod>2026-08-07</lastmod>
   </url>
   <url>
     <loc>https://stockup.au/delete-account</loc>
-    <lastmod>2026-04-28</lastmod>
+    <lastmod>2026-08-07</lastmod>
   </url>
 </urlset>
