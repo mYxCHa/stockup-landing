@@ -1,11 +1,11 @@
-// /product/:id — serves the static product-fallback interstitial with
+// /product/:id - serves the static product-fallback interstitial with
 // per-product Open Graph tags injected (R33). The deep-link / store-redirect
-// behaviour is untouched — it lives in the template's inline script.
+// behaviour is untouched - it lives in the template's inline script.
 //
 // This function replaced the `_redirects` rewrite (`/product/:id
 // /product-fallback 200`): Pages evaluates `_redirects` BEFORE Functions, so
 // the rewrite had to be removed for this route to run. On any data failure we
-// serve the template unmodified — same behaviour as the old rewrite.
+// serve the template unmodified - same behaviour as the old rewrite.
 
 import {
   fetchProduct,
@@ -27,7 +27,7 @@ function ogDescription(p: ProductRow): string {
   const priceBit = pairs
     .map((pair) => `${pair.label} ${formatPrice(pair.price)}`)
     .join(' · ');
-  const gapBit = gap ? ` — save ${formatPrice(gap)} at ${pairs[0].label}` : '';
+  const gapBit = gap ? ` - save ${formatPrice(gap)} at ${pairs[0].label}` : '';
   const tail = 'See the price history and get an alert when it drops. Free on StockUp.';
   return priceBit ? `${priceBit}${gapBit}. ${tail}` : tail;
 }
@@ -67,15 +67,15 @@ function injectMeta(template: string, p: ProductRow, requestUrl: string): string
 
   return template
     .replace(
-      '<title>StockUp — View Product</title>',
-      `<title>${title} — StockUp</title>`,
+      '<title>StockUp - View Product</title>',
+      `<title>${title} - StockUp</title>`,
     )
     .replace(
       '<meta name="description" content="Compare Coles and Woolworths prices for this product on StockUp.">',
       `<meta name="description" content="${desc}">`,
     )
     .replace(
-      '<meta property="og:title" content="StockUp — Compare Grocery Prices">',
+      '<meta property="og:title" content="StockUp - Compare Grocery Prices">',
       `<meta property="og:title" content="${title}">`,
     )
     .replace(

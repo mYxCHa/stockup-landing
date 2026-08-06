@@ -464,7 +464,7 @@ body.legal-page .header {
   margin-right: 2px;
 }
 
-/* Visible state — pop in one after another */
+/* Visible state - pop in one after another */
 .visible .floating-el {
   opacity: 1;
   transform: scale(1);
@@ -477,7 +477,7 @@ body.legal-page .header {
   50% { transform: scale(1) translateY(-7px); }
 }
 
-/* Hero floating positions — outside the phone */
+/* Hero floating positions - outside the phone */
 .hero-phone-wrapper .float-1 { top: 5%; left: -160px; }
 .hero-phone-wrapper .float-2 { top: 40%; left: -150px; }
 .hero-phone-wrapper .float-3 { bottom: 10%; left: -140px; }
@@ -579,16 +579,16 @@ body.legal-page .header {
   justify-content: center;
 }
 
-/* Reverse layout — swap grid order */
+/* Reverse layout - swap grid order */
 .feature-section.reverse .feature-phone-wrapper {
   order: -1;
 }
 
-/* Feature section floating positions — kept around the phone, not off-screen */
+/* Feature section floating positions - kept around the phone, not off-screen */
 .feature-phone-wrapper .floating-el:nth-child(2) { top: 8%; left: -10px; }
 .feature-phone-wrapper .floating-el:nth-child(3) { bottom: 22%; right: -10px; }
 
-/* Reverse sections — mirror the floats */
+/* Reverse sections - mirror the floats */
 .feature-section.reverse .feature-phone-wrapper .floating-el:nth-child(2) { left: auto; right: -10px; }
 .feature-section.reverse .feature-phone-wrapper .floating-el:nth-child(3) { right: auto; left: -10px; }
 
@@ -1065,7 +1065,7 @@ body.legal-page .header {
     padding: 7px 14px;
   }
 
-  /* Hero floats — edge to edge, phone centered */
+  /* Hero floats - edge to edge, phone centered */
   .hero-phone-wrapper { width: 100%; display: flex; justify-content: center; }
   .hero-phone-wrapper .float-1 { left: 0; top: 5%; }
   .hero-phone-wrapper .float-2 { left: -10px; }
@@ -1109,7 +1109,7 @@ body.legal-page .header {
     align-items: center;
   }
 
-  /* Footer — fully centered on mobile */
+  /* Footer - fully centered on mobile */
   .footer {
     padding: 24px 0;
   }
@@ -1166,5 +1166,261 @@ body.legal-page .header {
 
   .compare-vs {
     display: none;
+  }
+}
+
+/* ============================================
+   GUIDE PAGES  (/grocery-price-comparison-australia)
+   Long-form editorial layout. Reuses the navy tokens,
+   .table-wrapper, .faq-item, .cta-section and .footer
+   from the main page - only the prose furniture is new.
+   ============================================ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.guide-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.guide-hero {
+  padding: 160px 0 56px;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+
+.breadcrumb a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumb span[aria-hidden] {
+  margin: 0 8px;
+  opacity: 0.5;
+}
+
+.guide-hero h1 {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-bottom: 24px;
+}
+
+.guide-standfirst {
+  font-size: 20px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.guide-meta {
+  font-size: 14px;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+.guide-section {
+  padding: 64px 0;
+}
+
+.guide-section-alt {
+  background: var(--navy-deep);
+}
+
+.guide-section h2 {
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+}
+
+.guide-section h3 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+  color: var(--white);
+}
+
+.guide-section p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.guide-section p strong,
+.guide-section li strong {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.guide-list {
+  margin: 0 0 20px;
+  padding-left: 22px;
+}
+
+.guide-list li {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.guide-steps {
+  list-style: none;
+  counter-reset: step;
+  margin: 0;
+  padding: 0;
+}
+
+.guide-steps > li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 52px;
+  margin-bottom: 32px;
+}
+
+.guide-steps > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 15px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.guide-steps p:last-child {
+  margin-bottom: 0;
+}
+
+.callout {
+  border-left: 3px solid var(--yellow);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 0 12px 12px 0;
+  padding: 18px 22px;
+  margin-top: 32px;
+}
+
+.table-wrapper-wide {
+  max-width: 100%;
+}
+
+.compare-apps-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  text-align: left;
+}
+
+.compare-apps-table th,
+.compare-apps-table td {
+  padding: 14px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  vertical-align: top;
+}
+
+.compare-apps-table thead th {
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.compare-apps-table tbody th {
+  font-weight: 700;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.compare-apps-table tbody td {
+  color: var(--text-muted);
+}
+
+.compare-apps-table tbody tr:first-child th,
+.compare-apps-table tbody tr:first-child td {
+  background: rgba(126, 179, 255, 0.07);
+}
+
+.compare-apps-table tbody tr:last-child th,
+.compare-apps-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table-note {
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  opacity: 0.7;
+  margin-top: 16px;
+}
+
+/* Guide pages reuse .faq-item, which is styled for a dark panel.
+   Give consecutive items a little more breathing room here. */
+.guide-section .faq-item + .faq-item {
+  margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .guide-hero {
+    padding: 120px 0 40px;
+  }
+
+  .guide-hero h1 {
+    font-size: 34px;
+  }
+
+  .guide-standfirst {
+    font-size: 17px;
+  }
+
+  .guide-section {
+    padding: 48px 0;
+  }
+
+  .guide-section h2 {
+    font-size: 27px;
+  }
+
+  .guide-section p,
+  .guide-list li {
+    font-size: 16px;
+  }
+
+  .guide-steps > li {
+    padding-left: 44px;
+  }
+
+  .compare-apps-table th,
+  .compare-apps-table td {
+    padding: 12px 14px;
   }
 }

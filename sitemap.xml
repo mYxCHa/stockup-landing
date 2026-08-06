@@ -7,7 +7,7 @@
   content-free deep-link interstitial, and robots.txt disallows them. Add them
   here once they render real product data.
 
-  Use clean paths — the .html forms 307-redirect to these.
+  Use clean paths - the .html forms 307-redirect to these.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>

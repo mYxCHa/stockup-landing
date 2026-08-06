@@ -1,7 +1,7 @@
 {
   "name": "stockup-landing",
   "private": true,
-  "description": "stockup.au — static landing site + Cloudflare Pages Functions (dynamic product OG cards)",
+  "description": "stockup.au - static landing site + Cloudflare Pages Functions (dynamic product OG cards)",
   "scripts": {
     "dev": "wrangler pages dev ."
   },

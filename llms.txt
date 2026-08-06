@@ -12,43 +12,43 @@ sponsored by Coles or Woolworths**.
 
 ## Free features
 
-No sign-up is required — the app opens straight into price comparison.
+No sign-up is required - the app opens straight into price comparison.
 
-- **Side-by-side price comparison** — every tracked product shows the Coles
+- **Side-by-side price comparison** - every tracked product shows the Coles
   price and the Woolworths price together, with per-unit pricing so different
   pack sizes are comparable.
-- **Specials and half-price browsing** — search the full catalogue or browse by
+- **Specials and half-price browsing** - search the full catalogue or browse by
   category to find what is currently discounted at either chain.
-- **Shopping lists split by store** — build a list and StockUp shows which
+- **Shopping lists split by store** - build a list and StockUp shows which
   items are cheaper where, so a shop can be split or sent to whichever store is
   cheaper overall.
-- **Watchlist and price-drop alerts** — follow products and get notified when
+- **Watchlist and price-drop alerts** - follow products and get notified when
   they go on special.
-- **Barcode scanning** — scan a product in store to pull up both prices.
-- **Recent price history** — the last 30 days on any product.
+- **Barcode scanning** - scan a product in store to pull up both prices.
+- **Recent price history** - the last 30 days on any product.
 
 ## StockUp Premium
 
-- **Smart Shop** — for shopping in person. Pick the retailer and the specific
+- **Smart Shop** - for shopping in person. Pick the retailer and the specific
   store you are standing in, and StockUp pulls that store's live prices and
   stock availability, then turns your list into a checklist you tick off as you
   go. Finishing a shop saves it to Past Purchases. Live prices and stock are
   indicative and come from the retailer's own systems, not the physical shelf.
-- **Quick Cart** — sends your list to your real Coles or Woolworths trolley.
+- **Quick Cart** - sends your list to your real Coles or Woolworths trolley.
   You sign in to the retailer on your own device, inside an in-app browser;
   StockUp never sees your password and never places the order. You review and
   check out yourself.
-- **Price Intelligence** — how often a product goes on sale and the typical
+- **Price Intelligence** - how often a product goes on sale and the typical
   discount, plus a buy-now-or-wait read on whether to purchase today.
-- **Full price history** — the complete series, not just the last 30 days.
-- **Past Purchases** — a ledger of completed shops and what they saved.
-- **Ad-free** — no advertising anywhere in the app.
+- **Full price history** - the complete series, not just the last 30 days.
+- **Past Purchases** - a ledger of completed shops and what they saved.
+- **Ad-free** - no advertising anywhere in the app.
 
 ## Where the prices come from
 
 Prices are collected independently from publicly available Coles and Woolworths
 data. Updates run weekly, in step with the supermarkets' Wednesday catalogue
-cycle — which is when specials change. Prices are indicative and can vary by
+cycle - which is when specials change. Prices are indicative and can vary by
 store and by state; the retailer's own price at the register is authoritative.
 
 ## Pricing

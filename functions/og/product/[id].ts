@@ -1,9 +1,9 @@
-// /og/product/:id.png — renders the product share card (R33): product name,
+// /og/product/:id.png - renders the product share card (R33): product name,
 // both prices (cheapest first, retailer-coloured), the savings gap, and the
 // product image when its CDN cooperates. 1200×630, brand navy, Inter.
 //
 // Rendering is workers-og (satori + resvg-wasm). Fonts are the self-hosted
-// Inter TTFs under /assets/fonts (fetched via ASSETS — no third-party
+// Inter TTFs under /assets/fonts (fetched via ASSETS - no third-party
 // round-trip). Unknown ids and hard failures degrade to the static generic
 // OG card, HTTP 200, so crawlers always get an image.
 
@@ -118,7 +118,7 @@ function cardHtml(p: ProductRow, imageUri: string | null): string {
           }
         </div>
       </div>
-      <span style="font-size: 24px; color: ${MUTED};">stockup.au — free price-drop alerts</span>
+      <span style="font-size: 24px; color: ${MUTED};">stockup.au - free price-drop alerts</span>
     </div>
     ${
       imageUri

@@ -1,12 +1,12 @@
-# robots.txt — stockup.au
+# robots.txt - stockup.au
 #
 # IMPORTANT: Cloudflare's Managed robots.txt PREPENDS its own block before this
-# file and serves both as one response — it does NOT respect what is written
+# file and serves both as one response - it does NOT respect what is written
 # here. It was serving `Disallow: /` for ClaudeBot, GPTBot, Google-Extended,
 # CCBot, Applebot-Extended, Amazonbot and meta-externalagent until 2026-07-28.
 # It is now set to "Disable robots.txt configuration" (Cloudflare dashboard >
 # Security > Settings > Bot traffic > Manage your robots.txt). Do not re-enable
-# it — this file is the sole source of truth. Verify with (counts fully blocked
+# it - this file is the sole source of truth. Verify with (counts fully blocked
 # crawlers; must be 0, and does not match this comment):
 #   curl -s https://stockup.au/robots.txt | grep -c '^Disallow: /$'
 #
@@ -20,12 +20,12 @@ Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
 # /product/:id currently serves a deep-link interstitial with no real content
-# ("Opening StockUp..."), one per product — 31k+ near-identical thin pages.
+# ("Opening StockUp..."), one per product - 31k+ near-identical thin pages.
 # Remove this Disallow once those pages render actual product data + schema.
 Disallow: /product/
 Disallow: /product-fallback
 
-# Account-deletion form — functional page, nothing to index.
+# Account-deletion form - functional page, nothing to index.
 Disallow: /delete-account
 
 # --- AI assistants: retrieval & citation -------------------------------------
@@ -80,7 +80,7 @@ User-agent: CCBot
 Allow: /
 
 # --- Link unfurlers ----------------------------------------------------------
-# Share cards for /product/:id (R33) — these need the product pages the
+# Share cards for /product/:id (R33) - these need the product pages the
 # wildcard group disallows.
 
 User-agent: facebookexternalhit

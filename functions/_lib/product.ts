@@ -1,6 +1,6 @@
 // Shared product-data plumbing for the Pages Functions (R33 dynamic OG cards).
 //
-// Reads go straight to PostgREST with the PUBLIC anon key — the same key the
+// Reads go straight to PostgREST with the PUBLIC anon key - the same key the
 // app binary ships with; RLS is what protects the data. `price_comparison`
 // grants anon SELECT (verified 2026-07-13), so no session and no new RPC is
 // needed here.
