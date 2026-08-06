@@ -178,6 +178,28 @@ body.legal-page .header {
   background: var(--blue-dark);
 }
 
+/* The one inline CTA on the page, after the savings section. Same blue /
+   radius / weight system as the header and download buttons, sized up
+   because it stands alone rather than sitting in a bar. */
+.btn-inline-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 100px;
+  transition: transform 0.2s, background 0.2s;
+  letter-spacing: -0.01em;
+}
+
+.btn-inline-cta:hover {
+  transform: scale(1.05);
+  background: var(--blue-dark);
+}
+
 /* ============================================
    Phone Frame
    ============================================ */
@@ -461,6 +483,124 @@ body.legal-page .header {
   letter-spacing: -0.01em;
 }
 
+.lazy-tax-line {
+  font-size: 17px;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  max-width: 600px;
+  margin: 40px auto 0;
+}
+
+/* ============================================
+   Savings example ("The same weekly shop, three ways")
+   Three receipt cards; the split card is the reveal
+   and is the only one that carries the yellow.
+   ============================================ */
+.savings-section {
+  padding: 120px 0;
+  text-align: center;
+}
+
+.savings-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.savings-section h2 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  margin-bottom: 16px;
+}
+
+.savings-section .feature-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.savings-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+  align-items: stretch;
+}
+
+.savings-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  padding: 32px 24px;
+  background: var(--navy-raised);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.35);
+}
+
+.savings-card.split {
+  border: 2px solid var(--yellow);
+}
+
+.savings-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.savings-total {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--white);
+}
+
+/* Navy on yellow ≈ 9:1 - the tier/savings colour never carries text alone. */
+.savings-badge {
+  background: var(--yellow);
+  color: var(--navy-deep);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 4px 12px;
+  border-radius: 100px;
+  letter-spacing: -0.01em;
+}
+
+.savings-caption {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: -0.01em;
+}
+
+.savings-footnote {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 620px;
+  margin: 28px auto 32px;
+}
+
+.savings-footnote a {
+  color: var(--accent);
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+/* The reveal rides the wrapper, not the button - same pattern as
+   .store-badges - so the button keeps its own fast hover transition. */
+.savings-cta {
+  width: 100%;
+}
+
 /* ============================================
    Floating Elements
    ============================================ */
@@ -675,32 +815,68 @@ body.legal-page .header {
   color: var(--white);
 }
 
-/* Placeholder frame inside .phone while a real screenshot is pending */
-.shot-placeholder {
-  width: 290px;
-  max-width: 100%;
-  aspect-ratio: 290 / 610;
-  border-radius: 35px;
-  background: #0F2038;
-  border: 2px dashed rgba(255, 255, 255, 0.3);
+/* ============================================
+   Step 5 fork - one step, two ways to shop.
+   Full-width heading, then two equal columns
+   mirroring the app's in-store / online choice.
+   ============================================ */
+.feature-fork .fork-head {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.feature-fork .step-eyebrow {
+  justify-content: center;
+}
+
+.feature-fork h2 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: var(--white);
+}
+
+.fork-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.fork-col {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  padding: 20px;
 }
 
-.shot-placeholder span {
-  margin-top: 6px;
-  font-size: 15px;
+.fork-col h3 {
+  font-size: 20px;
   font-weight: 700;
-  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 12px;
 }
+
+.fork-col p {
+  font-size: 17px;
+  color: var(--text-muted);
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+  max-width: 460px;
+  margin-bottom: 40px;
+}
+
+.fork-phone-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+}
+
+.fork-phone-wrapper .floating-el:nth-child(2) { top: 8%; left: -10px; }
+.fork-phone-wrapper .floating-el:nth-child(3) { bottom: 22%; right: -10px; }
 
 /* ============================================
    Pricing table (Free vs Premium)
@@ -773,6 +949,14 @@ body.legal-page .header {
   border-bottom: none;
   font-weight: 800;
   color: var(--white);
+}
+
+.pricing-note {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 620px;
+  margin: 20px auto 0;
 }
 
 /* ============================================
@@ -971,11 +1155,17 @@ body.legal-page .header {
 
   .feature-text h2,
   .compare-section h2,
+  .savings-section h2,
+  .feature-fork h2,
   .flow-intro h2,
   .pricing-section h2,
   .faq-section h2,
   .cta-inner h2 {
     font-size: 40px;
+  }
+
+  .fork-grid {
+    gap: 32px;
   }
 }
 
@@ -1068,6 +1258,8 @@ body.legal-page .header {
 
   .feature-text h2,
   .compare-section h2,
+  .savings-section h2,
+  .feature-fork h2,
   .flow-intro h2,
   .pricing-section h2,
   .faq-section h2,
@@ -1078,6 +1270,35 @@ body.legal-page .header {
   .feature-text p {
     max-width: 100%;
     margin: 0 auto;
+  }
+
+  /* Savings cards stack in source order, so the split card still lands last */
+  .savings-section {
+    padding: 80px 0;
+  }
+
+  .savings-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .lazy-tax-line {
+    margin-top: 32px;
+  }
+
+  /* Step 5 fork stacks; Smart Shop is first in source order */
+  .feature-fork .fork-head {
+    margin-bottom: 40px;
+  }
+
+  .fork-grid {
+    grid-template-columns: 1fr;
+    gap: 56px;
+  }
+
+  .fork-col p {
+    max-width: 100%;
+    margin-bottom: 32px;
   }
 
   /* Smaller floating elements on mobile */
@@ -1162,10 +1383,20 @@ body.legal-page .header {
 
   .feature-text h2,
   .compare-section h2,
+  .savings-section h2,
+  .feature-fork h2,
   .flow-intro h2,
   .pricing-section h2,
   .faq-section h2 {
     font-size: 29px;
+  }
+
+  .savings-card {
+    padding: 24px 18px;
+  }
+
+  .btn-inline-cta {
+    width: 100%;
   }
 
   .cta-inner h2 {
