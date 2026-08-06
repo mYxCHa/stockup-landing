@@ -518,6 +518,8 @@ body.legal-page .header {
   color: var(--white);
   max-width: 600px;
   margin: 40px auto 0;
+  /* one sentence, two lines - don't leave "tax." stranded on its own */
+  text-wrap: balance;
 }
 
 /* ============================================
@@ -865,11 +867,13 @@ body.legal-page .header {
   color: var(--white);
 }
 
+/* Columns stretch so the two phones bottom-align even when one column's
+   paragraph runs a line longer (see .fork-phone-wrapper's margin-top: auto). */
 .fork-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .fork-col {
@@ -896,10 +900,13 @@ body.legal-page .header {
   margin-bottom: 40px;
 }
 
+/* Full column width, not shrink-to-phone: the chips are positioned against
+   this box, and a 300px box would drop them on top of the screenshot. */
 .fork-phone-wrapper {
   position: relative;
   display: flex;
   justify-content: center;
+  width: 100%;
   margin-top: auto;
 }
 
