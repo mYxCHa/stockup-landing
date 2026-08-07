@@ -2,7 +2,7 @@
    StockUp Landing Page
    Palette (audit R6): navy #1B3A5C leads (header/
    hero/footer anchor, matches the app's primary);
-   blue #3B82F6 is the interactive accent only;
+   blue #2563EB is the interactive accent only;
    yellow #FFD814 is the shared savings highlight.
    ============================================ */
 
@@ -25,8 +25,12 @@
   --navy: #1B3A5C;
   --navy-deep: #14293F;
   --navy-raised: #24466B;
-  --blue: #3B82F6;
-  --blue-dark: #2563EB;
+  /* Both blues carry white text (buttons, Premium pills, the guide's step
+     numerals) and are never used as a text colour themselves. #3B82F6 gives
+     white only 3.68:1, which fails WCAG AA, so the interactive blue sits one
+     step down the ramp at 5.17:1 and hover goes deeper again. */
+  --blue: #2563EB;
+  --blue-dark: #1D4ED8;
   --accent: #7EB3FF; /* link tint readable on navy (legal pages use var(--accent) inline) */
   --yellow: #FFD814;
   --white: #FFFFFF;
@@ -253,6 +257,10 @@ body.legal-page .header {
 
 .store-badge img {
   height: 52px;
+  /* The width/height attributes on the <img> are there for CLS, but the width
+     one lands as a presentational hint - without this the badge renders
+     330x52 and looks stretched. */
+  width: auto;
   display: block;
 }
 
