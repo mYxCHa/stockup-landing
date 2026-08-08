@@ -60,8 +60,8 @@
         },
         "aggregateRating": {
           "@type": "AggregateRating",
-          "ratingValue": "5.0",
-          "ratingCount": "20"
+          "ratingValue": "4.9",
+          "ratingCount": "21"
         }
       },
       {
@@ -233,7 +233,7 @@
             <img src="/assets/google-play-badge.png" alt="Get it on Google Play" width="329" height="98">
           </a>
         </div>
-        <p class="micro-trust animate-slide-up delay-3">Free &middot; No sign-up required &middot; 5.0&#9733; rated</p>
+        <p class="micro-trust animate-slide-up delay-3">Free &middot; No sign-up required &middot; 4.9&#9733; rated</p>
       </div>
       <div class="hero-phone-wrapper animate-slide-up delay-2">
         <div class="phone">
@@ -251,7 +251,7 @@
   <section class="proof-bar" aria-label="Why shoppers trust StockUp">
     <div class="container proof-inner">
       <div class="proof-item"><span class="proof-stars" aria-hidden="true">&#9733;</span> 5.0 on the App Store</div>
-      <div class="proof-item"><span class="proof-stars" aria-hidden="true">&#9733;</span> 5.0 on Google Play</div>
+      <div class="proof-item"><span class="proof-stars" aria-hidden="true">&#9733;</span> 4.9 on Google Play</div>
       <div class="proof-item">30,000+ products, refreshed every Wednesday</div>
       <div class="proof-item">Made in Australia</div>
     </div>
@@ -459,6 +459,34 @@
     </div>
   </section>
 
+  <!-- Reviews. Verbatim from the stores - do not edit the quotes.
+       Deliberately NOT marked up as Review schema: self-selected review
+       markup on your own product is what Google treats as self-serving.
+       The aggregateRating in the graph already carries the signal. -->
+  <section class="reviews-section">
+    <div class="container reviews-inner">
+      <h2 class="animate-slide-up">What shoppers say</h2>
+      <p class="feature-subtitle animate-slide-up delay-1">Unedited reviews from the App Store and Google Play.</p>
+      <div class="review-cards animate-slide-up delay-2">
+        <figure class="review-card">
+          <div class="review-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>I'm quite happy with the way this app has been set up. It suits my purposes perfectly as it also shows the future specials on products the day before they change. Great way to keep track of all of your regular purchases and whether to purchase them from Coles or Woolworths.</blockquote>
+          <figcaption>KRC Ltd <span>App Store</span></figcaption>
+        </figure>
+        <figure class="review-card">
+          <div class="review-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>Finally! A price comparison app that is clean, super easy to use and convenient. I now use this weekly before doing my groceries. Highly recommend :)</blockquote>
+          <figcaption>Idelfin <span>App Store</span></figcaption>
+        </figure>
+        <figure class="review-card">
+          <div class="review-stars" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <blockquote>This app is amazing so far, replaces my half price app that I was using all this while. The Dark mode is so welcomed, my eyes are thanking the developer.</blockquote>
+          <figcaption>Malvin Ariyanto <span>Google Play</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
   <!-- Free vs Premium -->
   <section class="pricing-section" id="pricing">
     <div class="container">
@@ -617,7 +645,7 @@
       rootMargin: '0px 0px -60px 0px'
     });
 
-    document.querySelectorAll('.feature-section, .hero, .cta-section, .compare-section, .savings-section, .flow-intro, .pricing-section, .faq-section').forEach(el => {
+    document.querySelectorAll('.feature-section, .hero, .cta-section, .compare-section, .savings-section, .reviews-section, .flow-intro, .pricing-section, .faq-section').forEach(el => {
       observer.observe(el);
     });
 
