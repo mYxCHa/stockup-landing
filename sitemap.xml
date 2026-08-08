@@ -12,7 +12,11 @@
 
   Use clean paths - the .html forms 307-redirect to these.
 
-  OWNER: every page below materially changed in the v3.1.0 build, so all six
+  /grocery-price-comparison-australia is written but HELD from this release
+  (owner, 2026-08-09) - the file lives in docs/ and has never been deployed,
+  so there is nothing to redirect. Re-add this entry when it ships.
+
+  OWNER: every page below materially changed in the v3.1.0 build, so all five
   lastmod dates are the build date. Set them to the actual launch date before
   pushing if the deploy slips past it.
 -->
@@ -23,10 +27,6 @@
   </url>
   <url>
     <loc>https://stockup.au/how-stockup-gets-its-prices</loc>
-    <lastmod>2026-08-07</lastmod>
-  </url>
-  <url>
-    <loc>https://stockup.au/grocery-price-comparison-australia</loc>
     <lastmod>2026-08-07</lastmod>
   </url>
   <url>

@@ -89,6 +89,13 @@ a {
   padding: 0 32px;
 }
 
+/* The header is fixed at 72px, so an anchor jump would otherwise park the
+   section heading underneath it. Applies to #features, #pricing, #faq and
+   #download. */
+section[id] {
+  scroll-margin-top: 88px;
+}
+
 /* ============================================
    Header
    ============================================ */
