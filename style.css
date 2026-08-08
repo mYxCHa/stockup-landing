@@ -337,29 +337,41 @@ body.legal-page .header {
   display: inline-block;
 }
 
+/* ⚠️ The hero QR markup is currently REMOVED from index.html (owner call,
+   2026-08-08). These two blocks are kept so restoring it is a single paste of
+   the .hero-actions wrapper back around .store-badges. assets/qr-get-v31.svg
+   is still in the tree and /get still works for campaign links. */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
 /* Desktop-only shortcut: scan the code and the app lands on the phone that
    will actually use it. Hidden at ≤1024px, where the badges are one tap away.
-   Navy modules on white scan fine (≈10:1) and keep the palette. */
+   Navy modules on white scan fine (≈10:1) and keep the palette. 120px is the
+   floor - smaller and older phone cameras start missing it. */
 .hero-qr {
   display: inline-flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  margin-top: 24px;
-  padding: 12px;
+  gap: 6px;
+  padding: 10px;
   background: var(--white);
-  border-radius: 16px;
+  border-radius: 14px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
 .hero-qr img {
   display: block;
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
 }
 
 .hero-qr span {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--navy);
   letter-spacing: -0.01em;
@@ -398,8 +410,10 @@ body.legal-page .header {
 /* ============================================
    Compare section ("Same product. Two prices.")
    ============================================ */
+/* The lazy-tax line and the savings section make one argument, so the gap
+   between them stays tight rather than the full section rhythm. */
 .compare-section {
-  padding: 140px 0 120px;
+  padding: 96px 0 80px;
   text-align: center;
 }
 
@@ -833,6 +847,10 @@ body.legal-page .header {
   margin-bottom: 14px;
 }
 
+/* Tier pills were removed from the step eyebrows: labelling features Free or
+   Premium mid-flow priced the product before the reader had seen its value.
+   The Free vs Premium table immediately after step 6 does that job instead.
+   Classes kept - nothing renders them today, but the table may want them. */
 .tier-pill {
   display: inline-block;
   font-size: 11px;

@@ -49,8 +49,9 @@ No sign-up is required - the app opens straight into price comparison.
 ## What StockUp is not
 
 - Not a coupon, voucher, points, or cashback app.
-- Does not cover ALDI (it does not publish prices) or IGA (pricing varies
-  store to store).
+- Does not cover IGA (stores are independently owned, so prices differ store
+  to store) or ALDI (it does not publish prices online, and most of its range
+  is ALDI's own brands, so there is little to compare like-for-like).
 - Australia only; iOS and Android only; there is no web app.
 - Never places orders and never sees retailer passwords.
 - Not affiliated with Coles or Woolworths.
