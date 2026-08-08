@@ -669,19 +669,36 @@ body.legal-page .header {
    ============================================ */
 .floating-el {
   position: absolute;
-  padding: 10px 20px;
+  padding: 9px 16px;
   background: var(--white);
-  color: #111;
-  font-size: 14px;
+  color: var(--navy-deep);
+  font-size: 13px;
   font-weight: 700;
+  line-height: 1.35;
   border-radius: 100px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.28);
+  /* pills stay on one line - wrapped ones round into blobs */
   white-space: nowrap;
   opacity: 0;
   transform: scale(0.5);
   transition: opacity 0.6s ease, transform 0.6s ease;
   z-index: 3;
   letter-spacing: -0.01em;
+}
+
+/* Chips sit BESIDE the phone, not on it. The phone is 300px wide and centred
+   in its column, so 138px from the centre line puts a chip's inner edge on
+   the bezel - close enough to point at a row, clear of the screenshot's
+   content. Vertical position is set per chip inline, aligned to the row it
+   describes. */
+.floating-el.chip-left {
+  right: calc(50% + 132px);
+  left: auto;
+}
+
+.floating-el.chip-right {
+  left: calc(50% + 132px);
+  right: auto;
 }
 
 .tag-icon {
@@ -701,12 +718,6 @@ body.legal-page .header {
   50% { transform: scale(1) translateY(-7px); }
 }
 
-/* Hero floating positions - outside the phone */
-.hero-phone-wrapper .float-1 { top: 5%; left: -160px; }
-.hero-phone-wrapper .float-2 { top: 40%; left: -150px; }
-.hero-phone-wrapper .float-3 { bottom: 10%; left: -140px; }
-.hero-phone-wrapper .float-4 { top: 10%; right: -160px; }
-.hero-phone-wrapper .float-5 { top: 45%; right: -140px; }
 
 /* Colored bubble variants */
 .bubble-red {
@@ -730,8 +741,8 @@ body.legal-page .header {
 }
 
 .bubble-accent {
-  background: var(--blue) !important;
-  color: var(--white) !important;
+  background: var(--accent) !important;
+  color: var(--navy-deep) !important;
 }
 
 .bubble-star {
@@ -808,13 +819,6 @@ body.legal-page .header {
   order: -1;
 }
 
-/* Feature section floating positions - kept around the phone, not off-screen */
-.feature-phone-wrapper .floating-el:nth-child(2) { top: 8%; left: -10px; }
-.feature-phone-wrapper .floating-el:nth-child(3) { bottom: 22%; right: -10px; }
-
-/* Reverse sections - mirror the floats */
-.feature-section.reverse .feature-phone-wrapper .floating-el:nth-child(2) { left: auto; right: -10px; }
-.feature-section.reverse .feature-phone-wrapper .floating-el:nth-child(3) { right: auto; left: -10px; }
 
 .feature-subtitle {
   font-size: 17px;
@@ -947,8 +951,7 @@ body.legal-page .header {
   margin-top: auto;
 }
 
-.fork-phone-wrapper .floating-el:nth-child(2) { top: 8%; left: -10px; }
-.fork-phone-wrapper .floating-el:nth-child(3) { bottom: 22%; right: -10px; }
+
 
 /* ============================================
    Pricing table (Free vs Premium)
@@ -1243,6 +1246,18 @@ body.legal-page .header {
   .hero-qr {
     display: none;
   }
+
+  /* Not enough room beside the phone at this width - chips return to the
+     wrapper edges and overlap the bezel. */
+  .floating-el.chip-left {
+    right: auto;
+    left: 0;
+  }
+
+  .floating-el.chip-right {
+    left: auto;
+    right: 0;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1380,22 +1395,11 @@ body.legal-page .header {
   /* Smaller floating elements on mobile */
   .floating-el {
     font-size: 11px;
-    padding: 7px 14px;
+    padding: 6px 12px;
   }
 
-  /* Hero floats - edge to edge, phone centered */
   .hero-phone-wrapper { width: 100%; display: flex; justify-content: center; }
-  .hero-phone-wrapper .float-1 { left: 0; top: 5%; }
-  .hero-phone-wrapper .float-2 { left: -10px; }
-  .hero-phone-wrapper .float-3 { left: 0; }
-  .hero-phone-wrapper .float-4 { right: 0; }
-  .hero-phone-wrapper .float-5 { right: -10px; }
 
-  /* Feature section floats */
-  .feature-phone-wrapper .floating-el:nth-child(2) { left: -10px; }
-  .feature-phone-wrapper .floating-el:nth-child(3) { right: -10px; }
-  .feature-section.reverse .feature-phone-wrapper .floating-el:nth-child(2) { right: -10px; left: auto; }
-  .feature-section.reverse .feature-phone-wrapper .floating-el:nth-child(3) { left: -10px; right: auto; }
 
   /* Flow intro + pricing + FAQ */
   .flow-intro,
