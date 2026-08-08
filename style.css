@@ -37,6 +37,12 @@
   --text-muted: rgba(255, 255, 255, 0.75);
   --coles-red: #E50016;
   --woolworths-green: #129C4F;
+  /* Light retailer tints, readable ON navy - these were already inline in the
+     compare card and are now shared with the floating chips. The full-strength
+     brand colours are unusable for chip text: white on --woolworths-green is
+     only 3.56:1 and the fill itself is 2.40:1 against the navy canvas. */
+  --coles-tint: #FF8A8A;
+  --woolies-tint: #6FE09A;
 }
 
 /* Reset */
@@ -496,8 +502,8 @@ body.legal-page .header {
   letter-spacing: 0.06em;
 }
 
-.compare-coles .compare-retailer { color: #FF8A8A; }
-.compare-woolies .compare-retailer { color: #6FE09A; }
+.compare-coles .compare-retailer { color: var(--coles-tint); }
+.compare-woolies .compare-retailer { color: var(--woolies-tint); }
 
 .compare-price {
   font-size: 34px;
@@ -670,7 +676,9 @@ body.legal-page .header {
 .floating-el {
   position: absolute;
   padding: 9px 16px;
-  background: var(--white);
+  /* Every chip carries a colour - the base is the blue tint rather than white,
+     so a chip added without a bubble-* class still reads against the canvas. */
+  background: var(--accent);
   color: var(--navy-deep);
   font-size: 13px;
   font-weight: 700;
@@ -721,18 +729,18 @@ body.legal-page .header {
 
 /* Colored bubble variants */
 .bubble-red {
-  background: var(--coles-red) !important;
-  color: var(--white) !important;
+  background: var(--coles-tint) !important;
+  color: var(--navy-deep) !important;
 }
 
 .bubble-green {
-  background: var(--woolworths-green) !important;
-  color: var(--white) !important;
+  background: var(--woolies-tint) !important;
+  color: var(--navy-deep) !important;
 }
 
 .bubble-yellow {
   background: var(--yellow) !important;
-  color: #111 !important;
+  color: var(--navy-deep) !important;
 }
 
 .bubble-orange {
