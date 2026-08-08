@@ -189,7 +189,7 @@
 
   <link rel="preload" href="/assets/fonts/inter-latin-var-v31.woff2" as="font" type="font/woff2" crossorigin>
   <!-- The hero screenshot is the LCP element; start it before the CSS resolves. -->
-  <link rel="preload" href="/assets/home-screen-v31.png" as="image" fetchpriority="high">
+  <link rel="preload" href="/assets/home-screen-v31.webp" as="image" fetchpriority="high">
   <link rel="stylesheet" href="/style.css">
 
   <!-- OWNER: replace with real Cloudflare Web Analytics token before launch -->
@@ -236,7 +236,7 @@
       </div>
       <div class="hero-phone-wrapper animate-slide-up delay-2">
         <div class="phone">
-          <img src="/assets/home-screen-v31.png" alt="StockUp Home screen showing this week's half-price specials at Coles and Woolworths, with tabs for Home, List, Products, Cart and Profile" width="600" height="1298" loading="eager" fetchpriority="high">
+          <img src="/assets/home-screen-v31.webp" alt="StockUp Home screen showing this week's half-price specials at Coles and Woolworths, with tabs for Home, List, Products, Cart and Profile" width="600" height="1298" loading="eager" fetchpriority="high">
         </div>
         <div class="floating-el float-1" aria-hidden="true">🔔 Price alerts</div>
         <div class="floating-el float-2" aria-hidden="true">🏷️ Half price</div>
@@ -265,7 +265,7 @@
         StockUp compares Coles and Woolworths side-by-side for thousands
         of groceries - so you always know where it's cheaper this week.
       </p>
-      <div class="compare-card animate-slide-up delay-2" role="img" aria-label="Example price comparison: Weet-Bix Breakfast Cereal 575 grams costs $5.00 at Coles and $2.50 at Woolworths, half price this week. You save $2.50.">
+      <div class="compare-card animate-slide-up delay-2" role="img" aria-label="Example price comparison: Weet-Bix Breakfast Cereal 575 grams costs $2.50 at Coles, half price this week, and $5.00 at Woolworths. You save $2.50.">
         <div class="compare-product">
           <span class="compare-emoji" aria-hidden="true">🥣</span>
           <span class="compare-name">Weet-Bix Breakfast Cereal 575g</span>
@@ -273,13 +273,13 @@
         <div class="compare-prices">
           <div class="compare-tag compare-coles">
             <span class="compare-retailer">Coles</span>
-            <span class="compare-price">$5.00</span>
-          </div>
-          <div class="compare-vs" aria-hidden="true">vs</div>
-          <div class="compare-tag compare-woolies">
-            <span class="compare-retailer">Woolworths</span>
             <span class="compare-price">$2.50</span>
             <span class="compare-special">½ price</span>
+          </div>
+          <div class="compare-vs" aria-hidden="true">vs</div>
+          <div class="compare-tag compare-woolies is-dearer">
+            <span class="compare-retailer">Woolworths</span>
+            <span class="compare-price">$5.00</span>
           </div>
         </div>
         <div class="compare-save">You save $2.50</div>
@@ -317,7 +317,6 @@
       </div>
       <p class="savings-footnote animate-slide-up delay-3">
         Illustrative basket built from a real week of half-price cycles.
-        The saving is measured against the cheaper of the two single-store shops.
         <a href="/how-stockup-gets-its-prices">How we get our prices &rarr;</a>
       </p>
       <div class="savings-cta animate-slide-up delay-3">
@@ -344,7 +343,7 @@
       </div>
       <div class="feature-phone-wrapper animate-slide-right">
         <div class="phone">
-          <img src="/assets/search-compare-v31.png" alt="StockUp product page for Weet-Bix Breakfast Cereal showing the Coles and Woolworths prices side by side, with per-unit pricing and the cheaper store marked Best Price" width="600" height="1298" loading="lazy">
+          <img src="/assets/search-compare-v31.webp" alt="StockUp product page for Weet-Bix Breakfast Cereal showing the Coles and Woolworths prices side by side, with per-unit pricing and the cheaper store marked Best Price" width="600" height="1298" loading="lazy">
         </div>
         <div class="floating-el bubble-yellow" aria-hidden="true">💰 Save $2.50</div>
         <div class="floating-el" aria-hidden="true">🔍 Scan any barcode</div>
@@ -363,7 +362,7 @@
       </div>
       <div class="feature-phone-wrapper animate-slide-left">
         <div class="phone">
-          <img src="/assets/product-details-v31.png" alt="StockUp product page with a price history chart and a Price Intelligence buy-now-or-wait recommendation" width="600" height="1298" loading="lazy">
+          <img src="/assets/product-details-v31.webp" alt="StockUp product page with a price history chart and a Price Intelligence buy-now-or-wait recommendation" width="600" height="1298" loading="lazy">
         </div>
         <div class="floating-el bubble-accent" aria-hidden="true">📊 Usually $8.50</div>
         <div class="floating-el" aria-hidden="true">🧠 Wait - drops soon</div>
@@ -381,7 +380,7 @@
       </div>
       <div class="feature-phone-wrapper animate-slide-right">
         <div class="phone">
-          <img src="/assets/list-tab-v31.png" alt="StockUp List tab with a Specials section showing saved products currently discounted, and a Watching section below it" width="600" height="1298" loading="lazy">
+          <img src="/assets/list-tab-v31.webp" alt="StockUp List tab with a Specials section showing saved products currently discounted, and a Watching section below it" width="600" height="1298" loading="lazy">
         </div>
         <div class="floating-el bubble-yellow" aria-hidden="true">📉 Dropped to $5.00</div>
         <div class="floating-el" aria-hidden="true">🔔 Alert me at $6</div>
@@ -399,7 +398,7 @@
       </div>
       <div class="feature-phone-wrapper animate-slide-left">
         <div class="phone">
-          <img src="/assets/cart-tab-v31.png" alt="StockUp Cart split between Coles and Woolworths with category sections and a savings total" width="600" height="1298" loading="lazy">
+          <img src="/assets/cart-tab-v31.webp" alt="StockUp Cart split between Coles and Woolworths with category sections and a savings total" width="600" height="1298" loading="lazy">
         </div>
         <div class="floating-el bubble-yellow" aria-hidden="true">💰 Saving $21.10</div>
         <div class="floating-el bubble-green" aria-hidden="true">✅ Sorted by category</div>
@@ -420,7 +419,7 @@
           <p>Tell StockUp which store you're in, or heading to, and it pulls that store's live prices and stock. Your shop becomes a checklist you tick off as you go - so you'll know the special is in stock before you make the trip.</p>
           <div class="fork-phone-wrapper">
             <div class="phone">
-              <img src="/assets/smart-shop-v31.png" alt="Smart Shop checklist showing live shelf prices and stock for the selected store, with a shop progress bar" width="600" height="1298" loading="lazy">
+              <img src="/assets/smart-shop-v31.webp" alt="Smart Shop checklist showing live shelf prices and stock for the selected store, with a shop progress bar" width="600" height="1298" loading="lazy">
             </div>
             <div class="floating-el bubble-accent" aria-hidden="true">🏪 Shopping at Coles</div>
             <div class="floating-el bubble-green" aria-hidden="true">🟢 In stock &middot; $4.50 here</div>
@@ -431,7 +430,7 @@
           <p>Send your Cart straight into your real Coles or Woolworths trolley - every item at the store where it's cheaper. You review and check out as normal, in your own account. StockUp never sees your password and never places orders.</p>
           <div class="fork-phone-wrapper">
             <div class="phone">
-              <img src="/assets/quick-cart-v31.png" alt="Quick Cart confirmation reading All 10 items added, over the Coles collection-slot screen" width="600" height="1298" loading="lazy">
+              <img src="/assets/quick-cart-v31.webp" alt="Quick Cart confirmation reading All 10 items added, over the Coles collection-slot screen" width="600" height="1298" loading="lazy">
             </div>
             <div class="floating-el" aria-hidden="true">🛒 Sent to trolley</div>
           </div>
@@ -450,7 +449,7 @@
       </div>
       <div class="feature-phone-wrapper animate-slide-right">
         <div class="phone">
-          <img src="/assets/past-purchases-v31.png" alt="Past Purchases savings ledger totalling savings across previous shops" width="600" height="1298" loading="lazy">
+          <img src="/assets/past-purchases-v31.webp" alt="Past Purchases savings ledger totalling savings across previous shops" width="600" height="1298" loading="lazy">
         </div>
         <div class="floating-el bubble-yellow" aria-hidden="true">💰 $236.97 saved</div>
       </div>

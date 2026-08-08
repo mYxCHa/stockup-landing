@@ -496,10 +496,12 @@ body.legal-page .header {
   letter-spacing: -0.03em;
 }
 
-.compare-coles .compare-price {
+/* The strike marks the DEARER price, whichever chain that happens to be -
+   it used to be welded to .compare-coles, which broke the moment Coles won. */
+.compare-tag.is-dearer .compare-price {
   text-decoration: line-through;
   text-decoration-thickness: 3px;
-  text-decoration-color: rgba(255, 138, 138, 0.8);
+  text-decoration-color: rgba(255, 255, 255, 0.45);
   color: var(--text-muted);
 }
 
