@@ -1,3 +1,8 @@
 node_modules/
 .wrangler/
 .DS_Store
+
+# Internal planning docs. Cloudflare Pages serves this repo's root verbatim,
+# so committing these would publish the strategy, competitor analysis and
+# pricing rationale at stockup.au/docs/*.md. Keep them local.
+docs/
