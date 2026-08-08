@@ -233,6 +233,15 @@ body.legal-page .header {
   z-index: 2;
 }
 
+/* The decorative notch sits over the top ~29px of the screenshot, which is
+   fine everywhere except the Price Intelligence capture, where the app's
+   own title renders inline with the status bar and lands underneath it.
+   ⚠️ This is a workaround: the real fix is the safe-area top inset in the
+   app, after which this class can come off and the capture be retaken. */
+.phone.no-notch::before {
+  display: none;
+}
+
 .phone img {
   width: 100%;
   display: block;
