@@ -192,8 +192,9 @@
   <link rel="preload" href="/assets/home-screen-v31.webp" as="image" fetchpriority="high">
   <link rel="stylesheet" href="/style.css">
 
-  <!-- OWNER: replace with real Cloudflare Web Analytics token before launch -->
-  <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "CF_ANALYTICS_TOKEN"}'></script>
+  <!-- Web Analytics is injected at the edge by Cloudflare (Analytics & Logs >
+       Web Analytics > Manage site > RUM enabled). Do NOT add the beacon here
+       as well - it would double-count every pageview. -->
 </head>
 <body>
 
