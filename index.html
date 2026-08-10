@@ -295,75 +295,90 @@
   <!-- Six screens in a 3x2 numbered grid. -->
   <section class="steps">
     <div class="container">
-      <div class="steps-grid">
-
-        <div class="step-card animate-slide-up">
-          <div class="step-visual">
-            <span class="step-num">01</span>
-            <div class="phone">
-              <img src="/assets/specials-v32.webp" alt="StockUp half-price specials screen with products and their Coles and Woolworths prices side by side" width="600" height="1298" loading="lazy">
-            </div>
-          </div>
-          <h3>Compare prices side-by-side</h3>
-          <p>Browse this week's half-price specials or search any product, and see the Coles and Woolworths price side by side.</p>
+      <!-- Step 1: Browse -->
+      <div class="stage animate-slide-up">
+        <div class="stage-head">
+          <h3><span class="stage-num">1</span>Browse</h3>
+          <p>Explore this week's half-price specials, and get told the moment the things you buy go on sale.</p>
         </div>
-
-        <div class="step-card animate-slide-up delay-1">
-          <div class="step-visual">
-            <span class="step-num">02</span>
-            <div class="phone">
-              <img src="/assets/price-alert-v32.webp" alt="StockUp price alert sheet with options for any special, a set percentage off, or a set price, at Coles, Woolworths or both" width="600" height="1298" loading="lazy">
+        <div class="stage-screens">
+          <div class="step-card">
+            <div class="step-visual">
+              <span class="step-num">01</span>
+              <div class="phone">
+                <img src="/assets/specials-v32.webp" alt="StockUp half-price specials screen with products and their Coles and Woolworths prices side by side" width="600" height="1298" loading="lazy">
+              </div>
             </div>
+            <p class="step-label">Half-price specials</p>
           </div>
-          <h3>Save it, get told when it drops</h3>
-          <p>Add products to your List and set the alert your way - any special, a set % off, or a price you name.</p>
-        </div>
-
-        <div class="step-card animate-slide-up delay-2">
-          <div class="step-visual">
-            <span class="step-num">03</span>
-            <div class="phone no-notch">
-              <img src="/assets/product-details-v31.webp" alt="StockUp Price Intelligence screen with a price history chart and a buy-now-or-wait recommendation" width="600" height="1298" loading="lazy">
+          <div class="step-card">
+            <div class="step-visual">
+              <span class="step-num">02</span>
+              <div class="phone">
+                <img src="/assets/price-alert-v32.webp" alt="StockUp price alert sheet with options for any special, a set percentage off, or a set price, at Coles, Woolworths or both" width="600" height="1298" loading="lazy">
+              </div>
             </div>
+            <p class="step-label">Price alerts</p>
           </div>
-          <h3>Know when to buy</h3>
-          <p>Price History and Price Intelligence read each product's sale pattern and tell you straight: buy now, or wait.</p>
         </div>
-
-        <div class="step-card animate-slide-up">
-          <div class="step-visual">
-            <span class="step-num">04</span>
-            <div class="phone">
-              <img src="/assets/cart-tab-v32.webp" alt="StockUp Cart showing the whole shop priced at each store beside the cheaper split across both" width="600" height="1298" loading="lazy">
-            </div>
-          </div>
-          <h3>One Cart, split by cheapest</h3>
-          <p>Add your weekly shop and StockUp splits it across both stores, buying each item where it's cheapest.</p>
-        </div>
-
-        <div class="step-card animate-slide-up delay-1">
-          <div class="step-visual">
-            <span class="step-num">05a</span>
-            <div class="phone">
-              <img src="/assets/smart-shop-v32.webp" alt="Smart Shop checklist with live shelf prices and stock, one item marked out of stock, and a running trolley total" width="600" height="1298" loading="lazy">
-            </div>
-          </div>
-          <h3>Smart Shop in the aisle</h3>
-          <p>Pick the store you're in and get its live prices and stock as a checklist you tick off as you go.</p>
-        </div>
-
-        <div class="step-card animate-slide-up delay-2">
-          <div class="step-visual">
-            <span class="step-num">05b</span>
-            <div class="phone">
-              <img src="/assets/quick-cart-v31.webp" alt="StockUp Cart with a Quick Cart progress dialog reading Adding to your Coles trolley" width="600" height="1298" loading="lazy">
-            </div>
-          </div>
-          <h3>Quick Cart from the couch</h3>
-          <p>Send your Cart to your real Coles or Woolworths trolley, each item at the cheaper store.</p>
-        </div>
-
       </div>
+
+      <!-- Step 2: Compare -->
+      <div class="stage animate-slide-up">
+        <div class="stage-head">
+          <h3><span class="stage-num">2</span>Compare</h3>
+          <p>See each product's price history, then let StockUp split your whole shop by the cheaper store.</p>
+        </div>
+        <div class="stage-screens">
+          <div class="step-card">
+            <div class="step-visual">
+              <span class="step-num">03</span>
+              <div class="phone no-notch">
+                <img src="/assets/product-details-v31.webp" alt="StockUp Price Intelligence screen with a price history chart and a buy-now-or-wait recommendation" width="600" height="1298" loading="lazy">
+              </div>
+            </div>
+            <p class="step-label">Price Intelligence</p>
+          </div>
+          <div class="step-card">
+            <div class="step-visual">
+              <span class="step-num">04</span>
+              <div class="phone">
+                <img src="/assets/cart-tab-v32.webp" alt="StockUp Cart showing the whole shop priced at each store beside the cheaper split across both" width="600" height="1298" loading="lazy">
+              </div>
+            </div>
+            <p class="step-label">Cart split by cheapest</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Shop -->
+      <div class="stage animate-slide-up">
+        <div class="stage-head">
+          <h3><span class="stage-num">3</span>Shop</h3>
+          <p>Check out the way that suits you - live in the aisle, or straight to your online trolley.</p>
+        </div>
+        <div class="stage-screens">
+          <div class="step-card">
+            <div class="step-visual">
+              <span class="step-num">05a</span>
+              <div class="phone">
+                <img src="/assets/smart-shop-v32.webp" alt="Smart Shop checklist with live shelf prices and stock, one item marked out of stock, and a running trolley total" width="600" height="1298" loading="lazy">
+              </div>
+            </div>
+            <p class="step-label">Smart Shop, in-store</p>
+          </div>
+          <div class="step-card">
+            <div class="step-visual">
+              <span class="step-num">05b</span>
+              <div class="phone">
+                <img src="/assets/quick-cart-v31.webp" alt="StockUp Cart with a Quick Cart progress dialog reading Adding to your Coles trolley" width="600" height="1298" loading="lazy">
+              </div>
+            </div>
+            <p class="step-label">Quick Cart, online</p>
+          </div>
+        </div>
+      </div>
+
       <div class="steps-cta animate-slide-up">
         <a href="#download" class="btn-inline-cta">Get StockUp free</a>
       </div>
