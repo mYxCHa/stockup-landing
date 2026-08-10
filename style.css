@@ -316,21 +316,49 @@ body.legal-page .header {
    ============================================ */
 .hero {
   padding: 160px 0 80px;
-  text-align: center;
   min-height: 100vh;
   display: flex;
   align-items: center;
 }
 
+/* Two columns on desktop: message left, product right (Erly-style).
+   Both tracks size to content and centre as a pair, so the phone sits
+   close to the copy instead of stranded at the far edge. */
 .hero-inner {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: minmax(auto, 560px) auto;
+  justify-content: center;
+  gap: 72px;
   align-items: center;
   width: 100%;
 }
 
 .hero-content {
-  margin-bottom: 64px;
+  text-align: left;
+}
+
+/* Social-proof pill above the headline - subtle, supports rather than competes. */
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.04);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: -0.01em;
+  margin-bottom: 24px;
+}
+
+.hero-eyebrow strong { color: var(--white); font-weight: 800; }
+
+.hero-stars {
+  color: var(--yellow);
+  font-size: 13px;
+  letter-spacing: 1px;
 }
 
 .hero h1 {
@@ -347,16 +375,26 @@ body.legal-page .header {
   font-size: 18px;
   color: var(--text-muted);
   line-height: 1.7;
-  margin-bottom: 40px;
-  max-width: 560px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 0 32px;
+  max-width: 500px;
   letter-spacing: -0.01em;
+}
+
+.hero-cta {
+  margin-bottom: 24px;
+}
+
+.hero .store-badges {
+  justify-content: flex-start;
+}
+
+.hero .micro-trust {
+  text-align: left;
 }
 
 .hero-phone-wrapper {
   position: relative;
-  display: inline-block;
+  justify-self: center;
 }
 
 /* ⚠️ The hero QR markup is currently REMOVED from index.html (owner call,
@@ -429,39 +467,57 @@ body.legal-page .header {
   color: var(--yellow);
 }
 
+
 /* ============================================
-   Compare section ("Same product. Two prices.")
+   Proof section: one-item gap + whole-shop payoff,
+   two illustrative cards side by side (short scroll).
    ============================================ */
-/* The lazy-tax line and the savings section make one argument, so the gap
-   between them stays tight rather than the full section rhythm. */
-.compare-section {
-  padding: 96px 0 80px;
-  text-align: center;
+.proof-section {
+  padding: 96px 0 100px;
 }
 
-.compare-inner {
+.proof-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+}
+
+.proof-col {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
-.compare-section h2 {
-  font-size: 56px;
+.proof-col h2 {
+  font-size: 32px;
   font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.04em;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   color: var(--white);
-  margin-bottom: 16px;
+  margin-bottom: 28px;
+  text-wrap: balance;
 }
 
+/* The card fills the column and both columns match height. */
+.proof-col .compare-card,
+.proof-col .receipt-card {
+  flex: 1;
+}
+
+/* Compare card (illustrative) */
 .compare-card {
   background: var(--navy-raised);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 24px;
-  padding: 40px 48px;
-  max-width: 560px;
+  padding: 36px 40px;
   width: 100%;
+  max-width: 480px;
   box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .compare-product {
@@ -472,12 +528,10 @@ body.legal-page .header {
   margin-bottom: 28px;
 }
 
-.compare-emoji {
-  font-size: 28px;
-}
+.compare-emoji { font-size: 28px; }
 
 .compare-name {
-  font-size: 20px;
+  font-size: 19px;
   font-weight: 700;
   letter-spacing: -0.02em;
 }
@@ -486,7 +540,7 @@ body.legal-page .header {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 16px;
   margin-bottom: 28px;
 }
 
@@ -496,10 +550,12 @@ body.legal-page .header {
   flex-direction: column;
   align-items: center;
   gap: 4px;
-  padding: 18px 28px;
+  padding: 18px 24px;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.06);
-  min-width: 150px;
+  /* Both boxes share the row equally, so "Woolworths" doesn't widen its tag. */
+  flex: 1 1 0;
+  min-width: 0;
 }
 
 .compare-retailer {
@@ -513,13 +569,12 @@ body.legal-page .header {
 .compare-woolies .compare-retailer { color: var(--woolies-tint); }
 
 .compare-price {
-  font-size: 34px;
+  font-size: 32px;
   font-weight: 800;
   letter-spacing: -0.03em;
 }
 
-/* The strike marks the DEARER price, whichever chain that happens to be -
-   it used to be welded to .compare-coles, which broke the moment Coles won. */
+/* The strike marks the DEARER price, whichever chain that happens to be. */
 .compare-tag.is-dearer .compare-price {
   text-decoration: line-through;
   text-decoration-thickness: 3px;
@@ -547,7 +602,9 @@ body.legal-page .header {
 }
 
 .compare-save {
-  display: inline-block;
+  display: block;
+  width: 100%;
+  text-align: center;
   background: var(--yellow);
   color: #111;
   font-size: 16px;
@@ -557,124 +614,88 @@ body.legal-page .header {
   letter-spacing: -0.01em;
 }
 
-.lazy-tax-line {
-  font-size: 17px;
-  line-height: 1.7;
-  letter-spacing: -0.01em;
-  color: var(--white);
-  max-width: 600px;
-  margin: 40px auto 0;
-  /* one sentence, two lines - don't leave "tax." stranded on its own */
-  text-wrap: balance;
-}
-
-/* ============================================
-   Savings example ("The same weekly shop, three ways")
-   Three receipt cards; the split card is the reveal
-   and is the only one that carries the yellow.
-   ============================================ */
-.savings-section {
-  padding: 120px 0;
-  text-align: center;
-}
-
-.savings-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.savings-section h2 {
-  font-size: 48px;
-  font-weight: 800;
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-  margin-bottom: 16px;
-}
-
-.savings-section .feature-subtitle {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.savings-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  width: 100%;
-  max-width: 900px;
-  align-items: stretch;
-}
-
-.savings-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 6px;
-  padding: 32px 24px;
+/* Receipt card (illustrative whole-shop total) */
+.receipt-card {
   background: var(--navy-raised);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 20px;
+  border-radius: 24px;
+  padding: 28px 36px;
+  width: 100%;
+  max-width: 480px;
   box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.35);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.savings-card.split {
-  border: 2px solid var(--yellow);
+.receipt-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 11px 0;
 }
 
-.savings-label {
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+.receipt-label {
+  font-size: 16px;
+  font-weight: 600;
   color: var(--text-muted);
 }
 
-.savings-total {
-  font-size: 34px;
+.receipt-value {
+  font-size: 24px;
   font-weight: 800;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   color: var(--white);
 }
 
-/* Navy on yellow ≈ 9:1 - the tier/savings colour never carries text alone. */
-.savings-badge {
+.receipt-split {
+  margin-top: 6px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.receipt-split .receipt-label { color: var(--white); font-weight: 700; }
+.receipt-split .receipt-value { color: var(--yellow); }
+
+/* Navy on yellow ≈ 9:1 - the savings colour never carries text alone. */
+.receipt-badge {
+  align-self: flex-end;
+  margin-top: 8px;
   background: var(--yellow);
   color: var(--navy-deep);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
-  padding: 4px 12px;
+  padding: 5px 14px;
   border-radius: 100px;
   letter-spacing: -0.01em;
 }
 
-.savings-caption {
+.receipt-caption {
+  margin-top: 16px;
   font-size: 13px;
-  font-weight: 500;
   color: var(--text-muted);
-  letter-spacing: -0.01em;
 }
 
-.savings-footnote {
+.proof-note {
   font-size: 14px;
   line-height: 1.7;
   color: var(--text-muted);
+  text-align: center;
   max-width: 620px;
-  margin: 28px auto 32px;
+  margin: 40px auto 0;
 }
 
-.savings-footnote a {
+.proof-note a {
   color: var(--accent);
   text-decoration: underline;
   white-space: nowrap;
 }
 
-/* The reveal rides the wrapper, not the button - same pattern as
-   .store-badges - so the button keeps its own fast hover transition. */
-.savings-cta {
+.proof-cta {
   width: 100%;
+  text-align: center;
+  margin-top: 28px;
 }
 
 /* ============================================
@@ -1318,14 +1339,49 @@ body.legal-page .header {
 /* ============================================
    Responsive
    ============================================ */
+/* Desktop only: give the hero product visual real presence. */
+@media (min-width: 1025px) {
+  .hero .phone {
+    width: 360px;
+  }
+}
+
 @media (max-width: 1024px) {
   .feature-inner {
     gap: 32px;
   }
 
+  /* Hero stacks and re-centres below the two-column breakpoint. */
+  .hero {
+    min-height: auto;
+    padding: 130px 0 64px;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 48px;
+  }
+
+  .hero-content {
+    text-align: center;
+    max-width: 640px;
+  }
+
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero .store-badges {
+    justify-content: center;
+  }
+
+  .hero .micro-trust {
+    text-align: center;
+  }
+
   .feature-text h2,
-  .compare-section h2,
-  .savings-section h2,
   .reviews-section h2,
   .feature-fork h2,
   .flow-intro h2,
@@ -1382,10 +1438,6 @@ body.legal-page .header {
     font-size: 16px;
   }
 
-  .hero-content {
-    margin-bottom: 48px;
-  }
-
   .phone {
     width: 240px;
     border-radius: 36px;
@@ -1406,26 +1458,19 @@ body.legal-page .header {
     gap: 16px 28px;
   }
 
-  /* Compare card */
-  .compare-section {
-    padding: 80px 0;
+  /* Proof section: stack the two cards */
+  .proof-section {
+    padding: 72px 0 80px;
   }
 
-  .compare-card {
-    padding: 28px 20px;
+  .proof-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
   }
 
-  .compare-prices {
-    gap: 10px;
-  }
-
-  .compare-tag {
-    min-width: 120px;
-    padding: 14px 16px;
-  }
-
-  .compare-price {
-    font-size: 26px;
+  .proof-col h2 {
+    font-size: 28px;
+    margin-bottom: 24px;
   }
 
   /* Stack feature sections */
@@ -1444,8 +1489,6 @@ body.legal-page .header {
   }
 
   .feature-text h2,
-  .compare-section h2,
-  .savings-section h2,
   .reviews-section h2,
   .feature-fork h2,
   .flow-intro h2,
@@ -1467,20 +1510,6 @@ body.legal-page .header {
   .feature-text p {
     max-width: 100%;
     margin: 0 auto;
-  }
-
-  /* Savings cards stack in source order, so the split card still lands last */
-  .savings-section {
-    padding: 80px 0;
-  }
-
-  .savings-cards {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .lazy-tax-line {
-    margin-top: 32px;
   }
 
   /* Step 5 fork stacks; Smart Shop is first in source order */
@@ -1568,18 +1597,12 @@ body.legal-page .header {
   }
 
   .feature-text h2,
-  .compare-section h2,
-  .savings-section h2,
   .reviews-section h2,
   .feature-fork h2,
   .flow-intro h2,
   .pricing-section h2,
   .faq-section h2 {
     font-size: 29px;
-  }
-
-  .savings-card {
-    padding: 24px 18px;
   }
 
   .btn-inline-cta {
@@ -1597,14 +1620,6 @@ body.legal-page .header {
 
   .phone {
     width: 220px;
-  }
-
-  .compare-prices {
-    flex-direction: column;
-  }
-
-  .compare-vs {
-    display: none;
   }
 }
 

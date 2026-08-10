@@ -181,7 +181,7 @@
 
   <link rel="preload" href="/assets/fonts/inter-latin-var-v31.woff2" as="font" type="font/woff2" crossorigin>
   <!-- The hero screenshot is the LCP element; start it before the CSS resolves. -->
-  <link rel="preload" href="/assets/home-screen-v31.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="/assets/search-compare-v32.webp" as="image" fetchpriority="high">
   <link rel="stylesheet" href="/style.css">
 
   <!-- Web Analytics is injected at the edge by Cloudflare (Analytics & Logs >
@@ -212,11 +212,18 @@
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-content">
-        <h1 class="animate-slide-up">Never overpay at<br>Coles or Woolies again</h1>
-        <p class="hero-subtitle animate-slide-up delay-1">
-          StockUp compares every grocery price at Coles and Woolworths,
-          tells you when to buy, and gets the cheaper shop into your trolley.
+        <p class="hero-eyebrow animate-slide-up">
+          <span class="hero-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          <span><strong>4.9</strong> on the App Store &amp; Google Play</span>
         </p>
+        <h1 class="animate-slide-up delay-1">Stop Overpaying<br>for Groceries</h1>
+        <p class="hero-subtitle animate-slide-up delay-1">
+          Compare Coles and Woolworths prices in one place. Find the cheapest
+          option for every item and save on your weekly shop.
+        </p>
+        <div class="hero-cta animate-slide-up delay-2">
+          <a href="#download" class="btn-inline-cta">Get StockUp - It's Free</a>
+        </div>
         <div class="store-badges animate-slide-up delay-2">
           <a href="https://apps.apple.com/au/app/stockup-grocery-prices/id6760887575" class="store-badge" aria-label="Download on the App Store">
             <img src="/assets/app-store-badge.png" alt="Download on the App Store" width="330" height="98">
@@ -225,16 +232,12 @@
             <img src="/assets/google-play-badge.png" alt="Get it on Google Play" width="329" height="98">
           </a>
         </div>
-        <p class="micro-trust animate-slide-up delay-3">Free &middot; No sign-up required &middot; 4.9&#9733; rated</p>
+        <p class="micro-trust animate-slide-up delay-3">Free &middot; No sign-up required</p>
       </div>
       <div class="hero-phone-wrapper animate-slide-up delay-2">
         <div class="phone">
-          <img src="/assets/home-screen-v31.webp" alt="StockUp Home screen showing this week's half-price specials at Coles and Woolworths, with tabs for Home, List, Products, Cart and Profile" width="600" height="1298" loading="eager" fetchpriority="high">
+          <img src="/assets/search-compare-v32.webp" alt="StockUp product page comparing the Weet-Bix Breakfast Cereal price at Coles and Woolworths side by side, with the cheaper Coles price marked Best Price" width="600" height="1298" loading="eager" fetchpriority="high">
         </div>
-        <div class="floating-el chip-left bubble-accent" style="top: 7%" aria-hidden="true">🔍 Thousands of products</div>
-        <div class="floating-el chip-right bubble-red" style="top: 34%" aria-hidden="true">🔔 Set price alerts</div>
-        <div class="floating-el chip-left bubble-green" style="top: 45%" aria-hidden="true">📝 Build your List</div>
-        <div class="floating-el chip-right bubble-yellow" style="top: 57%" aria-hidden="true">🏷️ ½ price specials</div>
       </div>
     </div>
   </section>
@@ -249,69 +252,61 @@
     </div>
   </section>
 
-  <!-- Same product, two prices -->
-  <section class="compare-section">
-    <div class="container compare-inner">
-      <h2 class="animate-slide-up">Same product. Two prices.</h2>
-      <p class="feature-subtitle animate-slide-up delay-1">
-        StockUp compares Coles and Woolworths side-by-side for thousands
-        of groceries - so you always know where it's cheaper this week.
-      </p>
-      <div class="compare-card animate-slide-up delay-2" role="img" aria-label="Example price comparison: Weet-Bix Breakfast Cereal 575 grams costs $2.50 at Coles, half price this week, and $5.00 at Woolworths. You save $2.50.">
-        <div class="compare-product">
-          <span class="compare-emoji" aria-hidden="true">🥣</span>
-          <span class="compare-name">Weet-Bix Breakfast Cereal 575g</span>
-        </div>
-        <div class="compare-prices">
-          <div class="compare-tag compare-coles">
-            <span class="compare-retailer">Coles</span>
-            <span class="compare-price">$2.50</span>
-            <span class="compare-special">½ price</span>
-          </div>
-          <div class="compare-vs" aria-hidden="true">vs</div>
-          <div class="compare-tag compare-woolies is-dearer">
-            <span class="compare-retailer">Woolworths</span>
-            <span class="compare-price">$5.00</span>
-          </div>
-        </div>
-        <div class="compare-save">You save $2.50</div>
-      </div>
-      <p class="lazy-tax-line animate-slide-up delay-3">Paying whatever your usual store charges has a name in Australia: the lazy tax.</p>
-    </div>
-  </section>
+  <!-- The gap on one product, and the payoff across a whole shop.
+       Two illustrative cards side by side, to keep the scroll short. -->
+  <section class="proof-section">
+    <div class="container">
+      <div class="proof-grid">
 
-  <!-- The same weekly shop, three ways -->
-  <section class="savings-section">
-    <div class="container savings-inner">
-      <h2 class="animate-slide-up">The same weekly shop, three ways</h2>
-      <p class="feature-subtitle animate-slide-up delay-1">
-        One 16-item weekly shop, priced three ways.
-        Buying each item at whichever store is cheaper costs less than doing the whole shop at either one.
-      </p>
-      <!-- Figures derived from StockUp/components/onboarding/vignetteData.ts (CART_LINES). Recompute if that basket changes. -->
-      <div class="savings-cards animate-slide-up delay-2" role="group" aria-label="One weekly shop priced three ways">
-        <div class="savings-card">
-          <p class="savings-label">All at Coles</p>
-          <p class="savings-total">$87.50</p>
-          <p class="savings-caption">16 items, one store</p>
+        <div class="proof-col animate-slide-up">
+          <h2>Same product. Two prices.</h2>
+          <div class="compare-card" role="img" aria-label="Example price comparison: Weet-Bix Breakfast Cereal 575 grams costs $2.50 at Coles, half price this week, and $5.00 at Woolworths. You save $2.50.">
+            <div class="compare-product">
+              <span class="compare-emoji" aria-hidden="true">🥣</span>
+              <span class="compare-name">Weet-Bix Breakfast Cereal 575g</span>
+            </div>
+            <div class="compare-prices">
+              <div class="compare-tag compare-coles">
+                <span class="compare-retailer">Coles</span>
+                <span class="compare-price">$2.50</span>
+                <span class="compare-special">½ price</span>
+              </div>
+              <div class="compare-vs" aria-hidden="true">vs</div>
+              <div class="compare-tag compare-woolies is-dearer">
+                <span class="compare-retailer">Woolworths</span>
+                <span class="compare-price">$5.00</span>
+              </div>
+            </div>
+            <div class="compare-save">You save $2.50</div>
+          </div>
         </div>
-        <div class="savings-card">
-          <p class="savings-label">All at Woolworths</p>
-          <p class="savings-total">$78.20</p>
-          <p class="savings-caption">16 items, one store</p>
+
+        <div class="proof-col animate-slide-up delay-1">
+          <h2>The same weekly shop, three ways.</h2>
+          <div class="receipt-card" role="img" aria-label="One 16-item weekly shop: $87.50 at Coles, $78.20 at Woolworths, or $57.10 split across both stores with StockUp, saving up to $30.40.">
+            <div class="receipt-row">
+              <span class="receipt-label">All at Coles</span>
+              <span class="receipt-value">$87.50</span>
+            </div>
+            <div class="receipt-row">
+              <span class="receipt-label">All at Woolworths</span>
+              <span class="receipt-value">$78.20</span>
+            </div>
+            <div class="receipt-row receipt-split">
+              <span class="receipt-label">Split with StockUp</span>
+              <span class="receipt-value">$57.10</span>
+            </div>
+            <div class="receipt-badge">saves up to $30.40</div>
+            <p class="receipt-caption">16-item basket, priced across both stores.</p>
+          </div>
         </div>
-        <div class="savings-card split">
-          <p class="savings-label">Split with StockUp</p>
-          <p class="savings-total">$57.10</p>
-          <p class="savings-badge">saves up to $30.40</p>
-          <p class="savings-caption">16 items, both stores</p>
-        </div>
+
       </div>
-      <p class="savings-footnote animate-slide-up delay-3">
+      <p class="proof-note animate-slide-up delay-1">
         Illustrative basket built from a real week of half-price cycles.
         <a href="/how-stockup-gets-its-prices">How we get our prices &rarr;</a>
       </p>
-      <div class="savings-cta animate-slide-up delay-3">
+      <div class="proof-cta animate-slide-up delay-1">
         <a href="#download" class="btn-inline-cta">Get StockUp free</a>
       </div>
     </div>
@@ -633,7 +628,7 @@
       rootMargin: '0px 0px -60px 0px'
     });
 
-    document.querySelectorAll('.feature-section, .hero, .cta-section, .compare-section, .savings-section, .reviews-section, .flow-intro, .pricing-section, .faq-section').forEach(el => {
+    document.querySelectorAll('.feature-section, .hero, .cta-section, .proof-section, .reviews-section, .flow-intro, .pricing-section, .faq-section').forEach(el => {
       observer.observe(el);
     });
 
