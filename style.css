@@ -326,11 +326,13 @@ body.legal-page .header {
    close to the copy instead of stranded at the far edge. */
 .hero-inner {
   display: grid;
-  grid-template-columns: minmax(auto, 560px) auto;
-  justify-content: center;
-  gap: 72px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 56px;
   align-items: center;
   width: 100%;
+  /* Match the two lazy-tax cards' outer span so the hero lines up with them. */
+  max-width: 1064px;
+  margin: 0 auto;
 }
 
 .hero-content {
@@ -434,41 +436,54 @@ body.legal-page .header {
    the hero stacks (≤1024px). The QR is desktop-only and points at /get, which
    get.html serves as a static smart-link (UA-routes phone scanners to their
    store). */
+/* Two columns, bottom-aligned so the captions share a baseline. Each column
+   owns its visual + caption, so the caption centres under its own element. */
 .hero-actions {
-  display: grid;
-  grid-template-columns: auto auto;
-  justify-content: start;
-  align-items: end;
-  column-gap: 40px;
-  row-gap: 12px;
+  display: flex;
+  align-items: flex-end;
+  gap: 56px;
 }
 
-.hero-actions .store-badges { grid-column: 1; grid-row: 1; }
-.hero-note-dl { grid-column: 1; grid-row: 2; }
-.hero-actions .hero-qr { grid-column: 2; grid-row: 1; }
-.hero-note-qr { grid-column: 2; grid-row: 2; text-align: center; }
+.hero-dl-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
 
-/* Row-gap owns the spacing under each column, not the caption margins. */
+.hero-qr-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-note-qr { text-align: center; }
+
+/* Gap owns the spacing under each column, not the caption margins. */
 .hero-actions .micro-trust { margin-top: 0; }
 
 /* Desktop-only shortcut: scan the code and the app lands on the phone that
    will actually use it. Hidden at ≤1024px, where the badges are one tap away.
    Navy modules on white scan fine (≈10:1) and keep the palette. 120px is the
    floor - smaller and older phone cameras start missing it. */
+/* Sized to match the two stacked badges beside it: 104 + 2x6 = 116px
+   = badge 52 + gap 12 + badge 52. The SVG carries its own 4-module quiet
+   zone, so it still scans at this size. */
 .hero-qr {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 6px;
   background: var(--white);
-  border-radius: 14px;
+  border-radius: 12px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
 .hero-qr img {
   display: block;
-  width: 120px;
-  height: 120px;
+  width: 104px;
+  height: 104px;
 }
 
 /* ============================================
@@ -476,14 +491,21 @@ body.legal-page .header {
    two illustrative cards side by side (short scroll).
    ============================================ */
 .proof-section {
-  padding: 96px 0 100px;
+  padding: 0 0 100px;
+}
+
+/* Full-width darker band behind the intro, matching .flow-intro. */
+.proof-banner {
+  background: var(--navy-deep);
+  padding: 80px 0 64px;
+  margin-bottom: 72px;
 }
 
 /* Section intro above the two cards - same rhythm as "How StockUp works". */
 .proof-heading {
   text-align: center;
   max-width: 720px;
-  margin: 0 auto 56px;
+  margin: 0 auto;
 }
 
 .proof-heading h2 {
@@ -1399,8 +1421,11 @@ body.legal-page .header {
 
   /* Single column, centred; the QR column drops out entirely. */
   .hero-actions {
-    grid-template-columns: auto;
     justify-content: center;
+  }
+
+  .hero-dl-col {
+    align-items: center;
   }
 
   .hero .store-badges {
@@ -1427,8 +1452,7 @@ body.legal-page .header {
     gap: 32px;
   }
 
-  .hero-qr,
-  .hero-note-qr {
+  .hero-qr-col {
     display: none;
   }
 
