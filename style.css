@@ -355,10 +355,40 @@ body.legal-page .header {
 
 .hero-eyebrow strong { color: var(--white); font-weight: 800; }
 
-.hero-stars {
+/* Overlapping avatar cluster - generic illustrated faces, a decorative
+   community cue beside the true 1,000+ figure (NOT photos of real people). */
+.hero-avatars {
+  display: inline-flex;
+  align-items: center;
+}
+
+.hero-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 2px solid var(--navy);
+  margin-left: -9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.hero-avatar:first-child { margin-left: 0; }
+
+.hero-avatar svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+}
+
+.hero-avatar-1 { background: #5B8DEF; }
+.hero-avatar-2 { background: #46B67C; }
+.hero-avatar-3 { background: #E6A94D; }
+
+/* Separator star - matches the proof-bar star underneath. */
+.hero-star {
   color: var(--yellow);
-  font-size: 13px;
-  letter-spacing: 1px;
 }
 
 .hero h1 {
@@ -380,16 +410,18 @@ body.legal-page .header {
   letter-spacing: -0.01em;
 }
 
-.hero-cta {
-  margin-bottom: 24px;
-}
-
+/* Stacked badges (App Store over Google Play), sized so the two together
+   match the QR height beside them: 52 + 28 + 52 = 132px = QR 120 + 2x6 pad. */
 .hero .store-badges {
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: flex-start;
+  gap: 28px;
 }
 
 .hero .micro-trust {
   text-align: left;
+  margin-top: 24px;
 }
 
 .hero-phone-wrapper {
@@ -397,14 +429,14 @@ body.legal-page .header {
   justify-self: center;
 }
 
-/* ⚠️ The hero QR markup is currently REMOVED from index.html (owner call,
-   2026-08-08). These two blocks are kept so restoring it is a single paste of
-   the .hero-actions wrapper back around .store-badges. assets/qr-get-v31.svg
-   is still in the tree and /get still works for campaign links. */
+/* Badges + desktop QR row. Left-aligned in the two-column hero; centred when
+   the hero stacks (≤1024px). The QR is desktop-only and points at /get, which
+   get.html serves as a static smart-link (UA-routes phone scanners to their
+   store). */
 .hero-actions {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: 24px;
   flex-wrap: wrap;
 }
@@ -415,10 +447,9 @@ body.legal-page .header {
    floor - smaller and older phone cameras start missing it. */
 .hero-qr {
   display: inline-flex;
-  flex-direction: column;
   align-items: center;
-  gap: 6px;
-  padding: 10px;
+  justify-content: center;
+  padding: 6px;
   background: var(--white);
   border-radius: 14px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
@@ -428,13 +459,6 @@ body.legal-page .header {
   display: block;
   width: 120px;
   height: 120px;
-}
-
-.hero-qr span {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--navy);
-  letter-spacing: -0.01em;
 }
 
 /* ============================================
@@ -1339,10 +1363,11 @@ body.legal-page .header {
 /* ============================================
    Responsive
    ============================================ */
-/* Desktop only: give the hero product visual real presence. */
+/* Desktop only: a slightly smaller, gently tilted product visual. */
 @media (min-width: 1025px) {
   .hero .phone {
-    width: 360px;
+    width: 300px;
+    transform: rotate(4deg);
   }
 }
 
@@ -1373,7 +1398,12 @@ body.legal-page .header {
     margin-right: auto;
   }
 
+  .hero-actions {
+    justify-content: center;
+  }
+
   .hero .store-badges {
+    align-items: center;
     justify-content: center;
   }
 

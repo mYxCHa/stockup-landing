@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get StockUp</title>
+  <meta name="description" content="Download StockUp - compare Coles and Woolworths grocery prices. Free on iPhone and Android.">
+  <meta name="robots" content="noindex">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Get StockUp">
+  <meta property="og:description" content="Compare Coles and Woolworths prices side-by-side. Free on iPhone and Android.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://stockup.au/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1B3A5C;
+      --muted: #64748B;
+      --white: #FFFFFF;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--primary);
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+      text-decoration: none;
+      color: var(--primary);
+    }
+
+    .logo img { border-radius: 10px; }
+
+    .logo span {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .status {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      letter-spacing: -0.01em;
+    }
+
+    .store-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .store-buttons a img { height: 48px; display: block; }
+
+    .fallback-text {
+      margin-top: 24px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .fallback-text a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="/" class="logo">
+    <img src="/assets/logo.png" alt="StockUp" width="48" height="48">
+    <span>StockUp</span>
+  </a>
+
+  <p class="status">Get StockUp</p>
+  <p class="subtitle">Compare Coles &amp; Woolworths prices. Free on iPhone and Android.</p>
+
+  <div class="store-buttons">
+    <a id="app-store" href="https://apps.apple.com/au/app/stockup-grocery-prices/id6760887575" aria-label="Download on the App Store">
+      <img src="/assets/app-store-badge.png" alt="Download on the App Store">
+    </a>
+    <a id="play-store" href="https://play.google.com/store/apps/details?id=com.myxcha.StockUp&amp;referrer=utm_source%3Dstockup.au%26utm_medium%3Dqr" aria-label="Get it on Google Play">
+      <img src="/assets/google-play-badge.png" alt="Get it on Google Play">
+    </a>
+  </div>
+
+  <p class="fallback-text">
+    Or visit <a href="/">stockup.au</a> to learn more.
+  </p>
+
+  <script>
+    // Static smart-link: send phone scanners straight to their store,
+    // leave desktop on this page with both badges shown.
+    (function () {
+      var ua = navigator.userAgent || '';
+      if (/iPhone|iPad|iPod/i.test(ua)) {
+        window.location.replace('https://apps.apple.com/au/app/stockup-grocery-prices/id6760887575');
+      } else if (/Android/i.test(ua)) {
+        window.location.replace('https://play.google.com/store/apps/details?id=com.myxcha.StockUp&referrer=utm_source%3Dstockup.au%26utm_medium%3Dqr');
+      }
+    })();
+  </script>
+
+</body>
+</html>
