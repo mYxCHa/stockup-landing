@@ -296,85 +296,100 @@
   <section class="steps">
     <div class="container">
       <!-- Step 1: Browse -->
-      <div class="stage animate-slide-up">
-        <div class="stage-head">
+      <div class="stage">
+        <div class="stage-head animate-slide-up">
           <h3><span class="stage-num">1</span>Browse</h3>
-          <p>Explore this week's half-price specials, and get told the moment the things you buy go on sale.</p>
         </div>
         <div class="stage-screens">
-          <div class="step-card">
+          <div class="step-card animate-slide-up">
+            <div class="step-card-head">
+              <h4>Half-price specials</h4>
+              <p>Every &frac12;-price deal at both stores, in one feed.</p>
+            </div>
             <div class="step-visual">
               <span class="step-num">01</span>
               <div class="phone">
                 <img src="/assets/specials-v32.webp" alt="StockUp half-price specials screen with products and their Coles and Woolworths prices side by side" width="600" height="1298" loading="lazy">
               </div>
             </div>
-            <p class="step-label">Half-price specials</p>
           </div>
-          <div class="step-card">
+          <div class="step-card animate-slide-up delay-1">
+            <div class="step-card-head">
+              <h4>Price alerts</h4>
+              <p>Get pinged when the things you buy go on sale.</p>
+            </div>
             <div class="step-visual">
               <span class="step-num">02</span>
               <div class="phone">
                 <img src="/assets/price-alert-v32.webp" alt="StockUp price alert sheet with options for any special, a set percentage off, or a set price, at Coles, Woolworths or both" width="600" height="1298" loading="lazy">
               </div>
             </div>
-            <p class="step-label">Price alerts</p>
           </div>
         </div>
       </div>
 
       <!-- Step 2: Compare -->
-      <div class="stage animate-slide-up">
-        <div class="stage-head">
+      <div class="stage">
+        <div class="stage-head animate-slide-up">
           <h3><span class="stage-num">2</span>Compare</h3>
-          <p>See each product's price history, then let StockUp split your whole shop by the cheaper store.</p>
         </div>
         <div class="stage-screens">
-          <div class="step-card">
+          <div class="step-card animate-slide-up">
+            <div class="step-card-head">
+              <h4>Price Intelligence</h4>
+              <p>See the price history and a buy-now-or-wait call.</p>
+            </div>
             <div class="step-visual">
               <span class="step-num">03</span>
               <div class="phone no-notch">
                 <img src="/assets/product-details-v31.webp" alt="StockUp Price Intelligence screen with a price history chart and a buy-now-or-wait recommendation" width="600" height="1298" loading="lazy">
               </div>
             </div>
-            <p class="step-label">Price Intelligence</p>
           </div>
-          <div class="step-card">
+          <div class="step-card animate-slide-up delay-1">
+            <div class="step-card-head">
+              <h4>Split by cheapest</h4>
+              <p>Your whole shop divided across both stores to save.</p>
+            </div>
             <div class="step-visual">
               <span class="step-num">04</span>
               <div class="phone">
                 <img src="/assets/cart-tab-v32.webp" alt="StockUp Cart showing the whole shop priced at each store beside the cheaper split across both" width="600" height="1298" loading="lazy">
               </div>
             </div>
-            <p class="step-label">Cart split by cheapest</p>
           </div>
         </div>
       </div>
 
       <!-- Step 3: Shop -->
-      <div class="stage animate-slide-up">
-        <div class="stage-head">
+      <div class="stage">
+        <div class="stage-head animate-slide-up">
           <h3><span class="stage-num">3</span>Shop</h3>
-          <p>Check out the way that suits you - live in the aisle, or straight to your online trolley.</p>
         </div>
         <div class="stage-screens">
-          <div class="step-card">
+          <div class="step-card animate-slide-up">
+            <div class="step-card-head">
+              <h4>Smart Shop, in-store</h4>
+              <p>Live shelf prices and stock as a tick-off checklist.</p>
+            </div>
             <div class="step-visual">
               <span class="step-num">05a</span>
               <div class="phone">
                 <img src="/assets/smart-shop-v32.webp" alt="Smart Shop checklist with live shelf prices and stock, one item marked out of stock, and a running trolley total" width="600" height="1298" loading="lazy">
               </div>
             </div>
-            <p class="step-label">Smart Shop, in-store</p>
           </div>
-          <div class="step-card">
+          <div class="step-card animate-slide-up delay-1">
+            <div class="step-card-head">
+              <h4>Quick Cart, online</h4>
+              <p>Send your Cart to your real Coles or Woolies trolley.</p>
+            </div>
             <div class="step-visual">
               <span class="step-num">05b</span>
               <div class="phone">
                 <img src="/assets/quick-cart-v31.webp" alt="StockUp Cart with a Quick Cart progress dialog reading Adding to your Coles trolley" width="600" height="1298" loading="lazy">
               </div>
             </div>
-            <p class="step-label">Quick Cart, online</p>
           </div>
         </div>
       </div>
@@ -551,7 +566,7 @@
       rootMargin: '0px 0px -60px 0px'
     });
 
-    document.querySelectorAll('.steps, .hero, .cta-section, .proof-section, .reviews-section, .flow-intro, .pricing-section, .faq-section').forEach(el => {
+    document.querySelectorAll('.stage, .steps-cta, .hero, .cta-section, .proof-section, .reviews-section, .flow-intro, .pricing-section, .faq-section').forEach(el => {
       observer.observe(el);
     });
 
