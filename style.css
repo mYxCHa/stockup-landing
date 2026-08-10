@@ -974,8 +974,8 @@ body.legal-page .header {
 .stage-screens {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 56px;
-  max-width: 860px;
+  gap: 72px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
@@ -1017,7 +1017,7 @@ body.legal-page .header {
 
 /* Full screenshot - the whole phone is shown, not cropped. */
 .step-visual .phone {
-  width: 244px;
+  width: 268px;
   flex-shrink: 0;
   box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.5);
 }
