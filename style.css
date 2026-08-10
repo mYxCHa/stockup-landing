@@ -1015,12 +1015,11 @@ body.legal-page .header {
   padding: 36px 28px;
 }
 
-/* Full screenshot - the whole phone is shown, not cropped. No light rim on
-   the step cards (the base .phone outline is dropped here). */
+/* Full screenshot - the whole phone is shown, not cropped. Keeps the base
+   .phone light rim (same as the hero). */
 .step-visual .phone {
   width: 268px;
   flex-shrink: 0;
-  outline: none;
   box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.5);
 }
 
