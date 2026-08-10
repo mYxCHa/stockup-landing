@@ -482,11 +482,12 @@ body.legal-page .header {
   padding: 0 0 100px;
 }
 
-/* Full-width darker band behind the intro, matching .flow-intro. */
+/* Full-width darker band behind the intro. Tight around the single heading
+   so it reads as a section divider bar, not an empty void. */
 .proof-banner {
   background: var(--navy-deep);
-  padding: 80px 0 64px;
-  margin-bottom: 72px;
+  padding: 44px 0 40px;
+  margin-bottom: 56px;
 }
 
 /* Section intro above the two cards - same rhythm as "How StockUp works". */
