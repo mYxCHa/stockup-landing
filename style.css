@@ -1015,10 +1015,12 @@ body.legal-page .header {
   padding: 36px 28px;
 }
 
-/* Full screenshot - the whole phone is shown, not cropped. */
+/* Full screenshot - the whole phone is shown, not cropped. No light rim on
+   the step cards (the base .phone outline is dropped here). */
 .step-visual .phone {
   width: 268px;
   flex-shrink: 0;
+  outline: none;
   box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.5);
 }
 
@@ -1612,6 +1614,11 @@ body.legal-page .header {
     padding: 5px;
   }
 
+  /* Match the hero phone size on mobile. */
+  .step-visual .phone {
+    width: 240px;
+  }
+
   .phone::before {
     width: 76px;
     height: 20px;
@@ -1803,6 +1810,10 @@ body.legal-page .header {
   }
 
   .phone {
+    width: 220px;
+  }
+
+  .step-visual .phone {
     width: 220px;
   }
 
