@@ -59,6 +59,5 @@ No sign-up is required - the app opens straight into price comparison.
 
 ## Learn more
 
-- How StockUp gets its prices: https://stockup.au/how-stockup-gets-its-prices
 - App Store: https://apps.apple.com/au/app/stockup-grocery-prices/id6760887575
 - Google Play: https://play.google.com/store/apps/details?id=com.myxcha.StockUp

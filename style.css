@@ -719,6 +719,11 @@ body.legal-page .header {
   color: var(--text-muted);
 }
 
+/* Second caption line sits tight under the first. */
+.receipt-caption + .receipt-caption {
+  margin-top: 4px;
+}
+
 .proof-note {
   font-size: 14px;
   line-height: 1.7;
@@ -920,6 +925,78 @@ body.legal-page .header {
 
 .flow-intro .feature-subtitle {
   margin: 0 auto;
+}
+
+/* ============================================
+   How StockUp works - 3x2 numbered card grid
+   Card holds a screenshot (cropped at the bottom) + a number badge;
+   title and subtext sit below, erly-style.
+   ============================================ */
+.steps {
+  padding: 64px 0 100px;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 52px 32px;
+}
+
+.step-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-visual {
+  position: relative;
+  background: var(--navy-raised);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  padding: 36px 28px;
+}
+
+/* Full screenshot - the whole phone is shown, not cropped. */
+.step-visual .phone {
+  width: 232px;
+  flex-shrink: 0;
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.5);
+}
+
+.step-num {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 3;
+  background: var(--navy-deep);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  padding: 6px 13px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.step-card h3 {
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin: 24px 0 8px;
+}
+
+.step-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  letter-spacing: -0.01em;
+}
+
+.steps-cta {
+  text-align: center;
+  margin-top: 64px;
 }
 
 .step-eyebrow {
@@ -1443,6 +1520,11 @@ body.legal-page .header {
     gap: 32px;
   }
 
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 44px 28px;
+  }
+
   .hero-qr-col {
     display: none;
   }
@@ -1514,6 +1596,13 @@ body.legal-page .header {
   .proof-grid {
     grid-template-columns: 1fr;
     gap: 48px;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 44px;
+    max-width: 420px;
+    margin: 0 auto;
   }
 
   .proof-col h2 {
