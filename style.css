@@ -1017,24 +1017,9 @@ body.legal-page .header {
 
 /* Full screenshot - the whole phone is shown, not cropped. */
 .step-visual .phone {
-  width: 232px;
+  width: 244px;
   flex-shrink: 0;
   box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.5);
-}
-
-.step-num {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  z-index: 3;
-  background: var(--navy-deep);
-  color: var(--white);
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  padding: 6px 13px;
-  border-radius: 100px;
-  border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .steps-cta {
