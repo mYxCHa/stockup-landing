@@ -357,8 +357,8 @@ body.legal-page .header {
 
 .hero-eyebrow strong { color: var(--white); font-weight: 800; }
 
-/* Overlapping avatar cluster - generic illustrated faces, a decorative
-   community cue beside the true 1,000+ figure (NOT photos of real people). */
+/* Overlapping avatar cluster beside the 1,000+ figure - stock avatar photos
+   (licensed/cleared per owner), self-hosted so the CSP allows them. */
 .hero-avatars {
   display: inline-flex;
   align-items: center;
@@ -370,23 +370,11 @@ body.legal-page .header {
   border-radius: 50%;
   border: 2px solid var(--navy);
   margin-left: -9px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
+  object-fit: cover;
+  display: block;
 }
 
 .hero-avatar:first-child { margin-left: 0; }
-
-.hero-avatar svg {
-  width: 15px;
-  height: 15px;
-  fill: currentColor;
-}
-
-.hero-avatar-1 { background: #5B8DEF; }
-.hero-avatar-2 { background: #46B67C; }
-.hero-avatar-3 { background: #E6A94D; }
 
 /* Separator star in the social-proof line. */
 .hero-star {
@@ -514,11 +502,7 @@ body.legal-page .header {
   line-height: 1.05;
   letter-spacing: -0.04em;
   color: var(--white);
-  margin-bottom: 16px;
-}
-
-.proof-heading .feature-subtitle {
-  margin: 0 auto;
+  margin-bottom: 0;
 }
 
 .proof-grid {
@@ -701,7 +685,9 @@ body.legal-page .header {
 }
 
 .receipt-split .receipt-label { color: var(--white); font-weight: 700; }
-.receipt-split .receipt-value { color: var(--yellow); }
+/* Nudged up 2px: yellow reads optically smaller than the white values above,
+   so this lands it at the same visual size as $87.50 / $78.20. */
+.receipt-split .receipt-value { color: var(--yellow); font-size: 26px; }
 
 /* Navy on yellow ≈ 9:1 - the savings colour never carries text alone. */
 .receipt-badge {
@@ -735,12 +721,6 @@ body.legal-page .header {
   color: var(--accent);
   text-decoration: underline;
   white-space: nowrap;
-}
-
-.proof-cta {
-  width: 100%;
-  text-align: center;
-  margin-top: 28px;
 }
 
 /* ============================================
