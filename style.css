@@ -222,7 +222,8 @@ body.legal-page .header {
    ============================================ */
 .phone {
   position: relative;
-  width: 300px;
+  /* 280px matches the hero phone so every screenshot on the page is one size. */
+  width: 280px;
   background: #000;
   border-radius: 40px;
   padding: 5px;
@@ -486,12 +487,11 @@ body.legal-page .header {
   padding: 0 0 100px;
 }
 
-/* Full-width darker band behind the intro. Tight around the single heading
-   so it reads as a section divider bar, not an empty void. */
+/* Full-width darker band behind the intro, matching .flow-intro. */
 .proof-banner {
   background: var(--navy-deep);
-  padding: 44px 0 40px;
-  margin-bottom: 56px;
+  padding: 64px 0 56px;
+  margin-bottom: 64px;
 }
 
 /* Section intro above the two cards - same rhythm as "How StockUp works". */
@@ -507,7 +507,11 @@ body.legal-page .header {
   line-height: 1.05;
   letter-spacing: -0.04em;
   color: var(--white);
-  margin-bottom: 0;
+  margin-bottom: 16px;
+}
+
+.proof-heading .feature-subtitle {
+  margin: 0 auto;
 }
 
 .proof-grid {
