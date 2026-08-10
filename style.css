@@ -1265,6 +1265,12 @@ body.legal-page .header {
   color: var(--yellow);
 }
 
+/* Centre the Free / Premium headers over their centred check marks. */
+.pricing-table thead th:nth-child(2),
+.pricing-table thead th:nth-child(3) {
+  text-align: center;
+}
+
 .pricing-table tbody th {
   font-weight: 500;
   color: var(--text-muted);
