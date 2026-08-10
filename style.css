@@ -84,7 +84,7 @@ a {
 
 /* Layout */
 .container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 0 32px;
 }
@@ -315,11 +315,10 @@ body.legal-page .header {
 /* ============================================
    Hero
    ============================================ */
+/* Natural height - never forced to fill the viewport, which left a huge void
+   on tall/large monitors. Erly does the same (hero is auto-height). */
 .hero {
-  padding: 160px 0 80px;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
+  padding: 150px 0 90px;
 }
 
 /* Two columns on desktop: message left, product right (Erly-style).
@@ -331,8 +330,9 @@ body.legal-page .header {
   gap: 56px;
   align-items: center;
   width: 100%;
-  /* Match the two lazy-tax cards' outer span so the hero lines up with them. */
-  max-width: 1064px;
+  /* Match the two lazy-tax cards' outer span so the hero lines up with them
+     (derived from the 1280px container + 480px card caps). */
+  max-width: 1104px;
   margin: 0 auto;
 }
 
