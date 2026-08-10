@@ -3,7 +3,8 @@
   "private": true,
   "description": "stockup.au - static landing site + Cloudflare Pages Functions (dynamic product OG cards)",
   "scripts": {
-    "dev": "wrangler pages dev ."
+    "dev": "wrangler pages dev .",
+    "build": "node build.mjs"
   },
   "dependencies": {
     "workers-og": "^0.0.27"
