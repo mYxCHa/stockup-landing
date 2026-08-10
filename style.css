@@ -381,6 +381,10 @@ body.legal-page .header {
   color: var(--yellow);
 }
 
+/* Full proof text on desktop; a shorter one on mobile so the pill stays
+   on one line (see the ≤768 override). */
+.hero-proof-sm { display: none; }
+
 .hero h1 {
   font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
   font-size: 68px;
@@ -1492,6 +1496,10 @@ body.legal-page .header {
     border-radius: 31px;
   }
 
+  /* Shorter social-proof text so the pill stays on one line. */
+  .hero-proof-lg { display: none; }
+  .hero-proof-sm { display: inline; }
+
   /* Proof section: stack the two cards */
   .proof-section {
     padding: 72px 0 80px;
@@ -1506,6 +1514,10 @@ body.legal-page .header {
     font-size: 28px;
     margin-bottom: 24px;
   }
+
+  /* Cards get roomier padding back on a narrow screen. */
+  .compare-card { padding: 28px 24px; }
+  .receipt-card { padding: 24px 22px; }
 
   /* Stack feature sections */
   .feature-section {
@@ -1656,6 +1668,21 @@ body.legal-page .header {
 
   .phone {
     width: 220px;
+  }
+
+  /* Stack the two price tags so the compare card fits a phone screen
+     (side-by-side, they force the card wider than the viewport). */
+  .compare-prices {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .compare-vs {
+    display: none;
+  }
+
+  .compare-tag {
+    width: 100%;
   }
 }
 
