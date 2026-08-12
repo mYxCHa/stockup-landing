@@ -985,24 +985,35 @@ body.legal-page .header {
 }
 
 /* Per-screen header sits above the screenshot, smaller than the step title. */
+/* The title now carries the whole message (no subtext). Reserve two lines so a
+   one-line and a two-line title still start their phones at the same height. */
 .step-card-head {
   text-align: center;
   margin-bottom: 18px;
+  min-height: 54px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .step-card-head h4 {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 800;
   letter-spacing: -0.02em;
+  line-height: 1.3;
   color: var(--white);
-  margin-bottom: 5px;
 }
 
+/* Subtext only appears on the two Shop cards (Smart Shop, Quick Cart), where the
+   feature needs a line of explanation the title alone doesn't carry. */
 .step-card-head p {
+  margin-top: 6px;
   font-size: 14px;
   line-height: 1.5;
   color: var(--text-muted);
   letter-spacing: -0.01em;
+  max-width: 300px;
 }
 
 .step-visual {
