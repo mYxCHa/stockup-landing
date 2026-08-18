@@ -497,63 +497,154 @@ body.legal-page .header {
 }
 
 /* ============================================
-   Browser-version waitlist band
-   Full-bleed dark band (same material as .proof-banner) sitting just below
-   the hero. The site's only <form> - the input reuses the pill radius, the
-   submit reuses the .btn-inline-cta blue/pill language.
+   Browser-version waitlist
+   A slim announcement strip below the hero (same dark-band material as
+   .proof-banner) whose CTA opens a signup dialog. The dialog holds the site's
+   only <form>; input reuses the pill radius, submit reuses the .btn-inline-cta
+   blue/pill language.
    ============================================ */
-.waitlist-banner {
+.waitlist-strip {
   background: var(--navy-deep);
-  padding: 72px 0;
+  padding: 18px 0;
 }
 
-.waitlist-inner {
-  max-width: 640px;
-  text-align: center;
+.waitlist-strip-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px 20px;
 }
 
-.waitlist-eyebrow {
+.waitlist-strip-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: -0.01em;
+}
+
+.waitlist-strip-badge {
   display: inline-block;
-  padding: 6px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin-right: 8px;
+  padding: 2px 10px;
   border-radius: 100px;
-  background: rgba(255, 255, 255, 0.04);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  background: var(--yellow);
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: var(--accent);
-  margin-bottom: 20px;
+  vertical-align: middle;
 }
 
-.waitlist-banner h2 {
-  font-size: 40px;
+.waitlist-strip-cta {
+  flex-shrink: 0;
+  padding: 10px 22px;
+  background: var(--blue);
+  color: var(--white);
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  border-radius: 100px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.waitlist-strip-cta:hover {
+  transform: scale(1.05);
+  background: var(--blue-dark);
+}
+
+/* --- Signup dialog --- */
+.waitlist-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s, visibility 0.2s;
+}
+
+.waitlist-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.waitlist-modal {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: var(--navy-raised);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.5);
+  transform: translateY(8px) scale(0.98);
+  transition: transform 0.2s;
+}
+
+.waitlist-overlay.is-open .waitlist-modal {
+  transform: none;
+}
+
+.waitlist-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 100px;
+  color: var(--text-muted);
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+
+.waitlist-close:hover {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.waitlist-modal-title {
+  font-size: 24px;
   font-weight: 800;
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.03em;
   color: var(--white);
-  margin-bottom: 14px;
+  margin: 0 32px 10px 0;
 }
 
-.waitlist-subtitle {
-  font-size: 18px;
+.waitlist-modal-body {
+  font-size: 15px;
+  line-height: 1.55;
   color: var(--text-muted);
-  max-width: 520px;
-  margin: 0 auto 28px;
+  margin-bottom: 22px;
 }
 
 .waitlist-form {
   display: flex;
-  gap: 12px;
-  justify-content: center;
-  max-width: 520px;
-  margin: 0 auto;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .waitlist-input {
-  flex: 1;
-  min-width: 0;
-  padding: 14px 22px;
+  width: 100%;
+  padding: 14px 20px;
   font-family: inherit;
   font-size: 16px; /* >=16px so iOS doesn't zoom on focus */
   color: var(--white);
@@ -573,7 +664,7 @@ body.legal-page .header {
 }
 
 .waitlist-submit {
-  flex-shrink: 0;
+  width: 100%;
   padding: 14px 28px;
   background: var(--blue);
   color: var(--white);
@@ -582,13 +673,11 @@ body.legal-page .header {
   border: none;
   border-radius: 100px;
   letter-spacing: -0.01em;
-  white-space: nowrap;
   cursor: pointer;
-  transition: transform 0.2s, background 0.2s;
+  transition: background 0.2s;
 }
 
 .waitlist-submit:hover:not(:disabled) {
-  transform: scale(1.05);
   background: var(--blue-dark);
 }
 
@@ -600,7 +689,7 @@ body.legal-page .header {
 /* Reserve a line so the layout doesn't jump when a message appears. */
 .waitlist-status {
   min-height: 20px;
-  margin-top: 16px;
+  margin-top: 12px;
   font-size: 14px;
   font-weight: 600;
 }
@@ -614,9 +703,8 @@ body.legal-page .header {
 }
 
 .waitlist-consent {
-  max-width: 460px;
-  margin: 8px auto 0;
-  font-size: 13px;
+  margin-top: 14px;
+  font-size: 12px;
   line-height: 1.5;
   color: var(--text-muted);
 }
@@ -626,28 +714,31 @@ body.legal-page .header {
   text-decoration: underline;
 }
 
-@media (max-width: 768px) {
-  .waitlist-banner {
-    padding: 56px 0;
+@media (max-width: 560px) {
+  .waitlist-strip-inner {
+    flex-direction: column;
+    text-align: center;
   }
 
-  .waitlist-banner h2 {
-    font-size: 32px;
+  .waitlist-modal {
+    padding: 28px 22px;
   }
 
-  .waitlist-subtitle {
-    font-size: 16px;
+  .waitlist-modal-title {
+    font-size: 22px;
   }
 }
 
-/* Stack the field and button before they get too narrow to sit side by side. */
-@media (max-width: 560px) {
-  .waitlist-form {
-    flex-direction: column;
+@media (prefers-reduced-motion: reduce) {
+  .waitlist-overlay,
+  .waitlist-modal,
+  .waitlist-strip-cta,
+  .waitlist-submit {
+    transition: none;
   }
 
-  .waitlist-submit {
-    width: 100%;
+  .waitlist-modal {
+    transform: none;
   }
 }
 

@@ -222,21 +222,32 @@
     </div>
   </section>
 
-  <!-- Browser version waitlist -->
-  <section class="waitlist-banner" id="waitlist" aria-labelledby="waitlist-heading">
-    <div class="container waitlist-inner">
-      <p class="waitlist-eyebrow animate-slide-up">Coming soon</p>
-      <h2 id="waitlist-heading" class="animate-slide-up">StockUp is coming to your browser</h2>
-      <p class="waitlist-subtitle animate-slide-up delay-1">Compare Coles and Woolworths from your desktop. Join the waitlist to get early access.</p>
-      <form class="waitlist-form animate-slide-up delay-1" action="/waitlist" method="post" novalidate>
-        <label class="visually-hidden" for="waitlist-email">Email address</label>
-        <input class="waitlist-input" type="email" id="waitlist-email" name="email" placeholder="you@email.com" autocomplete="email" inputmode="email" spellcheck="false" required aria-describedby="waitlist-consent">
-        <button class="waitlist-submit" type="submit">Get early access</button>
-      </form>
-      <p class="waitlist-status animate-slide-up delay-2" role="status" aria-live="polite"></p>
-      <p class="waitlist-consent animate-slide-up delay-2" id="waitlist-consent">By joining, you agree to receive occasional emails from StockUp about the browser version and early access. No spam, unsubscribe anytime. See our <a href="/privacy-policy">privacy policy</a>.</p>
+  <!-- Browser version waitlist: slim strip -> opens the signup dialog below -->
+  <section class="waitlist-strip" id="waitlist" aria-label="StockUp for browser">
+    <div class="container waitlist-strip-inner animate-slide-up">
+      <p class="waitlist-strip-text">
+        <span class="waitlist-strip-badge" aria-hidden="true">New</span>
+        StockUp is coming to your browser. Sign up for early access and updates.
+      </p>
+      <button type="button" class="waitlist-strip-cta" id="waitlist-open" aria-haspopup="dialog" aria-controls="waitlist-dialog">Get early access</button>
     </div>
   </section>
+
+  <!-- Waitlist signup dialog (opened by the strip CTA) -->
+  <div class="waitlist-overlay" id="waitlist-dialog" role="dialog" aria-modal="true" aria-labelledby="waitlist-dialog-title">
+    <div class="waitlist-modal">
+      <button type="button" class="waitlist-close" id="waitlist-close" aria-label="Close">&times;</button>
+      <h2 id="waitlist-dialog-title" class="waitlist-modal-title">StockUp is coming to your browser</h2>
+      <p class="waitlist-modal-body">Be among the first to use StockUp on the web. Sign up to get early access, plus product updates, new features, and the occasional bit of StockUp news.</p>
+      <form class="waitlist-form" action="/waitlist" method="post" novalidate>
+        <label class="visually-hidden" for="waitlist-email">Email address</label>
+        <input class="waitlist-input" type="email" id="waitlist-email" name="email" placeholder="you@email.com" autocomplete="email" inputmode="email" spellcheck="false" required aria-describedby="waitlist-consent">
+        <button class="waitlist-submit" type="submit">Sign me up</button>
+      </form>
+      <p class="waitlist-status" role="status" aria-live="polite"></p>
+      <p class="waitlist-consent" id="waitlist-consent">By signing up, you agree to receive emails from StockUp about early access, product updates, and news. No spam, unsubscribe anytime. See our <a href="/privacy-policy">privacy policy</a>.</p>
+    </div>
+  </div>
 
   <!-- The gap on one product, and the payoff across a whole shop.
        Two illustrative cards side by side, to keep the scroll short. -->
@@ -572,7 +583,7 @@
       rootMargin: '0px 0px -60px 0px'
     });
 
-    document.querySelectorAll('.stage, .steps-cta, .hero, .cta-section, .waitlist-banner, .proof-section, .reviews-section, .flow-intro, .pricing-section, .faq-section').forEach(el => {
+    document.querySelectorAll('.stage, .steps-cta, .hero, .cta-section, .waitlist-strip, .proof-section, .reviews-section, .flow-intro, .pricing-section, .faq-section').forEach(el => {
       observer.observe(el);
     });
 
@@ -589,19 +600,54 @@
       header.classList.toggle('scrolled', window.scrollY > 20);
     });
 
-    // Browser-version waitlist signup (progressive enhancement: the form still
-    // posts to /waitlist without JS, which 303s back here).
-    const waitlistForm = document.querySelector('.waitlist-form');
-    if (waitlistForm) {
-      const emailInput = waitlistForm.querySelector('.waitlist-input');
-      const submitBtn = waitlistForm.querySelector('.waitlist-submit');
-      const status = document.querySelector('.waitlist-status');
+    // Browser-version waitlist: the slim strip's CTA opens a dialog holding the
+    // signup form. The form POSTs to /waitlist (the Worker); no-JS visitors
+    // can't open the dialog, which is consistent with the rest of this JS-driven
+    // page.
+    const wlOpen = document.getElementById('waitlist-open');
+    const wlOverlay = document.getElementById('waitlist-dialog');
+    if (wlOpen && wlOverlay) {
+      const wlClose = document.getElementById('waitlist-close');
+      const wlForm = wlOverlay.querySelector('.waitlist-form');
+      const emailInput = wlOverlay.querySelector('.waitlist-input');
+      const submitBtn = wlOverlay.querySelector('.waitlist-submit');
+      const status = wlOverlay.querySelector('.waitlist-status');
+      let lastFocus = null;
+      const focusable = () => [...wlOverlay.querySelectorAll('button, [href], input')].filter(el => !el.disabled);
+
+      const openModal = () => {
+        lastFocus = document.activeElement;
+        wlOverlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => emailInput.focus(), 60);
+      };
+      const closeModal = () => {
+        wlOverlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+        if (lastFocus && lastFocus.focus) lastFocus.focus();
+      };
       const setStatus = (msg, kind) => {
         status.textContent = msg;
         status.classList.remove('is-success', 'is-error');
         if (kind) status.classList.add(kind);
       };
-      waitlistForm.addEventListener('submit', async (e) => {
+
+      wlOpen.addEventListener('click', openModal);
+      wlClose.addEventListener('click', closeModal);
+      wlOverlay.addEventListener('click', (e) => { if (e.target === wlOverlay) closeModal(); });
+      document.addEventListener('keydown', (e) => {
+        if (!wlOverlay.classList.contains('is-open')) return;
+        if (e.key === 'Escape') { closeModal(); return; }
+        if (e.key === 'Tab') {
+          const f = focusable();
+          if (!f.length) return;
+          const first = f[0], last = f[f.length - 1];
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+      });
+
+      wlForm.addEventListener('submit', async (e) => {
         e.preventDefault();
         const email = emailInput.value.trim();
         if (!email || !emailInput.checkValidity()) {
@@ -611,7 +657,7 @@
         }
         submitBtn.disabled = true;
         const original = submitBtn.textContent;
-        submitBtn.textContent = 'Joining…';
+        submitBtn.textContent = 'Signing up…';
         setStatus('', null);
         try {
           const res = await fetch('/waitlist', {
@@ -621,11 +667,11 @@
           });
           const data = await res.json().catch(() => ({}));
           if (res.ok && data.ok) {
-            waitlistForm.reset();
+            wlForm.reset();
             setStatus(
               data.already
                 ? "You're already on the list - we'll be in touch."
-                : "You're on the list. We'll email you when it's ready.",
+                : "You're in. We'll be in touch soon.",
               'is-success'
             );
           } else {
