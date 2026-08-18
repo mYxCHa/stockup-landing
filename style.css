@@ -504,7 +504,12 @@ body.legal-page .header {
    blue/pill language.
    ============================================ */
 .waitlist-strip {
-  background: var(--navy-deep);
+  /* Raised surface tone: distinct from the hero (--navy) above and the
+     --navy-deep "lazy tax" band below, so the strip reads as its own bar.
+     Hairlines crisp the boundary on both edges. */
+  background: var(--navy-raised);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding: 18px 0;
 }
 
@@ -582,7 +587,7 @@ body.legal-page .header {
 .waitlist-modal {
   position: relative;
   width: 100%;
-  max-width: 440px;
+  max-width: 540px;
   background: var(--navy-raised);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
@@ -626,7 +631,7 @@ body.legal-page .header {
   line-height: 1.15;
   letter-spacing: -0.03em;
   color: var(--white);
-  margin: 0 32px 10px 0;
+  margin: 0 24px 10px 0;
 }
 
 .waitlist-modal-body {
