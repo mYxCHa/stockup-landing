@@ -691,27 +691,49 @@ body.legal-page .header {
   cursor: default;
 }
 
-/* Reserve a line so the layout doesn't jump when a message appears. */
+/* Error-only now (success swaps to the thank-you view). Hidden when empty so
+   the consent line can sit right under the CTA. */
 .waitlist-status {
-  min-height: 20px;
   margin-top: 12px;
   font-size: 14px;
   font-weight: 600;
-}
-
-.waitlist-status.is-success {
-  color: var(--woolies-tint);
-}
-
-.waitlist-status.is-error {
   color: var(--coles-tint);
 }
 
+.waitlist-status:empty {
+  display: none;
+}
+
 .waitlist-consent {
-  margin-top: 14px;
+  margin-top: 16px;
   font-size: 12px;
   line-height: 1.5;
   color: var(--text-muted);
+}
+
+/* Thank-you view shown after a successful signup. */
+.waitlist-success {
+  text-align: center;
+}
+
+.waitlist-success-icon {
+  width: 56px;
+  height: 56px;
+  margin: 4px auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  background: rgba(111, 224, 154, 0.15);
+  color: var(--woolies-tint);
+}
+
+.waitlist-success .waitlist-modal-title {
+  margin: 0 0 10px;
+}
+
+.waitlist-success .waitlist-modal-body {
+  margin-bottom: 0;
 }
 
 .waitlist-consent a {

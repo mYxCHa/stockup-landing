@@ -237,15 +237,24 @@
   <div class="waitlist-overlay" id="waitlist-dialog" role="dialog" aria-modal="true" aria-labelledby="waitlist-dialog-title">
     <div class="waitlist-modal">
       <button type="button" class="waitlist-close" id="waitlist-close" aria-label="Close">&times;</button>
-      <h2 id="waitlist-dialog-title" class="waitlist-modal-title">StockUp is coming to your browser</h2>
-      <p class="waitlist-modal-body">Be among the first to use StockUp on the web. Sign up to get early access.</p>
-      <form class="waitlist-form" action="/waitlist" method="post" novalidate>
-        <label class="visually-hidden" for="waitlist-email">Email address</label>
-        <input class="waitlist-input" type="email" id="waitlist-email" name="email" placeholder="you@email.com" autocomplete="email" inputmode="email" spellcheck="false" required aria-describedby="waitlist-consent">
-        <button class="waitlist-submit" type="submit">Sign me up</button>
-      </form>
-      <p class="waitlist-status" role="status" aria-live="polite"></p>
-      <p class="waitlist-consent" id="waitlist-consent">By signing up, you agree to receive emails from StockUp about early access, product updates, and news. No spam, unsubscribe anytime. See our <a href="/privacy-policy">privacy policy</a>.</p>
+      <div class="waitlist-view" id="waitlist-form-view">
+        <h2 id="waitlist-dialog-title" class="waitlist-modal-title">StockUp is coming to your browser</h2>
+        <p class="waitlist-modal-body">Be among the first to use StockUp on the web. Sign up to get early access.</p>
+        <form class="waitlist-form" action="/waitlist" method="post" novalidate>
+          <label class="visually-hidden" for="waitlist-email">Email address</label>
+          <input class="waitlist-input" type="email" id="waitlist-email" name="email" placeholder="you@email.com" autocomplete="email" inputmode="email" spellcheck="false" required aria-describedby="waitlist-consent">
+          <button class="waitlist-submit" type="submit">Sign me up</button>
+        </form>
+        <p class="waitlist-status" role="status" aria-live="polite"></p>
+        <p class="waitlist-consent" id="waitlist-consent">By signing up, you agree to receive emails from StockUp about early access, product updates, and news. No spam, unsubscribe anytime. See our <a href="/privacy-policy">privacy policy</a>.</p>
+      </div>
+      <div class="waitlist-view waitlist-success" id="waitlist-success-view" hidden>
+        <div class="waitlist-success-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+        </div>
+        <h2 class="waitlist-modal-title" id="waitlist-success-title">You're on the list</h2>
+        <p class="waitlist-modal-body" id="waitlist-success-body">Thanks for signing up. We'll email you when StockUp for the browser is ready.</p>
+      </div>
     </div>
   </div>
 
@@ -608,15 +617,44 @@
     const wlOverlay = document.getElementById('waitlist-dialog');
     if (wlOpen && wlOverlay) {
       const wlClose = document.getElementById('waitlist-close');
+      const formView = document.getElementById('waitlist-form-view');
+      const successView = document.getElementById('waitlist-success-view');
+      const successTitle = document.getElementById('waitlist-success-title');
+      const successBody = document.getElementById('waitlist-success-body');
       const wlForm = wlOverlay.querySelector('.waitlist-form');
       const emailInput = wlOverlay.querySelector('.waitlist-input');
       const submitBtn = wlOverlay.querySelector('.waitlist-submit');
       const status = wlOverlay.querySelector('.waitlist-status');
       let lastFocus = null;
-      const focusable = () => [...wlOverlay.querySelectorAll('button, [href], input')].filter(el => !el.disabled);
+      // Only visible controls are tab-trappable (the hidden view's are excluded).
+      const focusable = () => [...wlOverlay.querySelectorAll('button, [href], input')]
+        .filter(el => !el.disabled && !el.closest('[hidden]'));
+
+      const setStatus = (msg, kind) => {
+        status.textContent = msg;
+        status.classList.remove('is-error');
+        if (kind) status.classList.add(kind);
+      };
+      const resetView = () => {
+        successView.hidden = true;
+        formView.hidden = false;
+        wlOverlay.setAttribute('aria-labelledby', 'waitlist-dialog-title');
+        setStatus('', null);
+      };
+      const showSuccess = (already) => {
+        successTitle.textContent = already ? "You're already on the list" : "You're on the list";
+        successBody.textContent = already
+          ? "You're all set - we'll be in touch when it's ready."
+          : "Thanks for signing up. We'll email you when StockUp for the browser is ready.";
+        formView.hidden = true;
+        successView.hidden = false;
+        wlOverlay.setAttribute('aria-labelledby', 'waitlist-success-title');
+        wlClose.focus();
+      };
 
       const openModal = () => {
         lastFocus = document.activeElement;
+        resetView();
         wlOverlay.classList.add('is-open');
         document.body.style.overflow = 'hidden';
         setTimeout(() => emailInput.focus(), 60);
@@ -625,11 +663,6 @@
         wlOverlay.classList.remove('is-open');
         document.body.style.overflow = '';
         if (lastFocus && lastFocus.focus) lastFocus.focus();
-      };
-      const setStatus = (msg, kind) => {
-        status.textContent = msg;
-        status.classList.remove('is-success', 'is-error');
-        if (kind) status.classList.add(kind);
       };
 
       wlOpen.addEventListener('click', openModal);
@@ -668,12 +701,7 @@
           const data = await res.json().catch(() => ({}));
           if (res.ok && data.ok) {
             wlForm.reset();
-            setStatus(
-              data.already
-                ? "You're already on the list - we'll be in touch."
-                : "You're in. We'll be in touch soon.",
-              'is-success'
-            );
+            showSuccess(data.already);
           } else {
             setStatus('Something went wrong. Please try again.', 'is-error');
           }
