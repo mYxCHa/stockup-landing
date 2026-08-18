@@ -3,5 +3,6 @@
   "name": "stockup-landing",
   "compatibility_date": "2026-08-10",
   "compatibility_flags": ["nodejs_compat"],
-  "assets": { "directory": "./dist" }
+  "main": "worker.js",
+  "assets": { "directory": "./dist", "binding": "ASSETS" }
 }

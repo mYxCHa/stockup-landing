@@ -10,6 +10,9 @@ const OUT = 'dist';
 const EXCLUDE_EXACT = new Set([
   'package.json', 'package-lock.json', 'tsconfig.json', '.gitignore',
   'build.mjs', 'wrangler.jsonc', 'wrangler.toml', '.assetsignore',
+  // The Worker entry (wrangler.jsonc `main`) is bundled from the repo root by
+  // wrangler; it must NOT be copied into the static asset dir.
+  'worker.js',
 ]);
 const EXCLUDE_PREFIX = ['functions/', 'docs/'];
 
