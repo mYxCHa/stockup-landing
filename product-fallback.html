@@ -185,7 +185,6 @@
 
       var APP_STORE = 'https://apps.apple.com/au/app/stockup-grocery-prices/id6760887575';
       var PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.myxcha.StockUp';
-      var storeUrl = isIOS ? APP_STORE : PLAY_STORE;
 
       // /product/{id} or /product/{id}/
       var match = window.location.pathname.match(/\/product\/([^/?#]+)/);
@@ -193,8 +192,8 @@
 
       // Android: an intent:// URL escapes in-app WebViews far better than a bare
       // custom scheme and carries its own not-installed fallback to the store.
-      // iOS has no intent scheme, so use the custom scheme (relies on a user tap
-      // inside an in-app browser; the JS timer below is its store fallback).
+      // iOS has no intent scheme, so use the custom scheme (opens the app if
+      // installed; the visible store badge is the manual fallback otherwise).
       var appUrl = null;
       if (productId) {
         if (isAndroid) {
@@ -217,13 +216,13 @@
         var hint = document.getElementById('hint');
         if (hint) {
           hint.textContent =
-            'Opened from another app? Tap "Open in StockUp" above, or use the ⋮ menu to open this page in your browser.';
+            'Take your time - tap "Open in StockUp" above whenever you\'re ready, or use the ⋮ menu to open this page in your browser.';
           hint.style.display = 'block';
         }
       }
 
-      // If the app opens, this page is hidden/backgrounded - use that to cancel
-      // the store bounce so a successful open is never yanked to the store.
+      // If the app opens, this page is hidden/backgrounded - track it so the
+      // iOS-only fallback below never yanks a successful open to the store.
       var appOpened = false;
       function markOpened() { appOpened = true; }
       document.addEventListener('visibilitychange', function () {
@@ -232,20 +231,26 @@
       window.addEventListener('pagehide', markOpened);
       window.addEventListener('blur', markOpened);
 
-      // Auto-attempt once. Outside an in-app browser this opens the app (or, on
-      // Android when not installed, follows the intent's fallback to the store).
+      // Auto-attempt once.
+      // - Android: the intent:// opens the app if installed, or follows its own
+      //   browser_fallback_url to Play if not - so Android needs NO JS store
+      //   timer. In an in-app browser (Messenger etc.) it raises that app's
+      //   native "open external app?" prompt; there must be no timer racing it,
+      //   or the page navigates out from under the prompt to the store while the
+      //   user is still reading it (the exact bug this removes).
+      // - iOS: the custom scheme opens the app if installed but has no native
+      //   not-installed fallback, so a timed App Store bounce is kept for iOS
+      //   ONLY, and only in a normal browser - and it is cancelled the moment
+      //   the app actually opens (visibility/pagehide/blur above).
       if (appUrl && (isIOS || isAndroid)) {
         window.location.href = appUrl;
       }
 
-      // Store fallback, only if the app clearly didn't open. Suppressed inside
-      // in-app browsers, where an auto-redirect is unreliable and would just
-      // strand the user at the store before they can tap "Open in StockUp".
-      setTimeout(function () {
-        if (!appOpened && !inApp && (isIOS || isAndroid)) {
-          window.location.href = storeUrl;
-        }
-      }, 2500);
+      if (isIOS && !inApp) {
+        setTimeout(function () {
+          if (!appOpened) window.location.href = APP_STORE;
+        }, 2500);
+      }
     })();
   </script>
 
