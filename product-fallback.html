@@ -197,9 +197,17 @@
       var appUrl = null;
       if (productId) {
         if (isAndroid) {
+          // In a normal browser, browser_fallback_url auto-forwards a
+          // not-installed user to Play. In an in-app browser (Messenger etc.)
+          // it is OMITTED on purpose: that WebView can auto-follow the fallback
+          // when its "open external app?" prompt is left sitting, which bounced
+          // installed users to the store while they read the prompt. Without it
+          // there is nothing to bounce to - the prompt just waits for CONTINUE,
+          // and not-installed users use the visible Play badge instead.
           appUrl = 'intent://product/' + productId +
             '#Intent;scheme=stockup;package=com.myxcha.StockUp;' +
-            'S.browser_fallback_url=' + encodeURIComponent(PLAY_STORE) + ';end';
+            (inApp ? '' : 'S.browser_fallback_url=' + encodeURIComponent(PLAY_STORE) + ';') +
+            'end';
         } else {
           appUrl = 'stockup://product/' + productId;
         }

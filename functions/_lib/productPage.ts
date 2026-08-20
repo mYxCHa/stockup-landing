@@ -54,9 +54,12 @@ export async function renderProductPage(
   return new Response(html, {
     headers: {
       'Content-Type': 'text/html; charset=utf-8',
-      // Prices refresh weekly (Wednesdays); a day of caching is safe and
-      // keeps crawler re-scrapes cheap.
-      'Cache-Control': 'public, max-age=3600, s-maxage=86400',
+      // No-store, deliberately: this page's whole job is to bounce into the
+      // app, and its redirect logic must be able to change instantly. A browser
+      // cache once served a stale copy whose old JS timer redirected people to
+      // the Play Store - never cache an app-handoff page. OG crawlers read the
+      // (JS-free) meta tags fresh each time, which is cheap.
+      'Cache-Control': 'no-store',
     },
   });
 }
