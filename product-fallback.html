@@ -107,6 +107,30 @@
       height: 48px;
     }
 
+    .open-app-btn {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 12px;
+      margin-bottom: 28px;
+    }
+
+    .hint {
+      display: none;
+      max-width: 320px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
     .fallback-text {
       margin-top: 24px;
       font-size: 13px;
@@ -132,6 +156,9 @@
   <p class="status">Opening StockUp...</p>
   <p class="subtitle">If the app doesn't open, download it below.</p>
 
+  <a id="open-app" class="open-app-btn" href="#">Open in StockUp</a>
+  <p id="hint" class="hint"></p>
+
   <div class="store-buttons">
     <a id="app-store" href="https://apps.apple.com/au/app/stockup-grocery-prices/id6760887575" aria-label="Download on the App Store">
       <img src="/assets/app-store-badge.png" alt="Download on the App Store">
@@ -150,23 +177,73 @@
       var ua = navigator.userAgent || '';
       var isIOS = /iPhone|iPad|iPod/i.test(ua);
       var isAndroid = /Android/i.test(ua);
+      // Facebook / Instagram / Messenger etc. open links in an in-app WebView,
+      // which never hands the tap to Android, so verified App Links can't fire
+      // and land the user here. Their WebViews also block automatic custom-
+      // scheme redirects - only a real tap, or an intent:// URL, gets out.
+      var inApp = /FBAN|FBAV|FB_IAB|Instagram|Line\/|Messenger|MicroMessenger|; wv\)/i.test(ua);
 
-      // Extract product ID from path: /product/{id} or /product/{id}/
+      var APP_STORE = 'https://apps.apple.com/au/app/stockup-grocery-prices/id6760887575';
+      var PLAY_STORE = 'https://play.google.com/store/apps/details?id=com.myxcha.StockUp';
+      var storeUrl = isIOS ? APP_STORE : PLAY_STORE;
+
+      // /product/{id} or /product/{id}/
       var match = window.location.pathname.match(/\/product\/([^/?#]+)/);
       var productId = match ? match[1] : null;
-      var deepLink = productId ? 'stockup://product/' + productId : null;
 
-      // Try to open the app via deep link
-      if (deepLink && (isIOS || isAndroid)) {
-        window.location.href = deepLink;
+      // Android: an intent:// URL escapes in-app WebViews far better than a bare
+      // custom scheme and carries its own not-installed fallback to the store.
+      // iOS has no intent scheme, so use the custom scheme (relies on a user tap
+      // inside an in-app browser; the JS timer below is its store fallback).
+      var appUrl = null;
+      if (productId) {
+        if (isAndroid) {
+          appUrl = 'intent://product/' + productId +
+            '#Intent;scheme=stockup;package=com.myxcha.StockUp;' +
+            'S.browser_fallback_url=' + encodeURIComponent(PLAY_STORE) + ';end';
+        } else {
+          appUrl = 'stockup://product/' + productId;
+        }
       }
 
-      // After a delay, redirect to the appropriate store
+      // Wire the visible button - a real tap is the most reliable way out of an
+      // in-app browser, so promote it and never auto-bounce those to the store.
+      var btn = document.getElementById('open-app');
+      if (btn && appUrl) {
+        btn.href = appUrl;
+        btn.style.display = 'inline-flex';
+      }
+      if (inApp) {
+        var hint = document.getElementById('hint');
+        if (hint) {
+          hint.textContent =
+            'Opened from another app? Tap "Open in StockUp" above, or use the ⋮ menu to open this page in your browser.';
+          hint.style.display = 'block';
+        }
+      }
+
+      // If the app opens, this page is hidden/backgrounded - use that to cancel
+      // the store bounce so a successful open is never yanked to the store.
+      var appOpened = false;
+      function markOpened() { appOpened = true; }
+      document.addEventListener('visibilitychange', function () {
+        if (document.hidden) markOpened();
+      });
+      window.addEventListener('pagehide', markOpened);
+      window.addEventListener('blur', markOpened);
+
+      // Auto-attempt once. Outside an in-app browser this opens the app (or, on
+      // Android when not installed, follows the intent's fallback to the store).
+      if (appUrl && (isIOS || isAndroid)) {
+        window.location.href = appUrl;
+      }
+
+      // Store fallback, only if the app clearly didn't open. Suppressed inside
+      // in-app browsers, where an auto-redirect is unreliable and would just
+      // strand the user at the store before they can tap "Open in StockUp".
       setTimeout(function () {
-        if (isIOS) {
-          window.location.href = 'https://apps.apple.com/au/app/stockup-grocery-prices/id6760887575';
-        } else if (isAndroid) {
-          window.location.href = 'https://play.google.com/store/apps/details?id=com.myxcha.StockUp';
+        if (!appOpened && !inApp && (isIOS || isAndroid)) {
+          window.location.href = storeUrl;
         }
       }, 2500);
     })();
