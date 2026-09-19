@@ -3,7 +3,7 @@
 // tooling). functions/ is intentionally excluded here: `wrangler pages deploy`
 // compiles it from the repo root, separately from this static asset dir.
 import { execSync } from 'node:child_process';
-import { mkdirSync, copyFileSync, rmSync } from 'node:fs';
+import { mkdirSync, copyFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, basename } from 'node:path';
 
 const OUT = 'dist';
@@ -13,6 +13,10 @@ const EXCLUDE_EXACT = new Set([
   // The Worker entry (wrangler.jsonc `main`) is bundled from the repo root by
   // wrangler; it must NOT be copied into the static asset dir.
   'worker.ts',
+  // Agent instruction files (shared with Codex/Claude Code). They are tracked,
+  // but the repo root is served publicly, so they must never reach dist/ or
+  // stockup.au. Also enforced by the generated dist/.assetsignore below.
+  'AGENTS.md', 'CLAUDE.md',
 ]);
 const EXCLUDE_PREFIX = ['functions/', 'docs/'];
 
@@ -28,4 +32,9 @@ for (const f of files) {
   copyFileSync(f, dest);
   n++;
 }
-console.log(`Staged ${n} files into ${OUT}/`);
+// Independent second layer against the public-root leak risk: tell Cloudflare's
+// asset uploader to skip the agent instruction files even if one ever lands in
+// dist/. `.assetsignore` lives in the assets directory and is not itself served.
+writeFileSync(join(OUT, '.assetsignore'), 'AGENTS.md\nCLAUDE.md\n');
+
+console.log(`Staged ${n} files into ${OUT}/ (+ .assetsignore guarding instruction files)`);
