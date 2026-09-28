@@ -1,64 +1,33 @@
 # StockUp
 
-> StockUp (grocery price comparison app for Australia) is a free Australian
-> app that compares grocery prices at Coles, Woolworths, and ALDI
-> side-by-side, tracks price history, sends price-drop alerts, and splits your
-> shopping by whichever store is cheapest. It tracks 30,000+ products across
-> Coles, Woolworths, and ALDI and refreshes every price every Wednesday,
-> matching the supermarkets' weekly catalogue cycle.
+StockUp is an Australian grocery price comparison app for iPhone and Android.
+It compares available catalogue prices at Coles, Woolworths and ALDI.
+Catalogue prices are updated weekly.
+Product coverage, prices and availability vary by retailer and location.
 
-StockUp is published by SpendWise Apps and is available on iOS and Android in
-Australia. It is an independent product and is **not affiliated with,
-endorsed by, or sponsored by Coles, Woolworths, or ALDI**.
+Free features include search, specials browsing, product barcode lookup, a List for saved products and price alerts, and a Cart for quantities and shopping totals.
+Users can choose the retailers shown.
+Up to 30 days of available price history are free.
+No sign-up is required for these features, and the free app includes advertising.
 
-## Free features
+StockUp Premium is an optional monthly or yearly subscription.
+It adds full recorded Price History, Price Intelligence, Smart Shop, Quick Cart, Past Purchases and an ad-free experience.
+Current prices and eligible offers are shown in the app.
+Sign-in is required for the current subscription flow.
 
-No sign-up is required - the app opens straight into price comparison.
+Smart Shop can check available live prices and stock at a selected Coles or Woolworths store.
+At ALDI, Smart Shop provides a checklist using catalogue prices, without live store prices or stock.
+Quick Cart sends supported items to a user's Coles or Woolworths trolley for the user to review and check out.
+It does not support ALDI checkout or place orders automatically.
 
-- **Side-by-side price comparison** - every tracked product shows the
-  retailers' prices together (Coles, Woolworths, and, where there is a
-  like-for-like ALDI match, ALDI too), with per-unit pricing so different
-  pack sizes are comparable.
-- **Specials and half-price browsing** - search the full catalogue or browse
-  by category to find what is currently discounted at any of the chains.
-- **List (the products you save so StockUp can watch their prices)** - with
-  free price-drop alerts on your terms: any special, a strong discount, a
-  percentage off, or a target dollar price, at one store or across them all.
-- **Cart (this week's shop, split by cheapest store)** - StockUp splits your
-  Cart across Coles, Woolworths, and ALDI so every item is counted where it is
-  cheapest, and shows what the split saves.
-- **Barcode scanning** - scan a product in store to pull up its prices.
-- **Recent price history** - the last 30 days on any product.
+Not every product has prices from every retailer.
+ALDI-only products are also included.
+Price Intelligence uses historical data and does not guarantee future specials.
+StockUp does not currently offer a public browser shopping app.
+It is independent and not affiliated with the retailers.
 
-## StockUp Premium ($4.99/month or $39.99/year, cancel anytime)
-
-- **Full Price History** - the complete price record for any product.
-- **Price Intelligence** - a buy-now-or-wait read based on each product's
-  sale pattern.
-- **Smart Shop** - for shopping in person. Pick the store you are standing
-  in and StockUp pulls that store's live prices and stock, then turns your
-  shop into a checklist. Finished shops are saved to Past Purchases. Live
-  prices come from the retailer's own systems, not the physical shelf.
-- **Quick Cart** - sends your Cart to your real Coles or Woolworths trolley.
-  You sign in to the retailer on your own device, inside an in-app browser;
-  StockUp never sees your password and never places the order. You review
-  and check out yourself.
-- **Past Purchases** - a savings ledger of what you bought and what you
-  saved, shop after shop.
-- **Ad-free experience.**
-
-## What StockUp is not
-
-- Not a coupon, voucher, points, or cashback app.
-- Does not cover IGA (stores are independently owned, so prices differ store
-  to store). ALDI is covered, but because most of its range is ALDI's own
-  brands, the ALDI price shows on products that have a like-for-like match.
-- Australia only; iOS and Android only; there is no web app.
-- Never places orders and never sees retailer passwords.
-- Not affiliated with Coles, Woolworths, or ALDI.
-- Not a stock-market, investing, or inventory application.
-
-## Learn more
-
-- App Store: https://apps.apple.com/au/app/stockup-grocery-prices/id6760887575
-- Google Play: https://play.google.com/store/apps/details?id=com.myxcha.StockUp
+App Store: https://apps.apple.com/au/app/stockup-grocery-prices/id6760887575
+Google Play: https://play.google.com/store/apps/details?id=com.myxcha.StockUp
+Privacy: https://stockup.au/privacy-policy
+Terms: https://stockup.au/terms-of-service
+Support: spendwiseapps@gmail.com

@@ -15,7 +15,7 @@ It is a static site (`index.html`, `style.css`, legal pages, `robots.txt`, `site
 
 ## Deploy model
 
-`npm run build` copies every git-tracked file into `dist/` except an explicit exclude list (build tooling, `functions/`, `docs/`, and the agent instruction files) - see `build.mjs`.
+`npm run build` copies only the explicit public-file allowlist in `build.mjs` into `dist/`.
 Cloudflare serves `dist/` as static assets (`wrangler.jsonc` -> `assets.directory: ./dist`, binding `ASSETS`), and `worker.ts` handles the dynamic routes; `functions/` is compiled from the repo root separately by wrangler.
 The Cloudflare dashboard build command is `npm run build`, so the deployed artifact is `dist/`.
 
@@ -23,7 +23,7 @@ The Cloudflare dashboard build command is `npm run build`, so the deployed artif
 
 - **The repo root is served publicly.** Any git-tracked file that `build.mjs` copies into `dist/` becomes reachable at `https://stockup.au/<path>`. Never commit an internal, planning, or instruction document to a served path.
 - **`docs/` is git-ignored on purpose** - committing planning docs would publish the strategy, competitor analysis and pricing rationale at `stockup.au/docs/*.md`. Keep planning docs local, inside the ignored `docs/`.
-- **`AGENTS.md` (and any future `CLAUDE.md`) is tracked but must never be deployed.** It is excluded two ways: `build.mjs` `EXCLUDE_EXACT` (never copied into `dist/`) and a generated `dist/.assetsignore` (Cloudflare skips it even if present). If you add another root-level instruction or internal file, add it to both.
+- **`AGENTS.md` (and any future `CLAUDE.md`) is tracked but must never be deployed.** Neither belongs in `build.mjs`'s public-file allowlist, and a generated `dist/.assetsignore` gives another guard. Add new public assets to the allowlist explicitly; never add internal files.
 - **`robots.txt` in this repo is the sole source of truth** - Cloudflare's managed robots.txt is disabled; do not re-enable it. Verify with `curl -s https://stockup.au/robots.txt | grep -c '^Disallow: /$'` (must be 0).
 - Never use the em-dash character; use a plain dash. Never add an agent name as a commit co-author. Never hand-edit auto-generated files.
 

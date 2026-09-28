@@ -1,17 +1,11 @@
-// Renders /product/:id - the static product-fallback interstitial with
-// per-product Open Graph tags injected (R33). On any data failure it serves
-// the template unmodified, exactly what the old static rewrite did.
-//
-// Shared by two callers: the Pages Function (functions/product/[id].ts) and
-// the deployed Worker (worker.ts). The Worker is the entry that actually runs
-// under this project's Worker + static-assets model, so wiring the route there
-// is what makes /product/:id return 200 instead of the asset binding's 404.
+// Renders the existing /product/:id handoff page with product-specific sharing
+// metadata. The data-product-meta attributes in product-fallback.html mark
+// replaceable tags, so wording changes cannot silently break the injection.
 
 import {
   fetchProduct,
   formatPrice,
   pricePairs,
-  priceGap,
   escapeHtml,
   truncate,
   type ProductRow,
@@ -21,25 +15,71 @@ interface AssetsEnv {
   ASSETS: { fetch: typeof fetch };
 }
 
+const CANONICAL_ORIGIN = 'https://stockup.au';
+
 function ogDescription(p: ProductRow): string {
-  const pairs = pricePairs(p);
-  const gap = priceGap(p);
-  const priceBit = pairs
-    .map((pair) => `${pair.label} ${formatPrice(pair.price)}`)
+  const prices = pricePairs(p)
+    .map(({ label, price }) => `${label} ${formatPrice(price)}`)
     .join(' · ');
-  const gapBit = gap ? ` - save ${formatPrice(gap)} at ${pairs[0].label}` : '';
-  const tail =
-    'See the price history and get an alert when it drops. Free on StockUp.';
-  return priceBit ? `${priceBit}${gapBit}. ${tail}` : tail;
+  if (!prices) {
+    return 'Look for available prices and set free price alerts for this product in StockUp. Coverage and prices can vary by store.';
+  }
+  return `${prices}. Compare available prices and set free price alerts in StockUp. Prices can vary by store.`;
+}
+
+function replaceSlot(html: string, slot: string, replacement: string): string {
+  const tag = slot === 'title' ? 'title' : slot === 'canonical' ? 'link' : 'meta';
+  const close = tag === 'title' ? '[\\s\\S]*?<\\/title>' : '';
+  const pattern = new RegExp(`<${tag}\\b(?=[^>]*\\bdata-product-meta="${slot}")[^>]*>${close}`, 'i');
+  if (!pattern.test(html)) throw new Error(`Missing product metadata slot: ${slot}`);
+  return html.replace(pattern, replacement);
+}
+
+export function injectFallbackRouteMeta(template: string, id: string): string {
+  if (!/^[A-Za-z0-9_-]{1,64}$/.test(id)) return template;
+  const pageUrl = `${CANONICAL_ORIGIN}/product/${encodeURIComponent(id)}`;
+  template = replaceSlot(template, 'canonical', `<link rel="canonical" href="${pageUrl}">`);
+  return replaceSlot(template, 'og:url', `<meta property="og:url" content="${pageUrl}">`);
+}
+
+export function injectProductMeta(template: string, p: ProductRow): string {
+  const title = escapeHtml(`${truncate(p.name, 83)} prices - StockUp`);
+  const description = escapeHtml(ogDescription(p));
+  const productId = encodeURIComponent(p.product_id);
+  const pageUrl = `${CANONICAL_ORIGIN}/product/${productId}`;
+  const imageUrl = `${CANONICAL_ORIGIN}/og/product/${productId}.png`;
+  const replacements: Record<string, string> = {
+    title: `<title>${title}</title>`,
+    description: `<meta name="description" content="${description}">`,
+    canonical: `<link rel="canonical" href="${pageUrl}">`,
+    'og:title': `<meta property="og:title" content="${title}">`,
+    'og:description': `<meta property="og:description" content="${description}">`,
+    'og:url': `<meta property="og:url" content="${pageUrl}">`,
+    'og:image': `<meta property="og:image" content="${imageUrl}">`,
+    'twitter:title': `<meta name="twitter:title" content="${title}">`,
+    'twitter:description': `<meta name="twitter:description" content="${description}">`,
+    'twitter:image': `<meta name="twitter:image" content="${imageUrl}">`,
+  };
+  for (const [slot, replacement] of Object.entries(replacements)) {
+    template = replaceSlot(template, slot, replacement);
+  }
+  return template;
 }
 
 export async function renderProductPage(
   id: string,
   env: AssetsEnv,
-  requestUrl: string,
+  request: Request,
 ): Promise<Response> {
+  const headers = {
+    'Content-Type': 'text/html; charset=utf-8',
+    'Cache-Control': 'no-store',
+    'X-Robots-Tag': 'noindex',
+  };
+  if (request.method === 'HEAD') return new Response(null, { headers });
+
   const templateRes = await env.ASSETS.fetch(
-    new URL('/product-fallback', requestUrl),
+    new URL('/product-fallback', request.url),
   );
   const template = await templateRes.text();
 
@@ -47,53 +87,10 @@ export async function renderProductPage(
   try {
     product = await fetchProduct(id);
   } catch {
-    // Data outage → generic card, exactly what the old static rewrite served.
+    // Data outage: serve the generic handoff and static share card.
   }
 
-  const html = product ? injectMeta(template, product, requestUrl) : template;
-  return new Response(html, {
-    headers: {
-      'Content-Type': 'text/html; charset=utf-8',
-      // No-store, deliberately: this page's whole job is to bounce into the
-      // app, and its redirect logic must be able to change instantly. A browser
-      // cache once served a stale copy whose old JS timer redirected people to
-      // the Play Store - never cache an app-handoff page. OG crawlers read the
-      // (JS-free) meta tags fresh each time, which is cheap.
-      'Cache-Control': 'no-store',
-    },
+  return new Response(product ? injectProductMeta(template, product) : injectFallbackRouteMeta(template, id), {
+    headers,
   });
-}
-
-function injectMeta(template: string, p: ProductRow, requestUrl: string): string {
-  const origin = new URL(requestUrl).origin;
-  const title = escapeHtml(truncate(p.name, 90));
-  const desc = escapeHtml(ogDescription(p));
-  const ogImage = `${origin}/og/product/${encodeURIComponent(p.product_id)}.png`;
-  const pageUrl = `${origin}/product/${encodeURIComponent(p.product_id)}`;
-
-  return template
-    .replace(
-      '<title>StockUp - View Product</title>',
-      `<title>${title} - StockUp</title>`,
-    )
-    .replace(
-      '<meta name="description" content="Compare Coles and Woolworths prices for this product on StockUp.">',
-      `<meta name="description" content="${desc}">`,
-    )
-    .replace(
-      '<meta property="og:title" content="StockUp - Compare Grocery Prices">',
-      `<meta property="og:title" content="${title}">`,
-    )
-    .replace(
-      '<meta property="og:description" content="Compare Coles and Woolworths prices side-by-side. Tap to view this product in StockUp.">',
-      `<meta property="og:description" content="${desc}">\n  <meta property="og:url" content="${pageUrl}">`,
-    )
-    .replace(
-      '<meta property="og:image" content="https://stockup.au/assets/og-image.png">',
-      `<meta property="og:image" content="${ogImage}">`,
-    )
-    .replace(
-      '<meta name="twitter:image" content="https://stockup.au/assets/og-image.png">',
-      `<meta name="twitter:image" content="${ogImage}">`,
-    );
 }

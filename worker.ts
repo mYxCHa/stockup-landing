@@ -15,7 +15,9 @@
 
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from './functions/_lib/supabase';
 import { renderProductPage } from './functions/_lib/productPage';
-import { renderProductOgCard } from './functions/_lib/ogCard';
+import { productOgHead, renderProductOgCard } from './functions/_lib/ogCard';
+import { installFallback, installRedirect } from './functions/_lib/get';
+import { canonicalHostRedirect } from './functions/_lib/host';
 
 interface Env {
   ASSETS: { fetch: typeof fetch };
@@ -110,23 +112,49 @@ async function handleWaitlist(request: Request): Promise<Response> {
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
+    const hostRedirect = canonicalHostRedirect(request);
+    if (hostRedirect) return hostRedirect;
     const url = new URL(request.url);
 
     if (url.pathname === '/waitlist') {
       return handleWaitlist(request);
     }
 
+    if ((url.pathname === '/get' || url.pathname === '/get/') &&
+        request.method !== 'GET' && request.method !== 'HEAD') {
+      return new Response(null, { status: 405, headers: { Allow: 'GET, HEAD' } });
+    }
+
     // The dynamic GET routes below are safe to match by prefix: no static
     // asset lives under /product/ or /og/product/ (the interstitial template
     // is /product-fallback, which these patterns do not match).
     if (request.method === 'GET' || request.method === 'HEAD') {
+      if (url.pathname === '/get' || url.pathname === '/get/') {
+        const redirect = installRedirect(request);
+        if (redirect) return redirect;
+        const fallback = await env.ASSETS.fetch(new URL('/get', request.url));
+        return installFallback(fallback, request.method);
+      }
       const product = PRODUCT_RE.exec(url.pathname);
       if (product) {
-        return renderProductPage(decodeURIComponent(product[1]), env, request.url);
+        let id: string;
+        try {
+          id = decodeURIComponent(product[1]);
+        } catch {
+          return new Response(null, { status: 400 });
+        }
+        return renderProductPage(id, env, request);
       }
       const og = OG_PRODUCT_RE.exec(url.pathname);
       if (og) {
-        return renderProductOgCard(decodeURIComponent(og[1]), env, request.url);
+        if (request.method === 'HEAD') return productOgHead();
+        let id: string;
+        try {
+          id = decodeURIComponent(og[1]);
+        } catch {
+          return new Response(null, { status: 400 });
+        }
+        return renderProductOgCard(id, env, request.url);
       }
     }
 

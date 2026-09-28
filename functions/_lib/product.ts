@@ -16,14 +16,15 @@ export interface ProductRow {
   image_url: string | null;
   coles_price: number | null;
   woolworths_price: number | null;
+  aldi_price: number | null;
   coles_was_price: number | null;
   woolworths_was_price: number | null;
-  cheapest: 'coles' | 'woolworths' | 'equal' | null;
+  cheapest: 'coles' | 'woolworths' | 'aldi' | 'equal' | null;
 }
 
 const SELECT_COLUMNS =
   'product_id,name,brand,size_value,size_unit,image_url,' +
-  'coles_price,woolworths_price,coles_was_price,woolworths_was_price,cheapest';
+  'coles_price,woolworths_price,aldi_price,coles_was_price,woolworths_was_price,cheapest';
 
 export async function fetchProduct(
   id: string,
@@ -50,23 +51,29 @@ export async function fetchProduct(
 export const formatPrice = (n: number): string =>
   `$${n.toFixed(2)}`;
 
-/** Both prices sorted cheapest-first (empty/one-element when unranged). */
+export type Retailer = 'coles' | 'woolworths' | 'aldi';
+export type PricePair = { retailer: Retailer; label: string; price: number };
+
+/** Available prices sorted cheapest-first. */
 export function pricePairs(
   p: ProductRow,
-): { retailer: 'coles' | 'woolworths'; label: string; price: number }[] {
-  const pairs: { retailer: 'coles' | 'woolworths'; label: string; price: number }[] = [];
+): PricePair[] {
+  const pairs: PricePair[] = [];
   if (p.coles_price != null)
     pairs.push({ retailer: 'coles', label: 'Coles', price: p.coles_price });
   if (p.woolworths_price != null)
-    pairs.push({ retailer: 'woolworths', label: 'Woolies', price: p.woolworths_price });
+    pairs.push({ retailer: 'woolworths', label: 'Woolworths', price: p.woolworths_price });
+  if (p.aldi_price != null)
+    pairs.push({ retailer: 'aldi', label: 'ALDI', price: p.aldi_price });
   pairs.sort((a, b) => a.price - b.price);
   return pairs;
 }
 
-/** Cross-retailer gap in dollars, null unless both retailers carry it. */
+/** Largest available cross-retailer price gap, null without two prices. */
 export function priceGap(p: ProductRow): number | null {
-  if (p.coles_price == null || p.woolworths_price == null) return null;
-  const gap = Math.abs(p.coles_price - p.woolworths_price);
+  const pairs = pricePairs(p);
+  if (pairs.length < 2) return null;
+  const gap = pairs[pairs.length - 1].price - pairs[0].price;
   return gap >= 0.05 ? gap : null;
 }
 

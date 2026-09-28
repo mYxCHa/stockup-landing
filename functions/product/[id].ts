@@ -14,4 +14,6 @@ interface Env {
 }
 
 export const onRequestGet: PagesFunction<Env> = ({ request, env, params }) =>
-  renderProductPage(String(params.id ?? ''), env, request.url);
+  renderProductPage(String(params.id ?? ''), env, request);
+
+export const onRequestHead = onRequestGet;

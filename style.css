@@ -336,8 +336,7 @@ body.legal-page .header {
   gap: 56px;
   align-items: center;
   width: 100%;
-  /* Match the two lazy-tax cards' outer span so the hero lines up with them
-     (derived from the 1344px container + 500px card caps). */
+  /* Keep the hero content comfortably centred within the page container. */
   max-width: 1156px;
   margin: 0 auto;
 }
@@ -486,18 +485,21 @@ body.legal-page .header {
 }
 
 /* ============================================
-   Proof section: one-item gap + whole-shop payoff,
-   two illustrative cards side by side (short scroll).
+   Proof section: one product with three retailer prices.
    ============================================ */
 .proof-section {
-  padding: 0 0 100px;
+  padding: 0 0 80px;
 }
 
-/* Full-width darker band behind the intro, matching .flow-intro. */
-.proof-banner {
+/* Matching heading bands for the price comparison and feature journey. */
+.proof-banner,
+.flow-intro {
   background: var(--navy-deep);
-  padding: 64px 0 56px;
-  margin-bottom: 64px;
+  padding: 80px 0;
+}
+
+.proof-banner {
+  margin-bottom: 56px;
 }
 
 /* ============================================
@@ -773,7 +775,7 @@ body.legal-page .header {
   }
 }
 
-/* Section intro above the two cards - same rhythm as "How StockUp works". */
+/* Section intro above the comparison - same rhythm as "How StockUp works". */
 .proof-heading {
   text-align: center;
   max-width: 720px;
@@ -795,9 +797,8 @@ body.legal-page .header {
 
 .proof-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  align-items: stretch;
+  grid-template-columns: minmax(0, 500px);
+  justify-content: center;
 }
 
 .proof-col {
@@ -807,23 +808,7 @@ body.legal-page .header {
   text-align: center;
 }
 
-.proof-col h2 {
-  font-size: 32px;
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  color: var(--white);
-  margin-bottom: 28px;
-  text-wrap: balance;
-}
-
-/* The card fills the column and both columns match height. */
-.proof-col .compare-card,
-.proof-col .receipt-card {
-  flex: 1;
-}
-
-/* Compare card (illustrative) */
+/* Product price comparison card */
 .compare-card {
   background: var(--navy-raised);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -845,7 +830,12 @@ body.legal-page .header {
   margin-bottom: 28px;
 }
 
-.compare-emoji { font-size: 28px; }
+.compare-biscuit {
+  display: block;
+  width: 34px;
+  height: 28px;
+  flex: none;
+}
 
 .compare-name {
   font-size: 19px;
@@ -903,20 +893,14 @@ body.legal-page .header {
 .compare-special {
   position: absolute;
   top: -12px;
-  right: -10px;
+  left: -10px;
   background: var(--yellow);
   color: #111;
   font-size: 12px;
   font-weight: 800;
   padding: 4px 10px;
   border-radius: 100px;
-  transform: rotate(6deg);
-}
-
-.compare-vs {
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text-muted);
+  transform: rotate(-6deg);
 }
 
 .compare-save {
@@ -930,76 +914,6 @@ body.legal-page .header {
   padding: 10px 24px;
   border-radius: 100px;
   letter-spacing: -0.01em;
-}
-
-/* Receipt card (illustrative whole-shop total) */
-.receipt-card {
-  background: var(--navy-raised);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 24px;
-  padding: 28px 36px;
-  width: 100%;
-  max-width: 500px;
-  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.35);
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.receipt-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  padding: 11px 0;
-}
-
-.receipt-label {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-
-.receipt-value {
-  font-size: 24px;
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: var(--white);
-}
-
-.receipt-split {
-  margin-top: 6px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
-}
-
-.receipt-split .receipt-label { color: var(--white); font-weight: 700; }
-/* Nudged up 2px: yellow reads optically smaller than the white values above,
-   so this lands it at the same visual size as $87.50 / $78.20. */
-.receipt-split .receipt-value { color: var(--yellow); font-size: 26px; }
-
-/* Navy on yellow ≈ 9:1 - the savings colour never carries text alone. */
-.receipt-badge {
-  align-self: flex-end;
-  margin-top: 8px;
-  background: var(--yellow);
-  color: var(--navy-deep);
-  font-size: 13px;
-  font-weight: 800;
-  padding: 5px 14px;
-  border-radius: 100px;
-  letter-spacing: -0.01em;
-}
-
-.receipt-caption {
-  margin-top: 16px;
-  font-size: 13px;
-  color: var(--text-muted);
-}
-
-/* Second caption line sits tight under the first. */
-.receipt-caption + .receipt-caption {
-  margin-top: 4px;
 }
 
 .proof-note {
@@ -1188,8 +1102,6 @@ body.legal-page .header {
    Flow ("How StockUp works" journey)
    ============================================ */
 .flow-intro {
-  background: var(--navy-deep);
-  padding: 90px 0 70px;
   text-align: center;
 }
 
@@ -1504,7 +1416,7 @@ body.legal-page .header {
    Pricing table (Free vs Premium)
    ============================================ */
 .pricing-section {
-  padding: 120px 0;
+  padding: 96px 0;
   text-align: center;
 }
 
@@ -1592,7 +1504,7 @@ body.legal-page .header {
    ============================================ */
 .faq-section {
   background: var(--navy-deep);
-  padding: 120px 0;
+  padding: 96px 0;
 }
 
 .faq-inner {
@@ -1695,7 +1607,7 @@ body.legal-page .header {
    CTA Section
    ============================================ */
 .cta-section {
-  padding: 140px 0;
+  padding: 112px 0;
   text-align: center;
   background: var(--navy);
 }
@@ -1869,16 +1781,6 @@ body.legal-page .header {
     right: 0;
   }
 
-  /* Three price chips don't fit side-by-side while the proof cards are still
-     two-up, so stack them until the single-column desktop width. */
-  .compare-prices {
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .compare-tag {
-    width: 100%;
-  }
 }
 
 @media (max-width: 768px) {
@@ -1932,14 +1834,8 @@ body.legal-page .header {
   .hero-proof-lg { display: none; }
   .hero-proof-sm { display: inline; }
 
-  /* Proof section: stack the two cards */
   .proof-section {
-    padding: 72px 0 80px;
-  }
-
-  .proof-grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
+    padding: 0 0 72px;
   }
 
   .stage-screens {
@@ -1952,14 +1848,8 @@ body.legal-page .header {
     font-size: 28px;
   }
 
-  .proof-col h2 {
-    font-size: 28px;
-    margin-bottom: 24px;
-  }
-
-  /* Cards get roomier padding back on a narrow screen. */
+  /* Give the comparison card roomier padding on a narrow screen. */
   .compare-card { padding: 28px 24px; }
-  .receipt-card { padding: 24px 22px; }
 
   /* Stack feature sections */
   .feature-section {
@@ -2025,11 +1915,15 @@ body.legal-page .header {
   .hero-phone-wrapper { width: 100%; display: flex; justify-content: center; }
 
 
-  /* Flow intro + pricing + FAQ */
-  .flow-intro,
+  /* The heading bands and content sections keep the same mobile rhythm. */
+  .proof-banner,
+  .flow-intro {
+    padding: 64px 0;
+  }
+
   .pricing-section,
   .faq-section {
-    padding: 64px 0;
+    padding: 72px 0;
   }
 
   .step-eyebrow {
@@ -2081,6 +1975,21 @@ body.legal-page .header {
 }
 
 @media (max-width: 480px) {
+  .logo {
+    gap: 8px;
+    font-size: 21px;
+  }
+
+  .logo img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .btn-header {
+    padding: 10px 16px;
+    white-space: nowrap;
+  }
+
   .hero h1 {
     font-size: 34px;
   }
@@ -2116,15 +2025,10 @@ body.legal-page .header {
     width: 220px;
   }
 
-  /* Stack the two price tags so the compare card fits a phone screen
-     (side-by-side, they force the card wider than the viewport). */
+  /* Stack the three prices so the compare card fits a phone screen. */
   .compare-prices {
     flex-direction: column;
     gap: 12px;
-  }
-
-  .compare-vs {
-    display: none;
   }
 
   .compare-tag {

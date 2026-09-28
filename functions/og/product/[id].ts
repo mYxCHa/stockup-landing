@@ -4,7 +4,7 @@
 // static-assets deploy model the Worker is what actually serves this route;
 // this Function is kept working for a possible future Pages deploy.
 
-import { renderProductOgCard } from '../../_lib/ogCard';
+import { productOgHead, renderProductOgCard } from '../../_lib/ogCard';
 
 interface Env {
   ASSETS: { fetch: typeof fetch };
@@ -12,3 +12,5 @@ interface Env {
 
 export const onRequestGet: PagesFunction<Env> = ({ request, env, params }) =>
   renderProductOgCard(String(params.id ?? ''), env, request.url);
+
+export const onRequestHead: PagesFunction<Env> = () => productOgHead();

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StockUp: Coles, Woolworths &amp; ALDI Grocery Price Comparison &amp; Alerts</title>
-  <meta name="description" content="Free Australian app comparing Coles, Woolworths &amp; ALDI grocery prices side-by-side. Price history, price-drop alerts, and your shop split by the cheapest store.">
+  <title>StockUp: Compare Coles, Woolworths &amp; ALDI Prices</title>
+  <meta name="description" content="Compare grocery prices at Coles, Woolworths and ALDI. Set free price alerts, plan your Cart and check price history. Get StockUp for iPhone and Android.">
   <meta name="application-name" content="StockUp">
   <meta name="apple-itunes-app" content="app-id=6760887575">
   <link rel="canonical" href="https://stockup.au/">
@@ -41,7 +41,7 @@
         "operatingSystem": "iOS, Android",
         "applicationCategory": "ShoppingApplication",
         "countriesSupported": "AU",
-        "description": "StockUp is a free Australian app that compares grocery prices at Coles, Woolworths, and ALDI side-by-side, tracks price history, sends price-drop alerts, and splits your shopping by whichever store is cheapest.",
+        "description": "StockUp is a free Australian app that compares available grocery prices at Coles, Woolworths and ALDI, offers price history and free price alerts, and helps plan a Cart across selected retailers.",
         "disambiguatingDescription": "StockUp is a grocery price comparison app for Australian supermarkets. It is not a stock-market, investing, or inventory application.",
         "author": {
           "@id": "https://stockup.au/#org"
@@ -57,11 +57,6 @@
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "AUD"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.9",
-          "ratingCount": "21"
         }
       },
       {
@@ -131,16 +126,19 @@
   </script>
 
   <!-- Open Graph -->
-  <meta property="og:title" content="StockUp: Never overpay at Coles, Woolies or ALDI again">
-  <meta property="og:description" content="See all three prices side-by-side, get free price-drop alerts, and shop whichever store is cheapest. Free on iPhone and Android.">
+  <meta property="og:title" content="StockUp - compare before you shop">
+  <meta property="og:description" content="Coles, Woolworths and ALDI prices in one app. Free price alerts, a Cart for your weekly shop, and clear comparisons before you go.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://stockup.au/">
   <meta property="og:site_name" content="StockUp">
   <meta property="og:locale" content="en_AU">
   <meta property="og:image" content="https://stockup.au/assets/og-image.png">
+  <meta property="og:image:alt" content="StockUp grocery price comparison app">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="StockUp - compare before you shop">
+  <meta name="twitter:description" content="Coles, Woolworths and ALDI prices in one app. Free price alerts, a Cart for your weekly shop, and clear comparisons before you go.">
   <meta name="twitter:image" content="https://stockup.au/assets/og-image.png">
 
   <!-- Favicon -->
@@ -152,9 +150,6 @@
   <link rel="preload" href="/assets/search-compare-v32.webp" as="image" fetchpriority="high">
   <link rel="stylesheet" href="/style.css">
 
-  <!-- Web Analytics is injected at the edge by Cloudflare (Analytics & Logs >
-       Web Analytics > Manage site > RUM enabled). Do NOT add the beacon here
-       as well - it would double-count every pageview. -->
 </head>
 <body>
 
@@ -186,8 +181,8 @@
             <img class="hero-avatar" src="/assets/avatar-2-v32.webp" alt="" width="26" height="26" loading="lazy">
             <img class="hero-avatar" src="/assets/avatar-3-v32.webp" alt="" width="26" height="26" loading="lazy">
           </span>
-          <span class="hero-proof-lg"><strong>1,000+</strong> shoppers saving already <span class="hero-star" aria-hidden="true">&#9733;</span> <strong>4.9</strong> rating</span>
-          <span class="hero-proof-sm"><strong>1,000+</strong> shoppers saving <span class="hero-star" aria-hidden="true">&#9733;</span> <strong>4.9</strong> rating</span>
+          <span class="hero-proof-lg"><strong>1,000+</strong> shoppers already saving <span class="hero-star" aria-hidden="true">&#9733;</span> <strong>4.9</strong> rating</span>
+          <span class="hero-proof-sm"><strong>1,000+</strong> shoppers already saving <span class="hero-star" aria-hidden="true">&#9733;</span> <strong>4.9</strong> rating</span>
         </p>
         <h1 class="animate-slide-up delay-1">Stop Overpaying<br>for Groceries</h1>
         <p class="hero-subtitle animate-slide-up delay-1">
@@ -258,14 +253,13 @@
     </div>
   </div>
 
-  <!-- The gap on one product, and the payoff across a whole shop.
-       Two illustrative cards side by side, to keep the scroll short. -->
+  <!-- The gap on one product across three retailers. -->
   <section class="proof-section">
     <div class="proof-banner">
       <div class="container">
         <div class="proof-heading animate-slide-up">
-          <h2>The lazy tax is real</h2>
-          <p class="feature-subtitle">Prices change every week, making it impossible to find the cheapest store. Not because we're lazy, but because the stores make it difficult, so we quietly end up paying the lazy tax.</p>
+          <h2>Same Product. 3 Prices.</h2>
+          <p class="feature-subtitle">Prices change every week, so it's hard to know where to shop. Without comparing, it's easy to pay more for the same product.</p>
         </div>
       </div>
     </div>
@@ -273,56 +267,38 @@
       <div class="proof-grid">
 
         <div class="proof-col animate-slide-up">
-          <h2>Same product. Three prices.</h2>
-          <div class="compare-card" role="img" aria-label="Example price comparison: Tim Tam Original 200 grams costs $2.50 at Coles, half price this week, $5.00 at Woolworths, and $3.85 at ALDI. You save $2.50.">
+          <div class="compare-card" role="img" aria-label="Tim Tam Original Chocolate Biscuit 200 grams costs $3 at Woolworths, half price, $4.49 at ALDI, and $6 at Coles. Choosing Woolworths saves up to $3.">
             <div class="compare-product">
-              <span class="compare-emoji" aria-hidden="true">🍫</span>
-              <span class="compare-name">Tim Tam Original 200g</span>
+              <svg class="compare-biscuit" viewBox="0 0 44 36" aria-hidden="true" focusable="false">
+                <g transform="rotate(-14 22 18)">
+                  <rect x="3" y="5" width="38" height="26" rx="6" fill="#29150E"/>
+                  <rect x="5" y="7" width="34" height="22" rx="5" fill="#5B301C"/>
+                  <path d="M30 7h4a5 5 0 0 1 5 5v12a5 5 0 0 1-5 5h-4Z" fill="#A66D44"/>
+                  <path d="M31 12h8M31 18h8M31 24h8" stroke="#3A1D12" stroke-width="3"/>
+                  <path d="M8 11c5-3 12-3 18-1" stroke="#A66A43" stroke-width="2" stroke-linecap="round" opacity=".75"/>
+                  <path d="M8 25h18" stroke="#2B140D" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+                </g>
+              </svg>
+              <span class="compare-name">Tim Tam Original Chocolate Biscuit 200g</span>
             </div>
             <div class="compare-prices">
-              <div class="compare-tag compare-coles">
-                <span class="compare-retailer">Coles</span>
-                <span class="compare-price">$2.50</span>
+              <div class="compare-tag compare-woolies">
+                <span class="compare-retailer">Woolworths</span>
+                <span class="compare-price">$3.00</span>
                 <span class="compare-special">½ price</span>
               </div>
-              <div class="compare-tag compare-woolies is-dearer">
-                <span class="compare-retailer">Woolworths</span>
-                <span class="compare-price">$5.00</span>
-              </div>
-              <div class="compare-tag compare-aldi">
+              <div class="compare-tag compare-aldi is-dearer">
                 <span class="compare-retailer">ALDI</span>
-                <span class="compare-price">$3.85</span>
+                <span class="compare-price">$4.49</span>
+              </div>
+              <div class="compare-tag compare-coles is-dearer">
+                <span class="compare-retailer">Coles</span>
+                <span class="compare-price">$6.00</span>
               </div>
             </div>
-            <div class="compare-save">You save $2.50</div>
+            <div class="compare-save">Save up to $3.00</div>
           </div>
         </div>
-
-        <div class="proof-col animate-slide-up delay-1">
-          <h2>The same weekly shop, four ways.</h2>
-          <div class="receipt-card" role="img" aria-label="One 16-item weekly shop: $87.50 at Coles, $78.20 at Woolworths, $69.90 at ALDI, or $54.90 split across all three stores with StockUp, saving up to $32.60.">
-            <div class="receipt-row">
-              <span class="receipt-label">All at Coles</span>
-              <span class="receipt-value">$87.50</span>
-            </div>
-            <div class="receipt-row">
-              <span class="receipt-label">All at Woolworths</span>
-              <span class="receipt-value">$78.20</span>
-            </div>
-            <div class="receipt-row">
-              <span class="receipt-label">All at ALDI</span>
-              <span class="receipt-value">$69.90</span>
-            </div>
-            <div class="receipt-row receipt-split">
-              <span class="receipt-label">Split with StockUp</span>
-              <span class="receipt-value">$54.90</span>
-            </div>
-            <div class="receipt-badge">saves up to $32.60</div>
-            <p class="receipt-caption">16-item basket, priced across all three stores.</p>
-            <p class="receipt-caption">Illustrative basket built from a real week of half-price cycles.</p>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
@@ -433,10 +409,7 @@
     </div>
   </section>
 
-  <!-- Reviews. Verbatim from the stores - do not edit the quotes.
-       Deliberately NOT marked up as Review schema: self-selected review
-       markup on your own product is what Google treats as self-serving.
-       The aggregateRating in the graph already carries the signal. -->
+  <!-- Reviews -->
   <section class="reviews-section">
     <div class="container reviews-inner">
       <h2 class="animate-slide-up">What shoppers say</h2>
@@ -565,7 +538,6 @@
       <div class="footer-links">
         <a href="/privacy-policy">Privacy Policy</a>
         <a href="/terms-of-service">Terms of Service</a>
-        <!-- WAVE 2 (R45): swap to support@stockup.au once Cloudflare Email Routing is live -->
         <a href="mailto:spendwiseapps@gmail.com">Contact</a>
       </div>
       <p class="footer-copy">&copy; 2026 SpendWise Apps. All rights reserved.</p>
