@@ -240,28 +240,7 @@ body.legal-page .header {
   flex-shrink: 0;
 }
 
-.phone::before {
-  content: '';
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 90px;
-  height: 24px;
-  background: #000;
-  border-radius: 16px;
-  z-index: 2;
-}
-
-/* The decorative notch sits over the top ~29px of the screenshot, which is
-   fine everywhere except the Price Intelligence capture, where the app's
-   own title renders inline with the status bar and lands underneath it.
-   ⚠️ This is a workaround: the real fix is the safe-area top inset in the
-   app, after which this class can come off and the capture be retaken. */
-.phone.no-notch::before {
-  display: none;
-}
-
+/* Current captures include the native Dynamic Island and safe-area spacing. */
 .phone img {
   width: 100%;
   display: block;
@@ -1818,12 +1797,6 @@ body.legal-page .header {
   /* Match the hero phone size on mobile. */
   .step-visual .phone {
     width: 240px;
-  }
-
-  .phone::before {
-    width: 76px;
-    height: 20px;
-    top: 10px;
   }
 
   .phone img {

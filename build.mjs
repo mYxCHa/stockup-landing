@@ -52,6 +52,20 @@ export const PUBLIC_FILES = [
   'assets/search-compare-v32.webp',
   'assets/smart-shop-v32.webp',
   'assets/specials-v32.webp',
+  'assets/search-compare-v36.webp',
+  'assets/search-compare-v36-2x.webp',
+  'assets/specials-v36.webp',
+  'assets/specials-v36-2x.webp',
+  'assets/price-alert-v36.webp',
+  'assets/price-alert-v36-2x.webp',
+  'assets/price-history-v36.webp',
+  'assets/price-history-v36-2x.webp',
+  'assets/cart-split-v36.webp',
+  'assets/cart-split-v36-2x.webp',
+  'assets/smart-shop-v36.webp',
+  'assets/smart-shop-v36-2x.webp',
+  'assets/quick-cart-v36.webp',
+  'assets/quick-cart-v36-2x.webp',
 ];
 
 const tracked = new Set(
