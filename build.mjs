@@ -66,6 +66,12 @@ export const PUBLIC_FILES = [
   'assets/smart-shop-v36-2x.webp',
   'assets/quick-cart-v36.webp',
   'assets/quick-cart-v36-2x.webp',
+  'assets/search-compare-v36-r2.webp',
+  'assets/search-compare-v36-r2-2x.webp',
+  'assets/specials-v36-r2.webp',
+  'assets/specials-v36-r2-2x.webp',
+  'assets/price-history-v36-r2.webp',
+  'assets/price-history-v36-r2-2x.webp',
 ];
 
 const tracked = new Set(
