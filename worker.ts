@@ -9,12 +9,14 @@
 //   POST /waitlist            - browser-version early-access signup
 //   GET  /product/:id         - per-product share/interstitial page (OG tags)
 //   GET  /og/product/:id.png  - per-product OG share-card image
+//   GET  /join/:token         - List invitation page (name + item count)
 //
 // Everything else passes through to the static asset binding (env.ASSETS), so
 // the marketing site is served exactly as before.
 
 import { SUPABASE_URL, SUPABASE_ANON_KEY } from './functions/_lib/supabase';
 import { renderProductPage } from './functions/_lib/productPage';
+import { renderInvitePage } from './functions/_lib/invitePage';
 import { productOgHead, renderProductOgCard } from './functions/_lib/ogCard';
 import { installFallback, installRedirect } from './functions/_lib/get';
 import { canonicalHostRedirect } from './functions/_lib/host';
@@ -31,6 +33,8 @@ const BANNER_ANCHOR = '/#waitlist';
 const PRODUCT_RE = /^\/product\/([^/]+)\/?$/;
 // /og/product/:id.png - the id keeps its .png here; renderProductOgCard strips it.
 const OG_PRODUCT_RE = /^\/og\/product\/([^/]+)$/;
+// /join/:token and /join/:token/ - a List invitation (the app's own link).
+const JOIN_RE = /^\/join\/([^/]+)\/?$/;
 
 function json(body: unknown, status = 200): Response {
   return new Response(JSON.stringify(body), {
@@ -126,8 +130,9 @@ export default {
     }
 
     // The dynamic GET routes below are safe to match by prefix: no static
-    // asset lives under /product/ or /og/product/ (the interstitial template
-    // is /product-fallback, which these patterns do not match).
+    // asset lives under /product/, /og/product/ or /join/ (the interstitial
+    // templates are /product-fallback and /invite-fallback, which these
+    // patterns do not match).
     if (request.method === 'GET' || request.method === 'HEAD') {
       if (url.pathname === '/get' || url.pathname === '/get/') {
         const redirect = installRedirect(request);
@@ -144,6 +149,16 @@ export default {
           return new Response(null, { status: 400 });
         }
         return renderProductPage(id, env, request);
+      }
+      const join = JOIN_RE.exec(url.pathname);
+      if (join) {
+        let token: string;
+        try {
+          token = decodeURIComponent(join[1]);
+        } catch {
+          return new Response(null, { status: 400 });
+        }
+        return renderInvitePage(token, env, request);
       }
       const og = OG_PRODUCT_RE.exec(url.pathname);
       if (og) {

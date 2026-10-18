@@ -4,7 +4,7 @@
     "details": [
       {
         "appID": "3ALKJ26HGF.com.myxcha.stockup",
-        "paths": ["/product/*"]
+        "paths": ["/product/*", "/join/*"]
       }
     ]
   }

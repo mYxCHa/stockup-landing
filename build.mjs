@@ -17,6 +17,7 @@ export const PUBLIC_FILES = [
   'llms.txt',
   'privacy-policy.html',
   'product-fallback.html',
+  'invite-fallback.html',
   'robots.txt',
   'sitemap.xml',
   'style.css',

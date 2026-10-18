@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-invite-meta="title">Join a list on StockUp</title>
+  <meta name="description" data-invite-meta="description" content="You've been invited to a shared list on StockUp. Open the app to join.">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" data-invite-meta="canonical" href="https://stockup.au/invite-fallback">
+
+  <!-- Open Graph -->
+  <meta property="og:title" data-invite-meta="og:title" content="Join a list on StockUp">
+  <meta property="og:description" data-invite-meta="og:description" content="You've been invited to a shared list on StockUp. Open the app to join.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" data-invite-meta="og:url" content="https://stockup.au/invite-fallback">
+  <meta property="og:image" content="https://stockup.au/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" data-invite-meta="twitter:title" content="Join a list on StockUp">
+  <meta name="twitter:description" data-invite-meta="twitter:description" content="You've been invited to a shared list on StockUp. Open the app to join.">
+  <meta name="twitter:image" content="https://stockup.au/assets/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1B3A5C;
+      --muted: #64748B;
+      --white: #FFFFFF;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--primary);
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+      text-decoration: none;
+      color: var(--primary);
+    }
+
+    .logo img {
+      border-radius: 10px;
+    }
+
+    .logo span {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .heading {
+      max-width: 360px;
+      font-size: 24px;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+      overflow-wrap: anywhere;
+    }
+
+    .detail {
+      max-width: 360px;
+      font-size: 15px;
+      color: var(--muted);
+      margin-bottom: 32px;
+      letter-spacing: -0.01em;
+    }
+
+    .open-app-btn {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: var(--primary);
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      text-decoration: none;
+      padding: 14px 32px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .hint {
+      max-width: 340px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .store-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .store-buttons a img {
+      height: 48px;
+    }
+
+    .fallback-text {
+      margin-top: 24px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .fallback-text a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="/" class="logo">
+    <img src="/assets/logo.png" alt="StockUp" width="48" height="48">
+    <span>StockUp</span>
+  </a>
+
+  <h1 class="heading" data-invite-slot="heading">You've been invited to a list on StockUp</h1>
+  <p class="detail" data-invite-slot="detail">Open the app to see the list and join it.</p>
+
+  <a id="open-app" class="open-app-btn" href="#" data-invite-slot="open">Open in StockUp</a>
+  <p class="hint" data-invite-slot="hint">Don't have StockUp yet? Install it, then come back to this link and tap Open in StockUp. If the app opens without the list, update it from the store and try again.</p>
+
+  <div class="store-buttons">
+    <a id="app-store" href="https://apps.apple.com/au/app/stockup-grocery-prices/id6760887575" aria-label="Download on the App Store">
+      <img src="/assets/app-store-badge.png" alt="Download on the App Store">
+    </a>
+    <a id="play-store" href="https://play.google.com/store/apps/details?id=com.myxcha.StockUp" aria-label="Get it on Google Play">
+      <img src="/assets/google-play-badge.png" alt="Get it on Google Play">
+    </a>
+  </div>
+
+  <p class="fallback-text">
+    Or visit <a href="/">stockup.au</a> to learn more.
+  </p>
+
+  <script>
+    (function () {
+      var isAndroid = /Android/i.test(navigator.userAgent || '');
+
+      // /join/{token} or /join/{token}/. The page for a dead link carries no
+      // open button (the renderer removes it), so nothing below runs for it.
+      var match = window.location.pathname.match(/\/join\/([A-Za-z0-9_-]{16,64})\/?$/);
+      var token = match ? match[1] : null;
+      var btn = document.getElementById('open-app');
+      if (!token || !btn) return;
+
+      // Android: intent:// escapes in-app browsers. Deliberately WITHOUT a
+      // browser_fallback_url: a not-installed visitor should stay on this page,
+      // which tells them to come back to the link after installing, rather than
+      // be bounced to Play and lose it. iOS: the custom scheme (universal links
+      // open the app before this page loads, where the build claims /join/).
+      var appUrl = isAndroid
+        ? 'intent://join/' + token + '#Intent;scheme=stockup;package=com.myxcha.StockUp;end'
+        : 'stockup://join/' + token;
+
+      btn.href = appUrl;
+      btn.style.display = 'inline-flex';
+
+      // Android: try once (a missing app just leaves this page up). iOS: wait
+      // for the tap. An installed build that claims /join/ opens from the link
+      // before this page loads, so a visitor here usually has no app yet, and
+      // Safari answers an unclaimed custom scheme with an "address is invalid"
+      // alert. Nothing is timed to a store, so the instructions stay up.
+      if (isAndroid) window.location.href = appUrl;
+    })();
+  </script>
+
+</body>
+</html>
