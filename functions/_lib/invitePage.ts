@@ -42,7 +42,10 @@ function replaceSlot(html: string, slot: string, text: string | null): string {
   );
 }
 
-const products = (n: number) => `${n} product${n === 1 ? '' : 's'}`;
+// Same words as the app: an item count, and the List's name set off in curly
+// quotes (it is user data - "Join My List" would read as an instruction).
+const items = (n: number) => `${n} item${n === 1 ? '' : 's'}`;
+const quoted = (name: string) => `\u201C${name}\u201D`;
 
 export function injectInvite(template: string, token: string, state: InviteState): string {
   let html = template;
@@ -74,10 +77,10 @@ export function injectInvite(template: string, token: string, state: InviteState
   }
 
   const name = truncate(state.preview.name, 40);
-  const count = products(state.preview.itemCount);
-  const title = escapeHtml(`Join ${name} on StockUp`);
+  const count = items(state.preview.itemCount);
+  const title = escapeHtml(`Join ${quoted(name)} on StockUp`);
   const description = escapeHtml(
-    `${count} on a shared list. Join it in StockUp to add and remove products together.`,
+    `${count} on a shared list. Join it in StockUp to add and remove items together.`,
   );
   for (const [slot, value] of [
     ['title', `<title>${title}</title>`],
@@ -89,7 +92,7 @@ export function injectInvite(template: string, token: string, state: InviteState
   ] as const) {
     html = replaceMeta(html, slot, value);
   }
-  html = replaceSlot(html, 'heading', `Join ${name}`);
+  html = replaceSlot(html, 'heading', `Join ${quoted(name)}`);
   return replaceSlot(html, 'detail', `${count} on a shared list. Open StockUp to join it.`);
 }
 

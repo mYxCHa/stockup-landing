@@ -23,9 +23,9 @@ test('a working link names the List and its item count, escaped, and stays opena
     kind: 'preview',
     preview: { name: 'Mum & <Dad>\'s "BBQ"', itemCount: 1 },
   });
-  assert.match(html, /<title>Join Mum &amp; &lt;Dad&gt;&#39;s &quot;BBQ&quot; on StockUp<\/title>/);
-  assert.match(html, /<h1 class="heading" data-invite-slot="heading">Join Mum &amp; &lt;Dad&gt;/);
-  assert.match(html, /1 product on a shared list\. Open StockUp to join it\./);
+  assert.match(html, /<title>Join \u201CMum &amp; &lt;Dad&gt;&#39;s &quot;BBQ&quot;\u201D on StockUp<\/title>/);
+  assert.match(html, /<h1 class="heading" data-invite-slot="heading">Join \u201CMum &amp; &lt;Dad&gt;/);
+  assert.match(html, /1 item on a shared list\. Open StockUp to join it\./);
   assert.match(html, /<link rel="canonical" href="https:\/\/stockup\.au\/join\/NFCRAMoyh4sCXw_tiRRanQ">/);
   assert.match(html, /<meta property="og:url" content="https:\/\/stockup\.au\/join\/NFCRAMoyh4sCXw_tiRRanQ">/);
   assert.match(html, /id="open-app"/);
@@ -66,7 +66,7 @@ test('renders from the preview RPC: working, dead, outage, bad token, HEAD', asy
   assert.equal(ok.status, 200);
   assert.equal(ok.headers.get('Cache-Control'), 'no-store');
   assert.equal(ok.headers.get('X-Robots-Tag'), 'noindex');
-  assert.match(await ok.text(), /Join Groceries/);
+  assert.match(await ok.text(), /Join \u201CGroceries\u201D/);
   assert.match(calls[0].url, /\/rest\/v1\/rpc\/get_watchlist_invite_preview$/);
   assert.deepEqual(JSON.parse(calls[0].body), { p_token: token });
 
