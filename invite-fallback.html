@@ -92,7 +92,7 @@
     }
 
     .open-app-btn {
-      display: none;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       background: var(--primary);
@@ -104,6 +104,11 @@
       padding: 14px 32px;
       border-radius: 12px;
       margin-bottom: 20px;
+    }
+
+    /* The template's button has no link yet; the renderer gives it one. */
+    .open-app-btn[hidden] {
+      display: none;
     }
 
     .hint {
@@ -148,7 +153,7 @@
   <h1 class="heading" data-invite-slot="heading">You've been invited to a list on StockUp</h1>
   <p class="detail" data-invite-slot="detail">Open the app to see the list and join it.</p>
 
-  <a id="open-app" class="open-app-btn" href="#" data-invite-slot="open">Open in StockUp</a>
+  <a id="open-app" class="open-app-btn" href="#" data-invite-slot="open" hidden>Open in StockUp</a>
   <p class="hint" data-invite-slot="hint">Don't have StockUp yet? Install it, then come back to this link and tap Open in StockUp. If the app opens without the list, update it from the store and try again.</p>
 
   <div class="store-buttons">
@@ -175,24 +180,28 @@
       var btn = document.getElementById('open-app');
       if (!token || !btn) return;
 
-      // Android: intent:// escapes in-app browsers. Deliberately WITHOUT a
-      // browser_fallback_url: a not-installed visitor should stay on this page,
-      // which tells them to come back to the link after installing, rather than
-      // be bounced to Play and lose it. iOS: the custom scheme (universal links
-      // open the app before this page loads, where the build claims /join/).
-      var appUrl = isAndroid
-        ? 'intent://join/' + token + '#Intent;scheme=stockup;package=com.myxcha.StockUp;end'
-        : 'stockup://join/' + token;
+      // The renderer already links the button to stockup://join/{token}, so
+      // it works without this script. Android swaps in an intent:// URL, which
+      // escapes in-app browsers (Messenger asks to leave, then opens the app),
+      // with a browser_fallback_url back to this page marked app=0. Without
+      // that fallback a browser that cannot open the app goes to its Play
+      // listing on its own (Chrome does whenever StockUp is not installed),
+      // and the visitor loses the link they need after installing.
+      var cameBack = /[?&]app=0(&|$)/.test(window.location.search);
+      if (isAndroid) {
+        var back = window.location.origin + '/join/' + token + '?app=0';
+        btn.href = 'intent://join/' + token +
+          '#Intent;scheme=stockup;package=com.myxcha.StockUp;' +
+          'S.browser_fallback_url=' + encodeURIComponent(back) + ';end';
+      }
+      btn.hidden = false;
 
-      btn.href = appUrl;
-      btn.style.display = 'inline-flex';
-
-      // Android: try once (a missing app just leaves this page up). iOS: wait
-      // for the tap. An installed build that claims /join/ opens from the link
-      // before this page loads, so a visitor here usually has no app yet, and
-      // Safari answers an unclaimed custom scheme with an "address is invalid"
-      // alert. Nothing is timed to a store, so the instructions stay up.
-      if (isAndroid) window.location.href = appUrl;
+      // Android: try once (an app that is not there sends the browser back
+      // here, which does not try again). iOS: wait for the tap. An installed
+      // build that claims /join/ opens from the link before this page loads,
+      // so a visitor here usually has no app yet, and Safari answers an
+      // unclaimed custom scheme with an "address is invalid" alert.
+      if (isAndroid && !cameBack) window.location.href = btn.href;
     })();
   </script>
 

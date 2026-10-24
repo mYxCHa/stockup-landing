@@ -5,6 +5,8 @@
       "namespace": "android_app",
       "package_name": "com.myxcha.StockUp",
       "sha256_cert_fingerprints": [
+        "02:33:27:E0:96:16:B9:35:01:34:B0:DB:D7:72:BC:AD:62:C4:6C:6B:87:D7:91:EA:50:E3:42:B0:8E:51:0E:BD",
+        "F1:2F:FD:88:DE:B2:52:09:CB:F9:56:53:77:D9:30:B3:CE:F8:5D:05:0B:F7:05:83:AC:2C:2D:1D:D2:14:9A:D0",
         "6F:56:8A:23:7C:F9:FC:06:79:5F:80:AE:DE:A2:AE:29:B0:E0:36:65:A9:60:7E:B2:A9:CA:F2:C2:E8:EF:1A:98"
       ]
     }

@@ -7,6 +7,10 @@
 //   dead    - reset, turned off or never existed (404): no open button
 //   unknown - the data could not be reached: the generic template, still
 //             openable, because calling a working link dead would be worse
+//
+// An openable page's button is linked here (stockup://join/<token>), not only
+// by the page's script, so it shows and works without it. The template's
+// button is hidden and links nowhere.
 
 import { escapeHtml, truncate } from './product';
 import { fetchInvitePreview, INVITE_TOKEN_RE, type InvitePreview } from './invite';
@@ -42,6 +46,17 @@ function replaceSlot(html: string, slot: string, text: string | null): string {
   );
 }
 
+/** Links the open button to the app and shows it. */
+function linkOpenButton(html: string, token: string): string {
+  const pattern = /<a\b([^>]*\bdata-invite-slot="open"[^>]*)>([\s\S]*?)<\/a>/i;
+  if (!pattern.test(html)) throw new Error('Missing invite body slot: open');
+  const href = escapeHtml(`stockup://join/${token}`);
+  return html.replace(pattern, (_m, attrs: string, text: string) => {
+    const linked = attrs.replace(/\shref="[^"]*"/, ` href="${href}"`).replace(/\shidden(?=\s|$)/, '');
+    return `<a${linked}>${text}</a>`;
+  });
+}
+
 // Same words as the app: an item count, and the List's name set off in curly
 // quotes (it is user data - "Join My List" would read as an instruction).
 const items = (n: number) => `${n} item${n === 1 ? '' : 's'}`;
@@ -53,6 +68,7 @@ export function injectInvite(template: string, token: string, state: InviteState
     const pageUrl = `${CANONICAL_ORIGIN}/join/${token}`;
     html = replaceMeta(html, 'canonical', `<link rel="canonical" href="${pageUrl}">`);
     html = replaceMeta(html, 'og:url', `<meta property="og:url" content="${pageUrl}">`);
+    if (state.kind !== 'dead') html = linkOpenButton(html, token);
   }
 
   if (state.kind === 'unknown') return html;
