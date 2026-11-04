@@ -77,7 +77,7 @@ export async function renderProductOgCard(
   requestUrl: string,
 ): Promise<Response> {
   const genericCard = () =>
-    env.ASSETS.fetch(new URL('/assets/og-image.png', requestUrl));
+    env.ASSETS.fetch(new URL('/assets/og-image-v2.png', requestUrl));
 
   try {
     const cleanId = id.replace(/\.png$/i, '');

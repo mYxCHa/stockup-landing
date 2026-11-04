@@ -25,6 +25,7 @@ The Cloudflare dashboard build command is `npm run build`, so the deployed artif
 - **`docs/` is git-ignored on purpose** - committing planning docs would publish the strategy, competitor analysis and pricing rationale at `stockup.au/docs/*.md`. Keep planning docs local, inside the ignored `docs/`.
 - **`AGENTS.md` (and any future `CLAUDE.md`) is tracked but must never be deployed.** Neither belongs in `build.mjs`'s public-file allowlist, and a generated `dist/.assetsignore` gives another guard. Add new public assets to the allowlist explicitly; never add internal files.
 - **`robots.txt` in this repo is the sole source of truth** - Cloudflare's managed robots.txt is disabled; do not re-enable it. Verify with `curl -s https://stockup.au/robots.txt | grep -c '^Disallow: /$'` (must be 0).
+- **`/assets/*` is served `immutable` for a year, and link-preview caches key on the image URL.** Never replace an asset's bytes under the same filename: add a new versioned filename (`og-image-v3.png`), repoint every reference and add it to `build.mjs`.
 - Never use the em-dash character; use a plain dash. Never add an agent name as a commit co-author. Never hand-edit auto-generated files.
 
 ## Where things live
